@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5B93B73414314C8000C75F9D /* Player.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B93B73314314C8000C75F9D /* Player.png */; };
 		B3BE07DE14281ACA002D183E /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3BE07DD14281ACA002D183E /* QuartzCore.framework */; };
 		B3BE07E014281ACA002D183E /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3BE07DF14281ACA002D183E /* OpenGLES.framework */; };
 		B3BE07E214281ACA002D183E /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3BE07E114281ACA002D183E /* OpenAL.framework */; };
@@ -121,10 +122,11 @@
 		B3BE093E14281ACC002D183E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B3BE093D14281ACC002D183E /* main.m */; };
 		B3BE094114281ACC002D183E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B3BE094014281ACC002D183E /* AppDelegate.m */; };
 		B3BE094414281ACC002D183E /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3BE094314281ACC002D183E /* RootViewController.m */; };
-		B3BE094714281ACC002D183E /* HelloWorldLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = B3BE094614281ACC002D183E /* HelloWorldLayer.m */; };
+		B3BE094714281ACC002D183E /* SplashScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = B3BE094614281ACC002D183E /* SplashScreen.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5B93B73314314C8000C75F9D /* Player.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Player.png; path = Resources/Player.png; sourceTree = "<group>"; };
 		B3BE07D914281ACA002D183E /* TUROTUNA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TUROTUNA.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3BE07DD14281ACA002D183E /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		B3BE07DF14281ACA002D183E /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -357,8 +359,8 @@
 		B3BE094014281ACC002D183E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		B3BE094214281ACC002D183E /* RootViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
 		B3BE094314281ACC002D183E /* RootViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
-		B3BE094514281ACC002D183E /* HelloWorldLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HelloWorldLayer.h; sourceTree = "<group>"; };
-		B3BE094614281ACC002D183E /* HelloWorldLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HelloWorldLayer.m; sourceTree = "<group>"; };
+		B3BE094514281ACC002D183E /* SplashScreen.h */ = {isa = PBXFileReference; path = SplashScreen.h; sourceTree = "<group>"; };
+		B3BE094614281ACC002D183E /* SplashScreen.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SplashScreen.m; sourceTree = "<group>"; };
 		B3BE094814281ACC002D183E /* GameConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameConfig.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -420,8 +422,8 @@
 				B3BE094014281ACC002D183E /* AppDelegate.m */,
 				B3BE094214281ACC002D183E /* RootViewController.h */,
 				B3BE094314281ACC002D183E /* RootViewController.m */,
-				B3BE094514281ACC002D183E /* HelloWorldLayer.h */,
-				B3BE094614281ACC002D183E /* HelloWorldLayer.m */,
+				B3BE094514281ACC002D183E /* SplashScreen.h */,
+				B3BE094614281ACC002D183E /* SplashScreen.m */,
 				B3BE094814281ACC002D183E /* GameConfig.h */,
 				B3BE07EE14281ACB002D183E /* Resources */,
 				B3BE080214281ACB002D183E /* libs */,
@@ -433,6 +435,7 @@
 		B3BE07EE14281ACB002D183E /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				5B93B73314314C8000C75F9D /* Player.png */,
 				B3BE07EF14281ACB002D183E /* Default.png */,
 				B3BE07F114281ACB002D183E /* fps_images.png */,
 				B3BE07F314281ACB002D183E /* Icon-72.png */,
@@ -814,6 +817,7 @@
 				B3BE07FC14281ACB002D183E /* Icon.png in Resources */,
 				B3BE07FE14281ACB002D183E /* Icon@2x.png in Resources */,
 				B3BE080114281ACB002D183E /* iTunesArtwork in Resources */,
+				5B93B73414314C8000C75F9D /* Player.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -921,7 +925,7 @@
 				B3BE093E14281ACC002D183E /* main.m in Sources */,
 				B3BE094114281ACC002D183E /* AppDelegate.m in Sources */,
 				B3BE094414281ACC002D183E /* RootViewController.m in Sources */,
-				B3BE094714281ACC002D183E /* HelloWorldLayer.m in Sources */,
+				B3BE094714281ACC002D183E /* SplashScreen.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1015,6 +1019,7 @@
 				B3BE094D14281ACC002D183E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
