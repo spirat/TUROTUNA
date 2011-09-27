@@ -10,7 +10,7 @@
 
 #import "AppDelegate.h"
 #import "GameConfig.h"
-#import "HelloWorldLayer.h"
+#import "SplashScreen.h"
 #import "RootViewController.h"
 
 @implementation AppDelegate
@@ -35,7 +35,7 @@
 //	[sprite visit];
 //	[[director openGLView] swapBuffers];
 //	CC_ENABLE_DEFAULT_GL_STATES();
-	
+
 #endif // GAME_AUTOROTATION == kGameAutorotationUIViewController	
 }
 - (void) applicationDidFinishLaunching:(UIApplication*)application
@@ -110,7 +110,7 @@
 	[self removeStartupFlicker];
 	
 	// Run the intro Scene
-	[[CCDirector sharedDirector] runWithScene: [HelloWorldLayer scene]];
+	[[CCDirector sharedDirector] runWithScene: [SplashScreen scene]];
 }
 
 
