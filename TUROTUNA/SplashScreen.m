@@ -1,4 +1,5 @@
 #import "SplashScreen.h"
+#import "Player.h"
 
 // HelloWorldLayer implementation
 @implementation SplashScreen
@@ -15,6 +16,7 @@
 
 -(id) init
 {
+    [super init];
 	if( (self=[super initWithColor:ccc4(100, 100, 100, 100)])) {
 
         self.isTouchEnabled = YES;
@@ -25,6 +27,26 @@
 		[self addChild: label];
 	}
 	return self;
+}
+
+
+- (void)ccTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    UITouch *touch = [touches anyObject];
+    CGPoint location = [touch locationInView:[touch view]];
+    location = [[CCDirector sharedDirector] convertToGL:location];
+    
+    // Set up initial location of projectile
+   // CGSize winSize = [[CCDirector sharedDirector] winSize];
+    
+    
+    
+    Player *projectile = [[Player alloc] spriteWithFile:@"Player.png"
+                                           rect:CGRectMake(0, 0, 27, 40) scene:self];
+    
+    
+    projectile.position = location;
+    [addEntityList addObject:projectile];
 }
 
 - (void) dealloc
