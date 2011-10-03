@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		5B93B73414314C8000C75F9D /* Player.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B93B73314314C8000C75F9D /* Player.png */; };
+		7295C97A143407ED00F448F9 /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = 7295C979143407ED00F448F9 /* Player.m */; };
+		7295C98014340A4300F448F9 /* AScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 7295C97F14340A4300F448F9 /* AScene.m */; };
+		7295C98314340E4C00F448F9 /* AEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 7295C98214340E4C00F448F9 /* AEntity.m */; };
 		B3BE07DE14281ACA002D183E /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3BE07DD14281ACA002D183E /* QuartzCore.framework */; };
 		B3BE07E014281ACA002D183E /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3BE07DF14281ACA002D183E /* OpenGLES.framework */; };
 		B3BE07E214281ACA002D183E /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3BE07E114281ACA002D183E /* OpenAL.framework */; };
@@ -127,6 +130,12 @@
 
 /* Begin PBXFileReference section */
 		5B93B73314314C8000C75F9D /* Player.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Player.png; path = Resources/Player.png; sourceTree = "<group>"; };
+		7295C978143407ED00F448F9 /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
+		7295C979143407ED00F448F9 /* Player.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Player.m; sourceTree = "<group>"; };
+		7295C97E14340A4300F448F9 /* AScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AScene.h; sourceTree = "<group>"; };
+		7295C97F14340A4300F448F9 /* AScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AScene.m; sourceTree = "<group>"; };
+		7295C98114340E4B00F448F9 /* AEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AEntity.h; sourceTree = "<group>"; };
+		7295C98214340E4C00F448F9 /* AEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AEntity.m; sourceTree = "<group>"; };
 		B3BE07D914281ACA002D183E /* TUROTUNA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TUROTUNA.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3BE07DD14281ACA002D183E /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		B3BE07DF14281ACA002D183E /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -359,7 +368,7 @@
 		B3BE094014281ACC002D183E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		B3BE094214281ACC002D183E /* RootViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
 		B3BE094314281ACC002D183E /* RootViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
-		B3BE094514281ACC002D183E /* SplashScreen.h */ = {isa = PBXFileReference; path = SplashScreen.h; sourceTree = "<group>"; };
+		B3BE094514281ACC002D183E /* SplashScreen.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SplashScreen.h; sourceTree = "<group>"; };
 		B3BE094614281ACC002D183E /* SplashScreen.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SplashScreen.m; sourceTree = "<group>"; };
 		B3BE094814281ACC002D183E /* GameConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameConfig.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -422,8 +431,14 @@
 				B3BE094014281ACC002D183E /* AppDelegate.m */,
 				B3BE094214281ACC002D183E /* RootViewController.h */,
 				B3BE094314281ACC002D183E /* RootViewController.m */,
+				7295C978143407ED00F448F9 /* Player.h */,
+				7295C979143407ED00F448F9 /* Player.m */,
 				B3BE094514281ACC002D183E /* SplashScreen.h */,
 				B3BE094614281ACC002D183E /* SplashScreen.m */,
+				7295C98114340E4B00F448F9 /* AEntity.h */,
+				7295C98214340E4C00F448F9 /* AEntity.m */,
+				7295C97E14340A4300F448F9 /* AScene.h */,
+				7295C97F14340A4300F448F9 /* AScene.m */,
 				B3BE094814281ACC002D183E /* GameConfig.h */,
 				B3BE07EE14281ACB002D183E /* Resources */,
 				B3BE080214281ACB002D183E /* libs */,
@@ -926,6 +941,9 @@
 				B3BE094114281ACC002D183E /* AppDelegate.m in Sources */,
 				B3BE094414281ACC002D183E /* RootViewController.m in Sources */,
 				B3BE094714281ACC002D183E /* SplashScreen.m in Sources */,
+				7295C97A143407ED00F448F9 /* Player.m in Sources */,
+				7295C98014340A4300F448F9 /* AScene.m in Sources */,
+				7295C98314340E4C00F448F9 /* AEntity.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -936,6 +954,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -947,7 +966,8 @@
 				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 3.1.2;
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -956,14 +976,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_PREPROCESSOR_DEFINITIONS = NDEBUG;
 				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 3.1.2;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 			};
 			name = Release;
@@ -978,8 +1000,11 @@
 				GCC_PREFIX_HEADER = TUROTUNA/Prefix.pch;
 				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
 				INFOPLIST_FILE = TUROTUNA/Resources/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 3.1.2;
 				OTHER_LDFLAGS = "-lz";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -993,9 +1018,11 @@
 				GCC_PREFIX_HEADER = TUROTUNA/Prefix.pch;
 				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
 				INFOPLIST_FILE = TUROTUNA/Resources/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 3.1.2;
 				OTHER_LDFLAGS = "-lz";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				VALIDATE_PRODUCT = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = NO;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
