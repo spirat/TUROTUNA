@@ -16,6 +16,10 @@
 @interface Player : AEntity
 {
     float dieTime;
+    NSArray *gameComportments;
+    int     currentComportment;
 }
+
+- (void) switchGameComportment;
 
 @end
