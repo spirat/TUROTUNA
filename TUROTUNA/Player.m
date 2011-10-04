@@ -10,13 +10,6 @@
 #import "AEntity.h"
 
 @implementation Player
-/*
-- (id)initWithFile:(NSString *)name rect:(CGRect)rect scene:(AScene *)screen
-{
-    [super initWithFile:name rect:rect scene:screen];
-    return self;
-}
-*/
 
 - (id)init
 {

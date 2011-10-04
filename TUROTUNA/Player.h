@@ -15,7 +15,4 @@
     float dieTime;
 }
 
-//- (id)initWithFile:(NSString *)name rect:(CGRect)rect scene:(AScene *)screen;
-
-
 @end
