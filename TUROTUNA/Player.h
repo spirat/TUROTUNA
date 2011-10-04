@@ -10,6 +10,9 @@
 #import "AEntity.h"
 #import "AScene.h"
 
+#define MOVE_COMPORTMENT 0
+#define ACTION_COMPORTMENT 1
+
 @interface Player : AEntity
 {
     float dieTime;
