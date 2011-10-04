@@ -7,8 +7,11 @@
 //
 
 #import "AScene.h"
+#import "AEntity.h"
 
 @implementation AScene
+
+@synthesize entityList;
 
 +(CCScene *) scene
 {
@@ -50,20 +53,20 @@
 - (void)update:(ccTime)dt
 {
     
-    for(AEntity *toAdd in addEntityList)
+    for(CCSprite *toAdd in addEntityList)
     {
         [entityList addObject:toAdd];
         [self addChild:toAdd];
     }
-    //[addEntityList removeAllObjects];
+   [addEntityList removeAllObjects];
     
         
     for(AEntity *toUpdate in entityList)
     {
-        [toUpdate update];
+        [toUpdate update:dt];
     }
     
-    for(AEntity *toDel in delEntityList)
+    for(CCSprite *toDel in delEntityList)
     {
         [entityList removeObject:toDel];
         [self removeChild:toDel cleanup:YES];

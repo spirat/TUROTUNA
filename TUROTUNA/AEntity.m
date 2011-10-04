@@ -10,6 +10,15 @@
 
 @implementation AEntity
 
+@synthesize hitBox;
+
+- (id)initWithFile:(NSString *)name rect:(CGRect)rect scene:(AScene *)screen
+{
+    [super initWithFile:name rect:rect];
+    scene = screen;
+    return self;
+}
+
 - (id)init
 {
     self = [super init];
@@ -20,9 +29,11 @@
     return self;
 }
 
-- (void)update
+- (void)update:(ccTime)dt
 {
-    
+    hitBox = CGRectMake(self.position.x - (self.contentSize.width / 2),
+                        self.position.y - (self.contentSize.height / 2),
+                        self.contentSize.width, self.contentSize.height);
 }
 
 @end

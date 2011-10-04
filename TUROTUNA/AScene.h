@@ -7,7 +7,6 @@
 //
 
 #import "cocos2d.h"
-#import "AEntity.h"
 
 @interface AScene : CCLayerColor
 {
@@ -15,6 +14,8 @@
     NSMutableArray *addEntityList;
     NSMutableArray *delEntityList;
 }
+
+@property (nonatomic, retain) NSMutableArray *entityList;
 
 - (void) addEntity:(CCSprite *) entity;
 - (void) delEntity:(CCSprite *) entity;

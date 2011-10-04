@@ -7,31 +7,33 @@
 //
 
 #import "Player.h"
+#import "AEntity.h"
 
 @implementation Player
-
 /*
-- (id)init
+- (id)initWithFile:(NSString *)name rect:(CGRect)rect scene:(AScene *)screen
 {
-    self = [super init];
-    if (self) {
-        // Initialization code here.
-    }
-    
+    [super initWithFile:name rect:rect scene:screen];
     return self;
 }
 */
 
-- (Player *)spriteWithFile:(NSString *)name rect:(CGRect)rect scene:(AScene *)screen
+- (id)init
 {
-    self = [CCSprite spriteWithFile:name rect:rect];
+    self = [super init];
+    if (self) {
+        dieTime = 10;
+    }
     
-    scene = screen;
     return self;
 }
 
-- (void)update
+- (void)update:(ccTime)dt
 {    
+    [super update:dt];
+    dieTime -= dt;
+    if (dieTime <= 0)
+        [scene delEntity:self];
 }
 
 @end

@@ -12,10 +12,10 @@
 
 @interface Player : AEntity
 {
-    AScene *scene;
+    float dieTime;
 }
 
-- (Player *)spriteWithFile:(NSString *)name rect:(CGRect)rect scene:(AScene *)scene;
+//- (id)initWithFile:(NSString *)name rect:(CGRect)rect scene:(AScene *)screen;
 
 
 @end
