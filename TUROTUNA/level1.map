@@ -1,0 +1,4 @@
+0 13 45 Path/To/Player
+1 14 0 Path/To/Target
+2 44 11 Path/To/Enemy
+3 55 11 Path/To/Obstacle
