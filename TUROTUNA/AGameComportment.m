@@ -31,7 +31,7 @@
     return self;
 }
 
-- (void) update
+- (void)update:(ccTime)dt
 {
 }
 

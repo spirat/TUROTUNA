@@ -15,6 +15,6 @@
 }
 
 - (id) init:(AScene *)scene player:(Player *)owner;
-- (void) update;
+- (void)update:(ccTime)dt;
 
 @end
