@@ -461,6 +461,8 @@
 				7295C979143407ED00F448F9 /* Player.m */,
 				63BDBCA2143D3E3D00AC311B /* PathManager.h */,
 				63BDBCA3143D3E3D00AC311B /* PathManager.m */,
+				5BC6F35E143D436200B95454 /* Obstacle.h */,
+				5BC6F35F143D436200B95454 /* Obstacle.m */,
 				B3BE094514281ACC002D183E /* SplashScreen.h */,
 				B3BE094614281ACC002D183E /* SplashScreen.m */,
 				7295C98114340E4B00F448F9 /* AEntity.h */,
@@ -980,6 +982,8 @@
 				63501216143A8B5800321D3E /* ActionGameComportment.m in Sources */,
 				63501219143A8B6D00321D3E /* MoveGameComportment.m in Sources */,
 				63BDBCA4143D3E3D00AC311B /* PathManager.m in Sources */,
+				5BC6F360143D436200B95454 /* Obstacle.m in Sources */,
+				5BC6F368143D459300B95454 /* Level.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
