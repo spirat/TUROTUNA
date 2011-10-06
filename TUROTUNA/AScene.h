@@ -17,6 +17,9 @@
 
 @property (nonatomic, retain) NSMutableArray *entityList;
 
+/* Must be overridden in each scene */
+- (void)newSingleBeginning:(NSValue *)point;
+
 - (void) addEntity:(CCSprite *) entity;
 - (void) delEntity:(CCSprite *) entity;
 

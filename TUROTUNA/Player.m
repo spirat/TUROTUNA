@@ -43,4 +43,9 @@
     currentComportment = !currentComportment;
 }
 
+- (PathManager*)getPath
+{
+    return playerPath;
+}
+
 @end

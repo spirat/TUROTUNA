@@ -49,7 +49,8 @@
     
     
     projectile.position = location;
-    NSLog(@"%f %f", location.x, location.y);
+    
+    [self newSingleBeginning:[NSValue valueWithCGPoint:CGPointMake(location.x, location.y)]];
     
     [addEntityList addObject:projectile];
 }

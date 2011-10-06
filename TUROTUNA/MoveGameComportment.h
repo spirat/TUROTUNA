@@ -10,7 +10,8 @@
 
 #import "AGameComportment.h"
 
-@interface MoveGameComportment : AGameComportment
+@interface MoveGameComportment : AGameComportment <CCStandardTouchDelegate>
+
 {
 }
 

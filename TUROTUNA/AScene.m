@@ -40,6 +40,13 @@
 
 //   [self removeChild:sprite cleanup:YES];
 
+- (void)newSingleBeginning:(NSValue *)point
+{
+    /*
+    CGPoint coord = [point CGPointValue];
+     */
+}
+
 - (void)addEntity:(AEntity *)entity
 {
     [addEntityList addObject:entity];
