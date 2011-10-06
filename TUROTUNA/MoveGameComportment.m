@@ -20,7 +20,7 @@
     return self;
 }
 
-- (id) init:(AScene *)scene player:(Player *)owner
+- (id)init:(AScene *)scene player:(Player *)owner
 {
     self = [super init:scene player:owner];
     if (self)
@@ -29,7 +29,7 @@
     return self;
 }
 
-- (void) update
+- (void)update:(ccTime)dt;
 {
 }
 
