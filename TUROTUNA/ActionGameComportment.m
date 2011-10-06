@@ -33,7 +33,6 @@
 
 -(void) update
 {
-    [_scene delEntity:(CCSprite *)NULL];
 }
 
 @end

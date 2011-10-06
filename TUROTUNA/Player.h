@@ -20,6 +20,8 @@
     int     currentComportment;
 }
 
-- (void) switchGameComportment;
+- (int)getCurrentComportment;
+- (void)switchGameComportment;
+- (void)update:(ccTime)dt;
 
 @end

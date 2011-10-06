@@ -28,6 +28,10 @@
     return self;
 }
 
+- (int) getCurrentComportment
+{
+    return currentComportment;
+}
 
 - (void)update:(ccTime)dt
 {
