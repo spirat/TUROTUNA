@@ -1,14 +1,14 @@
 //
-//  Obstacle.m
+//  Level.m
 //  TUROTUNA
 //
 //  Created by  on 11. 10. 6..
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
-#import "Obstacle.h"
+#import "Level.h"
 
-@implementation Obstacle
+@implementation Level
 
 - (id)init
 {

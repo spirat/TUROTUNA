@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		5B93B73414314C8000C75F9D /* Player.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B93B73314314C8000C75F9D /* Player.png */; };
+		5BC6F360143D436200B95454 /* Obstacle.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BC6F35F143D436200B95454 /* Obstacle.m */; };
+		5BC6F368143D459300B95454 /* Level.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BC6F367143D459300B95454 /* Level.m */; };
+		5BC6F36B143D45F600B95454 /* level1.map in Resources */ = {isa = PBXBuildFile; fileRef = 5BC6F36A143D45F600B95454 /* level1.map */; };
 		63501212143A872D00321D3E /* AGameComportment.m in Sources */ = {isa = PBXBuildFile; fileRef = 63501211143A872D00321D3E /* AGameComportment.m */; };
 		63501216143A8B5800321D3E /* ActionGameComportment.m in Sources */ = {isa = PBXBuildFile; fileRef = 63501215143A8B5800321D3E /* ActionGameComportment.m */; };
 		63501219143A8B6D00321D3E /* MoveGameComportment.m in Sources */ = {isa = PBXBuildFile; fileRef = 63501218143A8B6D00321D3E /* MoveGameComportment.m */; };
@@ -133,6 +136,11 @@
 
 /* Begin PBXFileReference section */
 		5B93B73314314C8000C75F9D /* Player.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Player.png; path = Resources/Player.png; sourceTree = "<group>"; };
+		5BC6F35E143D436200B95454 /* Obstacle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Obstacle.h; sourceTree = "<group>"; };
+		5BC6F35F143D436200B95454 /* Obstacle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Obstacle.m; sourceTree = "<group>"; };
+		5BC6F366143D459300B95454 /* Level.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Level.h; sourceTree = "<group>"; };
+		5BC6F367143D459300B95454 /* Level.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Level.m; sourceTree = "<group>"; };
+		5BC6F36A143D45F600B95454 /* level1.map */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = level1.map; sourceTree = "<group>"; };
 		63501210143A872D00321D3E /* AGameComportment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGameComportment.h; sourceTree = "<group>"; };
 		63501211143A872D00321D3E /* AGameComportment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGameComportment.m; sourceTree = "<group>"; };
 		63501214143A8B5800321D3E /* ActionGameComportment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionGameComportment.h; sourceTree = "<group>"; };
@@ -448,6 +456,8 @@
 				B3BE094314281ACC002D183E /* RootViewController.m */,
 				7295C978143407ED00F448F9 /* Player.h */,
 				7295C979143407ED00F448F9 /* Player.m */,
+				5BC6F35E143D436200B95454 /* Obstacle.h */,
+				5BC6F35F143D436200B95454 /* Obstacle.m */,
 				B3BE094514281ACC002D183E /* SplashScreen.h */,
 				B3BE094614281ACC002D183E /* SplashScreen.m */,
 				7295C98114340E4B00F448F9 /* AEntity.h */,
@@ -455,6 +465,8 @@
 				7295C97E14340A4300F448F9 /* AScene.h */,
 				7295C97F14340A4300F448F9 /* AScene.m */,
 				B3BE094814281ACC002D183E /* GameConfig.h */,
+				5BC6F366143D459300B95454 /* Level.h */,
+				5BC6F367143D459300B95454 /* Level.m */,
 				B3BE07EE14281ACB002D183E /* Resources */,
 				B3BE080214281ACB002D183E /* libs */,
 				B3BE093B14281ACC002D183E /* Supporting Files */,
@@ -476,6 +488,7 @@
 				B3BE07FD14281ACB002D183E /* Icon@2x.png */,
 				B3BE07FF14281ACB002D183E /* Info.plist */,
 				B3BE080014281ACB002D183E /* iTunesArtwork */,
+				5BC6F36A143D45F600B95454 /* level1.map */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -848,6 +861,7 @@
 				B3BE07FE14281ACB002D183E /* Icon@2x.png in Resources */,
 				B3BE080114281ACB002D183E /* iTunesArtwork in Resources */,
 				5B93B73414314C8000C75F9D /* Player.png in Resources */,
+				5BC6F36B143D45F600B95454 /* level1.map in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -962,6 +976,8 @@
 				63501212143A872D00321D3E /* AGameComportment.m in Sources */,
 				63501216143A8B5800321D3E /* ActionGameComportment.m in Sources */,
 				63501219143A8B6D00321D3E /* MoveGameComportment.m in Sources */,
+				5BC6F360143D436200B95454 /* Obstacle.m in Sources */,
+				5BC6F368143D459300B95454 /* Level.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
