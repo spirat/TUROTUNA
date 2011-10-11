@@ -17,6 +17,8 @@
 		639717EB1443C1F8000101BD /* GameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 639717EA1443C1F8000101BD /* GameScene.m */; };
 		639717EF1443CBE6000101BD /* Line.m in Sources */ = {isa = PBXBuildFile; fileRef = 639717EE1443CBE5000101BD /* Line.m */; };
 		63BDBCA4143D3E3D00AC311B /* PathManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 63BDBCA3143D3E3D00AC311B /* PathManager.m */; };
+		723ADF3A1443C49900E0DA67 /* AnimPlayerList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 723ADF391443C49900E0DA67 /* AnimPlayerList.plist */; };
+		723ADF3C1443C4AA00E0DA67 /* animationtest.gif in Resources */ = {isa = PBXBuildFile; fileRef = 723ADF3B1443C4AA00E0DA67 /* animationtest.gif */; };
 		7295C97A143407ED00F448F9 /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = 7295C979143407ED00F448F9 /* Player.m */; };
 		7295C98014340A4300F448F9 /* AScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 7295C97F14340A4300F448F9 /* AScene.m */; };
 		7295C98314340E4C00F448F9 /* AEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 7295C98214340E4C00F448F9 /* AEntity.m */; };
@@ -156,6 +158,8 @@
 		639717EE1443CBE5000101BD /* Line.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Line.m; sourceTree = "<group>"; };
 		63BDBCA2143D3E3D00AC311B /* PathManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PathManager.h; sourceTree = "<group>"; };
 		63BDBCA3143D3E3D00AC311B /* PathManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PathManager.m; sourceTree = "<group>"; };
+		723ADF391443C49900E0DA67 /* AnimPlayerList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = AnimPlayerList.plist; sourceTree = "<group>"; };
+		723ADF3B1443C4AA00E0DA67 /* animationtest.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = animationtest.gif; sourceTree = "<group>"; };
 		7295C978143407ED00F448F9 /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
 		7295C979143407ED00F448F9 /* Player.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Player.m; sourceTree = "<group>"; };
 		7295C97E14340A4300F448F9 /* AScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AScene.h; sourceTree = "<group>"; };
@@ -418,6 +422,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7270519C1443BEA8001E59C2 /* Animations */ = {
+			isa = PBXGroup;
+			children = (
+				7270519D1443BEB2001E59C2 /* Player */,
+			);
+			name = Animations;
+			sourceTree = "<group>";
+		};
+		7270519D1443BEB2001E59C2 /* Player */ = {
+			isa = PBXGroup;
+			children = (
+				723ADF3B1443C4AA00E0DA67 /* animationtest.gif */,
+				723ADF391443C49900E0DA67 /* AnimPlayerList.plist */,
+			);
+			name = Player;
+			sourceTree = "<group>";
+		};
 		B3BE07CE14281ACA002D183E = {
 			isa = PBXGroup;
 			children = (
@@ -492,6 +513,7 @@
 		B3BE07EE14281ACB002D183E /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				7270519C1443BEA8001E59C2 /* Animations */,
 				5B93B73314314C8000C75F9D /* Player.png */,
 				B3BE07EF14281ACB002D183E /* Default.png */,
 				B3BE07F114281ACB002D183E /* fps_images.png */,
@@ -877,6 +899,8 @@
 				B3BE080114281ACB002D183E /* iTunesArtwork in Resources */,
 				5B93B73414314C8000C75F9D /* Player.png in Resources */,
 				5BC6F36B143D45F600B95454 /* level1.map in Resources */,
+				723ADF3A1443C49900E0DA67 /* AnimPlayerList.plist in Resources */,
+				723ADF3C1443C4AA00E0DA67 /* animationtest.gif in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
