@@ -1,5 +1,6 @@
 #import "SplashScreen.h"
 #import "Player.h"
+#import "Level.h"
 
 // HelloWorldLayer implementation
 @implementation SplashScreen
@@ -27,6 +28,7 @@
 		[self addChild: label];
         */
 	}
+    //[[CCDirector sharedDirector] pushScene: [Level scene]];
 	return self;
 }
 

@@ -10,4 +10,6 @@
 
 @interface Level : AScene
 
+- (void)LoadContent;
+
 @end
