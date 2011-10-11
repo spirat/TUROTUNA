@@ -40,11 +40,12 @@
 
 //   [self removeChild:sprite cleanup:YES];
 
-- (void)newSingleBeginning:(NSValue *)point
+- (void)touchPointMoved:(CGPoint *)point
 {
-    /*
-    CGPoint coord = [point CGPointValue];
-     */
+}
+
+- (void)newTouchBegan:(CGPoint *)point
+{
 }
 
 - (void)addEntity:(AEntity *)entity
@@ -60,7 +61,7 @@
 - (void)update:(ccTime)dt
 {
     
-    for(CCSprite *toAdd in addEntityList)
+    for(AEntity *toAdd in addEntityList)
     {
         [entityList addObject:toAdd];
         [self addChild:toAdd];
@@ -73,7 +74,7 @@
         [toUpdate update:dt];
     }
     
-    for(CCSprite *toDel in delEntityList)
+    for(AEntity *toDel in delEntityList)
     {
         [entityList removeObject:toDel];
         [self removeChild:toDel cleanup:YES];

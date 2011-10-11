@@ -32,6 +32,14 @@
 	return self;
 }
 
+- (void) ccTouchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    UITouch *touch = [touches anyObject];
+    CGPoint location = [touch locationInView:[touch view]];
+    location = [[CCDirector sharedDirector] convertToGL:location];
+    
+    [self touchPointMoved:&location];
+}
 
 - (void)ccTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
@@ -52,7 +60,7 @@
     
     projectile.position = location;
     
-    [self newSingleBeginning:[NSValue valueWithCGPoint:CGPointMake(location.x, location.y)]];
+    [self newTouchBegan:&location];
     
     [addEntityList addObject:projectile];
 }

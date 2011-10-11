@@ -11,21 +11,17 @@
 #import "AScene.h"
 #import "PathManager.h"
 
-#define MOVE_COMPORTMENT 0
-#define ACTION_COMPORTMENT 1
+
 
 @interface Player : AEntity 
 {
     @private
     float dieTime;
-    NSArray *gameComportments;
-    int     currentComportment;
     PathManager *playerPath;
 }
 
 - (PathManager*) getPath;
-- (int)getCurrentComportment;
-- (void)switchGameComportment;
+
 - (void)update:(ccTime)dt;
 
 @end

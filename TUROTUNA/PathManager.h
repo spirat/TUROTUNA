@@ -7,16 +7,23 @@
 //
 
 #import <Foundation/Foundation.h>
+#include "AScene.h"
+#include "Line.h"
 
 @interface PathManager : NSObject
 {
     @private
     NSMutableArray  *_pathPoints;
+    Line            *_line;
+    AScene          *_scene;
 }
 
-- (void)pushNextPoint:(CGPoint)point;
+- (id)initWithScene:(AScene*)scene;
+- (void)dealloc;
+
+- (void)pushNextPoint:(CGPoint*)point;
 - (CGPoint)peekPoint;
 - (CGPoint)popPoint;
-
+- (void)draw;
 
 @end
