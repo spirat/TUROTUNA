@@ -1,5 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
-<dict/>
+<dict>
+	<key>frames</key>
+	<dict>
+		<key>walk1.png</key>
+		<dict>
+			<key>frame</key>
+			<string></string>
+			<key>offset</key>
+			<string></string>
+			<key>sourceColorRect</key>
+			<string></string>
+			<key>sourceSize</key>
+			<string></string>
+		</dict>
+	</dict>
+	<key>metadata</key>
+	<dict/>
+</dict>
 </plist>
