@@ -15,6 +15,7 @@
 		63501216143A8B5800321D3E /* ActionGameComportment.m in Sources */ = {isa = PBXBuildFile; fileRef = 63501215143A8B5800321D3E /* ActionGameComportment.m */; };
 		63501219143A8B6D00321D3E /* MoveGameComportment.m in Sources */ = {isa = PBXBuildFile; fileRef = 63501218143A8B6D00321D3E /* MoveGameComportment.m */; };
 		63BDBCA4143D3E3D00AC311B /* PathManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 63BDBCA3143D3E3D00AC311B /* PathManager.m */; };
+		7270519F1443BEFB001E59C2 /* AnimPlayerWalk.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7270519E1443BEFB001E59C2 /* AnimPlayerWalk.plist */; };
 		7295C97A143407ED00F448F9 /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = 7295C979143407ED00F448F9 /* Player.m */; };
 		7295C98014340A4300F448F9 /* AScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 7295C97F14340A4300F448F9 /* AScene.m */; };
 		7295C98314340E4C00F448F9 /* AEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 7295C98214340E4C00F448F9 /* AEntity.m */; };
@@ -150,6 +151,7 @@
 		63501218143A8B6D00321D3E /* MoveGameComportment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoveGameComportment.m; sourceTree = "<group>"; };
 		63BDBCA2143D3E3D00AC311B /* PathManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PathManager.h; sourceTree = "<group>"; };
 		63BDBCA3143D3E3D00AC311B /* PathManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PathManager.m; sourceTree = "<group>"; };
+		7270519E1443BEFB001E59C2 /* AnimPlayerWalk.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = AnimPlayerWalk.plist; sourceTree = "<group>"; };
 		7295C978143407ED00F448F9 /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
 		7295C979143407ED00F448F9 /* Player.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Player.m; sourceTree = "<group>"; };
 		7295C97E14340A4300F448F9 /* AScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AScene.h; sourceTree = "<group>"; };
@@ -412,6 +414,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7270519C1443BEA8001E59C2 /* Animations */ = {
+			isa = PBXGroup;
+			children = (
+				7270519D1443BEB2001E59C2 /* Player */,
+			);
+			name = Animations;
+			sourceTree = "<group>";
+		};
+		7270519D1443BEB2001E59C2 /* Player */ = {
+			isa = PBXGroup;
+			children = (
+				7270519E1443BEFB001E59C2 /* AnimPlayerWalk.plist */,
+			);
+			name = Player;
+			sourceTree = "<group>";
+		};
 		B3BE07CE14281ACA002D183E = {
 			isa = PBXGroup;
 			children = (
@@ -482,6 +500,7 @@
 		B3BE07EE14281ACB002D183E /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				7270519C1443BEA8001E59C2 /* Animations */,
 				5B93B73314314C8000C75F9D /* Player.png */,
 				B3BE07EF14281ACB002D183E /* Default.png */,
 				B3BE07F114281ACB002D183E /* fps_images.png */,
@@ -867,6 +886,7 @@
 				B3BE080114281ACB002D183E /* iTunesArtwork in Resources */,
 				5B93B73414314C8000C75F9D /* Player.png in Resources */,
 				5BC6F36B143D45F600B95454 /* level1.map in Resources */,
+				7270519F1443BEFB001E59C2 /* AnimPlayerWalk.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
