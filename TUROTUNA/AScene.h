@@ -18,10 +18,11 @@
 @property (nonatomic, retain) NSMutableArray *entityList;
 
 /* Must be overridden in each scene */
-- (void)newSingleBeginning:(NSValue *)point;
+- (void)touchPointMoved:(CGPoint *)point;
+- (void)newTouchBegan:(CGPoint *)point;
 
-- (void) addEntity:(CCSprite *) entity;
-- (void) delEntity:(CCSprite *) entity;
+- (void)addEntity:(CCSprite *) entity;
+- (void)delEntity:(CCSprite *) entity;
 
 +(CCScene *) scene;
 

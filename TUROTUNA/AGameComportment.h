@@ -21,4 +21,7 @@
 - (id)init:(AScene*)scene player:(Player*)owner;
 - (void)update:(ccTime)dt;
 
+- (void) touchPointMoved:(CGPoint *)point;
+- (void) newTouchBegan:(CGPoint *)point;
+
 @end

@@ -19,29 +19,14 @@
     self = [super init];
     if (self) {
         dieTime = 10;
-        
-        gameComportments = [[NSArray alloc] initWithObjects:[[MoveGameComportment alloc] init:scene player:self],                                                      [[ActionGameComportment alloc] init:scene player:self], nil];
-        currentComportment = MOVE_COMPORTMENT;
+
         return self;
     }
     
     return self;
 }
 
-- (int) getCurrentComportment
-{
-    return currentComportment;
-}
 
-- (void)update:(ccTime)dt
-{
-    [[gameComportments objectAtIndex:currentComportment] update:dt];
-}
-
-- (void) switchGameComportment
-{
-    currentComportment = !currentComportment;
-}
 
 - (PathManager*)getPath
 {

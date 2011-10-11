@@ -33,4 +33,14 @@
 {
 }
 
+- (void) touchPointMoved:(CGPoint *)point
+{
+    [[_owner getPath] pushNextPoint:point];
+}
+
+- (void) newTouchBegan:(CGPoint *)point
+{
+    [[_owner getPath] pushNextPoint:point];
+}
+
 @end
