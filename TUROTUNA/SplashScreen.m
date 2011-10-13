@@ -27,7 +27,6 @@
 		[self addChild: label];
         */
 	}
-    //[[CCDirector sharedDirector] pushScene: [Level scene]];
 	return self;
 }
 
@@ -45,6 +44,8 @@
     
     projectile.position = *point;
     [addEntityList addObject:projectile];
+    // TEMP, ne pas mettre ca dans l'init, appelle la scene du Level (1)
+    //[[CCDirector sharedDirector] replaceScene: [Level scene]];
 }
 
 

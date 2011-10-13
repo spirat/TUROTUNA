@@ -10,6 +10,13 @@
 
 @interface Level : AScene
 
+enum {
+    PLAYER_TYPE,
+    TARGET_TYPE,
+    ENEMY_TYPE,
+    OBSTACLE_TYPE
+};
+
 - (void)LoadContent;
 
 @end
