@@ -28,7 +28,6 @@
 		[self addChild: label];
         */
 	}
-    //[[CCDirector sharedDirector] pushScene: [Level scene]];
 	return self;
 }
 
@@ -63,6 +62,8 @@
     [self newTouchBegan:&location];
     
     [addEntityList addObject:projectile];
+    // TEMP, ne pas mettre ca dans l'init, appelle la scene du Level (1)
+    //[[CCDirector sharedDirector] replaceScene: [Level scene]];
 }
 
 - (void) dealloc

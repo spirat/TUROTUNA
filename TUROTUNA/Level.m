@@ -7,6 +7,7 @@
 //
 
 #import "Player.h"
+#import "Obstacle.h"
 #import "Level.h"
 
 @implementation Level
@@ -31,6 +32,11 @@
     return self;
 }
 
+// Init level array, each time LoadContent finishes, increment the index
+// like that each time LoadContent is called a new level is loaded
+// We must clear the scene first
+// OR we use static stuff and instance a new Level class each time
+// that way we don't have to destroy/free/.. anything ourselves
 - (void)LoadContent
 {
     AEntity *entity;
@@ -54,10 +60,11 @@
             else if (playerType == ENEMY_TYPE) {
             }
             else if (playerType == OBSTACLE_TYPE) {
+                entity = [[Obstacle alloc] initWithFile:@"Obstacle.png" rect:CGRectMake(0, 0, 27, 40)];
+                entity.position = ccp([[entry objectAtIndex:1] intValue], [[entry objectAtIndex:2] intValue]);
             }
             
             if (entity != NULL) {
-                // BUG: chelou...
                 [self addEntity:entity];
             }
         }
