@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "AScene.h"
+#include "cocos2d.h"
 #import "ActionGameComportment.h"
 #import "MoveGameComportment.h"
 
@@ -21,7 +22,7 @@
     NSArray *gameComportments;
     int     currentComportment;
 }
-
++ (CCScene*) scene;
 - (void)newTouchBegan:(CGPoint *)point;
 - (void)touchPointMoved:(CGPoint *)point;
 

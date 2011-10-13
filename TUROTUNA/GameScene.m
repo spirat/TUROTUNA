@@ -7,8 +7,20 @@
 //
 
 #import "GameScene.h"
+#import "Player.h"
+#import "Level.h"
 
 @implementation GameScene
+
++ (CCScene*) scene
+{
+    CCScene *scene = [CCScene node];
+    
+    GameScene *layer = [GameScene node];
+    [scene addChild:layer];
+    
+    return scene;
+}
 
 - (id) init
 {
@@ -17,7 +29,10 @@
     if (self)
     {
         _player = [[Player alloc] init];
-        gameComportments = [[NSArray alloc] initWithObjects:[[MoveGameComportment alloc] init:self player:_player],                                                      [[ActionGameComportment alloc] init:self player:_player], nil];
+        gameComportments = [[NSArray alloc] initWithObjects:[[MoveGameComportment alloc] init:self
+                                                                                       player:_player],
+                            [[ActionGameComportment alloc] init:self 
+                                                         player:_player], nil];
         currentComportment = MOVE_COMPORTMENT;
     }
     return self;
@@ -41,6 +56,7 @@
 - (void)update:(ccTime)dt
 {
     [[gameComportments objectAtIndex:currentComportment] update:dt];
+    [_player drawEntity];
 }
 
 - (void) switchGameComportment

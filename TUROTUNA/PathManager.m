@@ -45,10 +45,14 @@
 
 - (void)pushNextPoint:(CGPoint*)point
 {
-    CGPoint tail = [(NSValue*)[_pathPoints objectAtIndex:[_pathPoints count]] CGPointValue];
-    if (point->x == tail.x && point->y == tail.y)
-        return;
-    [_pathPoints addObject:(id)[NSValue valueWithCGPoint:*point]];
+    if ([_pathPoints count])
+    {
+        CGPoint tail = [(NSValue*)[_pathPoints objectAtIndex:[_pathPoints count] - 1] CGPointValue];
+        if (point->x == tail.x && point->y == tail.y)
+            return;
+    }
+    id next = (id)[NSValue valueWithCGPoint:*point];
+    [_pathPoints addObject:next];
 }
 
 - (CGPoint)peekPoint
@@ -65,22 +69,21 @@
     return head;
 }
 
-- (void) draw
+- (void) drawPath
 {
     int idx = 1;
     int end = [_pathPoints count];
     
-    CGPoint beg = [(NSValue*)[_pathPoints objectAtIndex:0] CGPointValue];
-    CGPoint next;
+    CGPoint next = [(NSValue*)[_pathPoints objectAtIndex:0] CGPointValue];
+    CGPoint beg;
     
     while (idx < end)
     {
+        beg = next;
         next = [(NSValue*)[_pathPoints objectAtIndex:idx] CGPointValue];
 
-        [_line drawLineWithOrigin:&beg 
-                          End:&next];
-        
-        beg = next;
+        [_line drawLineWithOrigin:&beg
+                              End:&next];
         ++idx;
     }
 }

@@ -22,7 +22,9 @@
 
 - (void) drawLineWithOrigin:(CGPoint *)origin End:(CGPoint *)end
 {
+    glEnable(GL_LINE_SMOOTH);
     glColor4f(1.0f, 0.0f, 0.0f, 0.0f);
+    glLineWidth(6.0f);
     ccDrawLine(*origin, *end);
 }
 

@@ -23,5 +23,6 @@
 - (PathManager*) getPath;
 
 - (void)update:(ccTime)dt;
+- (void)drawEntity;
 
 @end
