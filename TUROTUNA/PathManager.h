@@ -24,6 +24,6 @@
 - (void)pushNextPoint:(CGPoint*)point;
 - (CGPoint)peekPoint;
 - (CGPoint)popPoint;
-- (void)draw;
+- (void)drawPath;
 
 @end

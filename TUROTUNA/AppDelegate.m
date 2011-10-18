@@ -11,6 +11,7 @@
 #import "AppDelegate.h"
 #import "GameConfig.h"
 #import "SplashScreen.h"
+#import "GameScene.h"
 #import "RootViewController.h"
 
 @implementation AppDelegate
@@ -111,6 +112,7 @@
 	
 	// Run the intro Scene
 	[[CCDirector sharedDirector] runWithScene: [SplashScreen scene]];
+    //[[CCDirector sharedDirector] runWithScene:[GameScene scene]];
 }
 
 

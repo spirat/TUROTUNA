@@ -26,12 +26,13 @@
 - (id)init
 {
     self = [super init];
+    self = [super initWithColor:ccc4(255, 255, 255, 255)];
     if (self) {
         // Initialization code here.
         entityList = [[NSMutableArray alloc] init];
         delEntityList = [[NSMutableArray alloc] init];
         addEntityList = [[NSMutableArray alloc] init];
-        
+        self.isTouchEnabled = true;
         [self schedule:@selector(update:)];    
     }
     
@@ -46,6 +47,30 @@
 
 - (void)newTouchBegan:(CGPoint *)point
 {
+}
+
+- (void) ccTouchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    UITouch *touch = [touches anyObject];
+    CGPoint location = [touch locationInView:[touch view]];
+    location = [[CCDirector sharedDirector] convertToGL:location];
+    
+    [self touchPointMoved:&location];
+}
+
+- (void)ccTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    UITouch *touch = [touches anyObject];
+    CGPoint location = [touch locationInView:[touch view]];
+    location = [[CCDirector sharedDirector] convertToGL:location];
+    
+    // Set up initial location of projectile
+    // CGSize winSize = [[CCDirector sharedDirector] winSize];
+    
+    //AEntity *projectile = [[AEntity alloc] spriteWithFile:@"Player.png"
+    //                                       rect:CGRectMake(0, 0, 27, 40) scene:self];
+    [self newTouchBegan:&location];
+    
 }
 
 - (void)addEntity:(AEntity *)entity

@@ -35,4 +35,14 @@
 {
 }
 
+- (void) touchPointMoved:(CGPoint *)point
+{
+    
+}
+
+- (void) newTouchBegan:(CGPoint *)point
+{
+    
+}
+
 @end

@@ -18,9 +18,8 @@
 -(id) init
 {
     [super init];
-	if( (self=[super initWithColor:ccc4(255, 255, 255, 255)])) {
+	if( (self)) {
 
-        self.isTouchEnabled = YES;
 /*
 		CCLabelTTF *label = [CCLabelTTF labelWithString:@"TUROTUNA" fontName:@"Marker Felt" fontSize:64];
 		CGSize size = [[CCDirector sharedDirector] winSize];
@@ -28,42 +27,28 @@
 		[self addChild: label];
         */
 	}
-    //[[CCDirector sharedDirector] pushScene: [Level scene]];
 	return self;
 }
 
-- (void) ccTouchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
+- (void) touchPointMoved:(CGPoint *)point
 {
-    UITouch *touch = [touches anyObject];
-    CGPoint location = [touch locationInView:[touch view]];
-    location = [[CCDirector sharedDirector] convertToGL:location];
     
-    [self touchPointMoved:&location];
 }
 
-- (void)ccTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+- (void) newTouchBegan:(CGPoint *)point
 {
-    UITouch *touch = [touches anyObject];
-    CGPoint location = [touch locationInView:[touch view]];
-    location = [[CCDirector sharedDirector] convertToGL:location];
-    
-    // Set up initial location of projectile
-   // CGSize winSize = [[CCDirector sharedDirector] winSize];
-   
-    
-    //AEntity *projectile = [[AEntity alloc] spriteWithFile:@"Player.png"
-    //                                       rect:CGRectMake(0, 0, 27, 40) scene:self];
-    
     Player *projectile = [[Player alloc] initWithFile:@"Player.png"
-                                                 rect:CGRectMake(0, 0, 27, 40) scene:self];
+                                                 rect:CGRectMake(0, 0, 27, 40) 
+                                                scene:self];
     
     
-    projectile.position = location;
-    
-    [self newTouchBegan:&location];
-    
+    projectile.position = *point;
     [addEntityList addObject:projectile];
+    // TEMP, ne pas mettre ca dans l'init, appelle la scene du Level (1)
+    //[[CCDirector sharedDirector] replaceScene: [Level scene]];
 }
+
+
 
 - (void) dealloc
 {

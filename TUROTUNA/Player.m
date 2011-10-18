@@ -19,6 +19,7 @@
     self = [super init];
     if (self) {
         dieTime = 10;
+        playerPath = [[PathManager alloc] initWithScene:NULL];
 
         return self;
     }
@@ -26,11 +27,25 @@
     return self;
 }
 
+- (void) update:(ccTime)dt
+{
+    
+}
 
+-(void) drawEntity
+{
+    [playerPath drawPath];
+}
 
 - (PathManager*)getPath
 {
     return playerPath;
+}
+
+- (void) dealloc
+{
+    [playerPath release];
+    [super dealloc];
 }
 
 @end
