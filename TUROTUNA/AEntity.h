@@ -11,11 +11,13 @@
 
 @interface AEntity : CCSprite
 {
+    @protected
     AScene *scene;
 }
 
 @property (nonatomic) CGRect hitBox;
 
+- (id)initWithScene:(AScene*)screen;
 - (id)initWithFile:(NSString *)name rect:(CGRect)rect scene:(AScene *)screen;
 
 - (void)update:(ccTime)dt;

@@ -18,23 +18,36 @@
 {
     self = [super init];
     if (self) {
-        dieTime = 10;
-        playerPath = [[PathManager alloc] initWithScene:NULL];
-
-        return self;
+        playerPath = [[PathManager alloc] init];
     }
     
+    return self;
+}
+
+- (id)initWithFile:(NSString *)filename rect:(CGRect)rect scene:(AScene*)screen
+{
+    self = [super initWithFile:filename rect:rect scene:screen];
+    if (self)
+    {
+        playerPath = [[PathManager alloc]initWithScene:scene];
+        [self setPosition:CGPointMake(0, 0)];
+    }
+    return self;
+}
+
+- (id)initWithScene:(AScene *)screen
+{
+    self = [super initWithScene:screen];
+    if (self)
+    {
+        playerPath = [[PathManager alloc] initWithScene:scene];
+    }
     return self;
 }
 
 - (void) update:(ccTime)dt
 {
     
-}
-
--(void) drawEntity
-{
-    [playerPath drawPath];
 }
 
 - (PathManager*)getPath

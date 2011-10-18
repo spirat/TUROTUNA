@@ -16,13 +16,14 @@
 @interface Player : AEntity 
 {
     @private
-    float dieTime;
     PathManager *playerPath;
 }
+
+- (id)initWithFile:(NSString *)filename rect:(CGRect)rect scene:(AScene *)screen; 
+- (id)initWithScene:(AScene *)screen;
 
 - (PathManager*) getPath;
 
 - (void)update:(ccTime)dt;
-- (void)drawEntity;
 
 @end

@@ -12,6 +12,13 @@
 
 @synthesize hitBox;
 
+- (id)initWithScene:(AScene *)screen
+{
+    [super init];
+    scene = screen;
+    return self;
+}
+
 - (id)initWithFile:(NSString *)name rect:(CGRect)rect scene:(AScene *)screen
 {
     [super initWithFile:name rect:rect];

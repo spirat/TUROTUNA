@@ -111,8 +111,8 @@
 	[self removeStartupFlicker];
 	
 	// Run the intro Scene
-	[[CCDirector sharedDirector] runWithScene: [SplashScreen scene]];
-    //[[CCDirector sharedDirector] runWithScene:[GameScene scene]];
+	//[[CCDirector sharedDirector] runWithScene: [SplashScreen scene]];
+    [[CCDirector sharedDirector] runWithScene:[GameScene scene]];
 }
 
 
