@@ -17,6 +17,7 @@
 @property (nonatomic) CGRect hitBox;
 
 - (id)initWithFile:(NSString *)name rect:(CGRect)rect scene:(AScene *)screen;
+- (id)initWithTexture:(CCTexture2D *)texture rect:(CGRect)rect scene:(AScene *)screen;
 
 - (void)update:(ccTime)dt;
 
