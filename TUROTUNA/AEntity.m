@@ -26,6 +26,13 @@
     return self;
 }
 
+- (id)initWithTexture:(CCTexture2D *)texture rect:(CGRect)rect scene:(AScene *)screen
+{
+    [super initWithTexture:texture rect:rect];
+    scene = screen;
+    return self;
+}
+
 - (id)init
 {
     self = [super init];
