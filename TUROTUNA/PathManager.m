@@ -79,6 +79,11 @@
     return head;
 }
 
+- (void) clear
+{
+    [_pathPoints removeAllObjects];
+}
+
 - (void) draw
 {
     int idx = 1;

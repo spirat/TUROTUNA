@@ -17,7 +17,7 @@
 
 @interface GameScene : AScene
 {
-    @private
+    @protected
     Player  *_player;
     NSArray *gameComportments;
     int     currentComportment;
