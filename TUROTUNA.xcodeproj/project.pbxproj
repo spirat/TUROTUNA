@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5B8EE300145637870069B0E4 /* Plant.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B8EE2FF145637870069B0E4 /* Plant.png */; };
 		5B93B73414314C8000C75F9D /* Player.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B93B73314314C8000C75F9D /* Player.png */; };
 		5BC6F360143D436200B95454 /* Obstacle.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BC6F35F143D436200B95454 /* Obstacle.m */; };
 		5BC6F368143D459300B95454 /* Level.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BC6F367143D459300B95454 /* Level.m */; };
@@ -140,6 +141,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5B8EE2FF145637870069B0E4 /* Plant.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Plant.png; sourceTree = "<group>"; };
 		5B93B73314314C8000C75F9D /* Player.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Player.png; path = Resources/Player.png; sourceTree = "<group>"; };
 		5BC6F35E143D436200B95454 /* Obstacle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Obstacle.h; sourceTree = "<group>"; };
 		5BC6F35F143D436200B95454 /* Obstacle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Obstacle.m; sourceTree = "<group>"; };
@@ -513,6 +515,7 @@
 		B3BE07EE14281ACB002D183E /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				5B8EE2FF145637870069B0E4 /* Plant.png */,
 				7270519C1443BEA8001E59C2 /* Animations */,
 				5B93B73314314C8000C75F9D /* Player.png */,
 				B3BE07EF14281ACB002D183E /* Default.png */,
@@ -901,6 +904,7 @@
 				5BC6F36B143D45F600B95454 /* level1.map in Resources */,
 				723ADF3A1443C49900E0DA67 /* AnimPlayerList.plist in Resources */,
 				72EA98141446803000257C39 /* animationtest.png in Resources */,
+				5B8EE300145637870069B0E4 /* Plant.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
