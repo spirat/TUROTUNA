@@ -47,7 +47,9 @@
 
 - (void) update:(ccTime)dt
 {
-    
+    if (CGPOINTEQUALS(self.position, [playerPath peekPoint]))
+        [CCMoveTo actionWithDuration:5 
+                            position:[playerPath popPoint]];
 }
 
 - (PathManager*)getPath

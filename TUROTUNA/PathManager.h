@@ -9,19 +9,18 @@
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
 #include "AScene.h"
-#include "Line.h"
 
 @interface PathManager : CCNode
 {
     @private
     NSMutableArray  *_pathPoints;
-    Line            *_line;
     AScene          *_scene;
 }
 
 - (id)initWithScene:(AScene*)scene;
 - (void)dealloc;
 
+- (void)setScene:(AScene*)scene;
 - (void)pushNextPoint:(CGPoint*)point;
 - (CGPoint)peekPoint;
 - (CGPoint)popPoint;

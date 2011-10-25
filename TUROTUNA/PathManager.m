@@ -8,7 +8,6 @@
 
 #import "PathManager.h"
 #import "Player.h"
-#import "Line.h"
 
 @implementation PathManager
 
@@ -16,9 +15,8 @@
 {
     self = [super init];
     if (self) {
+        _scene = NULL;
         _pathPoints = [[NSMutableArray alloc] init];
-        glEnable(GL_LINE_SMOOTH);
-        glLineWidth(5.f);
     }
     
     return self;
@@ -41,6 +39,17 @@
     [_pathPoints release];
     [_scene removeChild:self cleanup:false];
     [super dealloc];
+}
+
+
+- (void)setScene:(AScene *)scene
+{
+    if (_scene)
+        [_scene removeChild:self 
+                    cleanup:false];
+    _scene = scene;
+    if (_scene)
+        [_scene addChild:self];
 }
 
 - (void)pushNextPoint:(CGPoint*)point

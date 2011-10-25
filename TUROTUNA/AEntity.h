@@ -9,6 +9,8 @@
 #import "cocos2d.h"
 #import "AScene.h"
 
+#define CGPOINTEQUALS(lh, rh) lh.x == rh.x && lh.y == rh.y
+
 @interface AEntity : CCSprite
 {
     @protected

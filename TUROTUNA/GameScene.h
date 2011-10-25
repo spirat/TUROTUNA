@@ -21,6 +21,7 @@
     Player  *_player;
     NSArray *gameComportments;
     int     currentComportment;
+    bool    _bPlayerFocused;
 }
 + (CCScene*) scene;
 - (void)newTouchBegan:(CGPoint *)point;
