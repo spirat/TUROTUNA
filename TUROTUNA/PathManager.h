@@ -7,10 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "cocos2d.h"
 #include "AScene.h"
 #include "Line.h"
 
-@interface PathManager : NSObject
+@interface PathManager : CCNode
 {
     @private
     NSMutableArray  *_pathPoints;
@@ -24,6 +25,6 @@
 - (void)pushNextPoint:(CGPoint*)point;
 - (CGPoint)peekPoint;
 - (CGPoint)popPoint;
-- (void)drawPath;
+- (void)draw;
 
 @end

@@ -6,9 +6,9 @@
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
-#include "AScene.h"
+#include "GameScene.h"
 
-@interface Level : AScene
+@interface Level : GameScene
 
 enum {
     PLAYER_TYPE,

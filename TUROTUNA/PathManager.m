@@ -17,6 +17,8 @@
     self = [super init];
     if (self) {
         _pathPoints = [[NSMutableArray alloc] init];
+        glEnable(GL_LINE_SMOOTH);
+        glLineWidth(5.f);
     }
     
     return self;
@@ -28,23 +30,22 @@
     if (self)
     {
         _scene = scene;
-        _line = [[Line alloc]init];
         _pathPoints = [[NSMutableArray alloc]init];
-        [_scene addChild:_line];
+        [scene addChild:self];
     }
     return self;
 }
 
 - (void) dealloc
 {
-    [_scene removeChild:_line cleanup:true];
-    [_line release];
     [_pathPoints release];
+    [_scene removeChild:self cleanup:false];
     [super dealloc];
 }
 
 - (void)pushNextPoint:(CGPoint*)point
 {
+    // verifier une distance minimale entre deux points
     if ([_pathPoints count])
     {
         CGPoint tail = [(NSValue*)[_pathPoints objectAtIndex:[_pathPoints count] - 1] CGPointValue];
@@ -69,21 +70,26 @@
     return head;
 }
 
-- (void) drawPath
+- (void) draw
 {
     int idx = 1;
     int end = [_pathPoints count];
     
+    if (end < 2)
+        return;
+    
     CGPoint next = [(NSValue*)[_pathPoints objectAtIndex:0] CGPointValue];
     CGPoint beg;
+    
+    glEnable(GL_LINE_SMOOTH);
+    glColor4f(1.f, 0.f, 0.f, 1.f);
+    glLineWidth(5.f);
     
     while (idx < end)
     {
         beg = next;
         next = [(NSValue*)[_pathPoints objectAtIndex:idx] CGPointValue];
-
-        [_line drawLineWithOrigin:&beg
-                              End:&next];
+        ccDrawLine(beg, next);
         ++idx;
     }
 }
