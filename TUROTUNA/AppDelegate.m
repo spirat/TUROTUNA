@@ -11,6 +11,7 @@
 #import "AppDelegate.h"
 #import "GameConfig.h"
 #import "SplashScreen.h"
+#import "Level.h"
 #import "GameScene.h"
 #import "RootViewController.h"
 
@@ -111,8 +112,8 @@
 	[self removeStartupFlicker];
 	
 	// Run the intro Scene
-	//[[CCDirector sharedDirector] runWithScene: [SplashScreen scene]];
-    [[CCDirector sharedDirector] runWithScene:[GameScene scene]];
+	[[CCDirector sharedDirector] runWithScene: [Level scene]];
+    //[[CCDirector sharedDirector] runWithScene:[GameScene scene]];
 }
 
 

@@ -44,7 +44,7 @@
     NSString *path = [[NSBundle mainBundle] pathForResource:@"level1" ofType:@"map"];
     NSString *contents = [NSString stringWithContentsOfFile:path encoding:NSASCIIStringEncoding error:nil];
     NSArray *lines = [contents componentsSeparatedByCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"\r\n"]];
-    
+
     for (NSString* line in lines) {
         if (line.length) {
             NSArray *entry = [line componentsSeparatedByString:@" "];
@@ -60,7 +60,7 @@
             else if (playerType == ENEMY_TYPE) {
             }
             else if (playerType == OBSTACLE_TYPE) {
-                entity = [[Obstacle alloc] initWithFile:@"Obstacle.png" rect:CGRectMake(0, 0, 27, 40)];
+                entity = [[Obstacle alloc] initWithFile:@"Plant.png" rect:CGRectMake(0, 0, 96, 96)];
                 entity.position = ccp([[entry objectAtIndex:1] intValue], [[entry objectAtIndex:2] intValue]);
             }
             

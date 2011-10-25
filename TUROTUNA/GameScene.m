@@ -42,7 +42,7 @@
     }
     return self;
 }
-
+ 
 - (void) newTouchBegan:(CGPoint *)point
 {
     [[gameComportments objectAtIndex:currentComportment] newTouchBegan:point];
@@ -61,6 +61,7 @@
 
 - (void)update:(ccTime)dt
 {
+    [super update:dt];
     [[gameComportments objectAtIndex:currentComportment] update:dt];
 }
 
@@ -68,5 +69,6 @@
 {
     currentComportment = !currentComportment;
 }
+
 
 @end
