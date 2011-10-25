@@ -16,6 +16,7 @@
 
 - (id)init
 {
+    pListName = @"AnimPlayerList";
     self = [super init];
     if (self) {
         playerPath = [[PathManager alloc] init];
@@ -31,16 +32,6 @@
     {
         playerPath = [[PathManager alloc]initWithScene:scene];
         [self setPosition:CGPointMake(0, 0)];
-    }
-    return self;
-}
-
-- (id)initWithScene:(AScene *)screen
-{
-    self = [super initWithScene:screen];
-    if (self)
-    {
-        playerPath = [[PathManager alloc] initWithScene:scene];
     }
     return self;
 }
