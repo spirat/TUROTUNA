@@ -13,13 +13,14 @@
 
 @interface AEntity : CCSprite
 {
-    @protected
     AScene *scene;
+    NSString *pListName;
+    NSMutableArray *actionList;
 }
 
 @property (nonatomic) CGRect hitBox;
+@property (nonatomic, retain) NSMutableArray *actionList;
 
-- (id)initWithScene:(AScene*)screen;
 - (id)initWithFile:(NSString *)name rect:(CGRect)rect scene:(AScene *)screen;
 - (id)initWithTexture:(CCTexture2D *)texture rect:(CGRect)rect scene:(AScene *)screen;
 

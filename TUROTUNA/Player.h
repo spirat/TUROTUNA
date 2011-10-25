@@ -19,8 +19,7 @@
     PathManager *playerPath;
 }
 
-- (id)initWithFile:(NSString *)filename rect:(CGRect)rect scene:(AScene *)screen; 
-- (id)initWithScene:(AScene *)screen;
+- (id)initWithFile:(NSString *)filename rect:(CGRect)rect scene:(AScene *)screen;
 
 - (PathManager*) getPath;
 

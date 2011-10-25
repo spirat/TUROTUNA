@@ -44,6 +44,8 @@
     
     projectile.position = *point;
     [addEntityList addObject:projectile];
+    
+    [projectile runAction:[[projectile actionList] objectAtIndex:0]];
     // TEMP, ne pas mettre ca dans l'init, appelle la scene du Level (1)
     //[[CCDirector sharedDirector] replaceScene: [Level scene]];
 }
