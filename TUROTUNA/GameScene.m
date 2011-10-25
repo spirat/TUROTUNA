@@ -31,16 +31,19 @@
         _player = [[Player alloc] initWithFile:@"Player.png" 
                                           rect:CGRectMake(0, 0, 27, 40)
                                          scene:self];
+        _player.position = CGPointMake(50, 50);
+        
         gameComportments = [[NSArray alloc] initWithObjects:[[MoveGameComportment alloc] init:self
                                                                                        player:_player],
                             [[ActionGameComportment alloc] init:self 
                                                          player:_player], nil];
         currentComportment = MOVE_COMPORTMENT;
+         
         [self addEntity:_player];
     }
     return self;
 }
-
+ 
 - (void) newTouchBegan:(CGPoint *)point
 {
     [[gameComportments objectAtIndex:currentComportment] newTouchBegan:point];
@@ -59,6 +62,7 @@
 
 - (void)update:(ccTime)dt
 {
+    [super update:dt];
     [[gameComportments objectAtIndex:currentComportment] update:dt];
 }
 
@@ -66,5 +70,6 @@
 {
     currentComportment = !currentComportment;
 }
+
 
 @end

@@ -23,6 +23,7 @@
 
 - (void)addEntity:(CCSprite *) entity;
 - (void)delEntity:(CCSprite *) entity;
+- (void)update:(ccTime) dt;
 
 +(CCScene *) scene;
 
