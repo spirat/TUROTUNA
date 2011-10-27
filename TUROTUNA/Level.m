@@ -9,6 +9,7 @@
 #import "Player.h"
 #import "Obstacle.h"
 #import "Level.h"
+#import "SplashScreen.h"
 
 @implementation Level
 
@@ -29,6 +30,7 @@
         // Initialization code here.
     }
     [self LoadContent];
+            [self schedule:@selector(onEnd:) interval:5];
     return self;
 }
 
@@ -69,6 +71,12 @@
             }
         }
     }
+}
+
+- (void)onEnd:(ccTime)dt
+{
+    [[CCDirector sharedDirector] sendCleanupToScene];
+	[[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1 scene:[SplashScreen node]]];
 }
 
 @end
