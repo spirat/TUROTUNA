@@ -26,9 +26,9 @@
 + (CCScene*) scene;
 - (void)newTouchBegan:(CGPoint *)point;
 - (void)touchPointMoved:(CGPoint *)point;
-
+- (void)touchEnded:(UITouch *)touch atLocation:(CGPoint)location;
 
 - (int)getCurrentComportment;
 - (void)switchGameComportment;
-
+- (bool)isPlayerFocused;
 @end

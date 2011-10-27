@@ -41,8 +41,8 @@
         CGPoint next = [[_owner getPath] peekPoint];
         if (CGPOINTEQUALS(current, next))
         {
-            [_owner moveTo:next inDuration:10];
             [[_owner getPath] popPoint];
+            [_owner moveTo:[[_owner getPath] peekPoint] inDuration:0.5];
         }
     }
 }
@@ -53,6 +53,11 @@
 }
 
 - (void) newTouchBegan:(CGPoint *)point
+{
+    
+}
+
+- (void) touchEnded:(UITouch *)touch atLocation:(CGPoint)location
 {
     
 }

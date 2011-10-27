@@ -46,4 +46,9 @@
     
 }
 
+- (void) touchEnded:(UITouch *)touch atLocation:(CGPoint)location
+{
+    
+}
+
 @end

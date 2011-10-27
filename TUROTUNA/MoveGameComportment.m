@@ -40,7 +40,13 @@
 
 - (void) newTouchBegan:(CGPoint *)point
 {
+    if ([_owner contains:*point] && [[_owner getPath] getSize] == 0)
+        *point = _owner.position;
     [[_owner getPath] pushNextPoint:point];
+}
+
+-(void) touchEnded:(UITouch *)touch atLocation:(CGPoint)location
+{
 }
 
 @end

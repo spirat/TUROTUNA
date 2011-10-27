@@ -20,5 +20,6 @@
 
 - (void) touchPointMoved:(CGPoint *)point;
 - (void) newTouchBegan:(CGPoint *)point;
+- (void) touchEnded:(UITouch *)touch atLocation:(CGPoint)location;
 
 @end

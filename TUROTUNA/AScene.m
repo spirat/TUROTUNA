@@ -49,6 +49,10 @@
 {
 }
 
+- (void)touchEnded:(UITouch *)touch atLocation:(CGPoint)location
+{
+}
+
 - (void) ccTouchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
 {
     UITouch *touch = [touches anyObject];
@@ -71,6 +75,20 @@
     //                                       rect:CGRectMake(0, 0, 27, 40) scene:self];
     [self newTouchBegan:&location];
     
+}
+
+- (void)ccTouchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    UITouch *touch = [touches anyObject];
+    CGPoint location = [touch locationInView:[touch view]];
+    location = [[CCDirector sharedDirector] convertToGL:location];
+    
+    [self touchEnded:touch atLocation:location];
+}
+
+-(void)ccTouchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    [self ccTouchesEnded:touches withEvent:event];
 }
 
 - (void)addEntity:(AEntity *)entity

@@ -56,6 +56,9 @@
                 [actionList addObject:action];
             }
         }
+        hitBox = CGRectMake(self.position.x - (self.contentSize.width / 2),
+                            self.position.y - (self.contentSize.height / 2),
+                            self.contentSize.width, self.contentSize.height);
     }
     
     return self;
@@ -73,6 +76,22 @@
     id action = [CCMoveTo actionWithDuration:dur
                                     position:destination];
     [self runAction:action];
+}
+
+- (bool)contains:(CGPoint)target
+{
+    if (target.x > hitBox.origin.x && target.x < hitBox.origin.x + hitBox.size.width
+        && target.y > hitBox.origin.y && target.y < hitBox.origin.y + hitBox.size.height)
+        return true;
+    return false;
+}
+
+- (void)setEntityPosition:(CGPoint)position
+{
+    self.position = position;
+    hitBox = CGRectMake(self.position.x - (self.contentSize.width / 2),
+                        self.position.y - (self.contentSize.height / 2),
+                        self.contentSize.width, self.contentSize.height);
 }
 
 - (void)dealloc

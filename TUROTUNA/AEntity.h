@@ -16,6 +16,7 @@
     AScene *scene;
     NSString *pListName;
     NSMutableArray *actionList;
+    CGRect hitBox;
 }
 
 @property (nonatomic) CGRect hitBox;
@@ -27,4 +28,6 @@
 - (void)update:(ccTime)dt;
 - (void)moveTo:(CGPoint)destination inDuration:(ccTime)dur;
 
+- (bool)contains:(CGPoint)target;
+- (void)setEntityPosition:(CGPoint)position;
 @end

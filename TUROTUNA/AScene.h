@@ -20,6 +20,7 @@
 /* Must be overridden in each scene */
 - (void)touchPointMoved:(CGPoint *)point;
 - (void)newTouchBegan:(CGPoint *)point;
+- (void)touchEnded:(UITouch*)touch atLocation:(CGPoint)location;
 
 - (void)addEntity:(CCSprite *) entity;
 - (void)delEntity:(CCSprite *) entity;
