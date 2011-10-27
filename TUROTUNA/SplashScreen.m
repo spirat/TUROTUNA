@@ -1,6 +1,7 @@
 #import "SplashScreen.h"
 #import "Player.h"
 #import "Level.h"
+#import "CCLayer.h"
 
 // HelloWorldLayer implementation
 @implementation SplashScreen
@@ -17,17 +18,34 @@
 
 -(id) init
 {
-    [super init];
+    [super init];	
+    self = [super initWithColor:ccc4(0, 0, 0, 0)];
 	if( (self)) {
-
-/*
-		CCLabelTTF *label = [CCLabelTTF labelWithString:@"TUROTUNA" fontName:@"Marker Felt" fontSize:64];
-		CGSize size = [[CCDirector sharedDirector] winSize];
-        label.position =  ccp( size.width /2 , size.height/2 );
-		[self addChild: label];
-        */
-	}
+        CCMenuItem *menuItem1 = [CCMenuItemFont itemFromString:@"Play" target:self selector:@selector(onPlay:)];
+        CCMenuItem *menuItem2 = [CCMenuItemFont itemFromString:@"About" target:self selector:@selector(onAbout:)];	
+        CCMenu *menu = [CCMenu menuWithItems:menuItem1, menuItem2, nil];
+        [menu alignItemsVertically];
+        [self addChild:menu];
+    }
 	return self;
+}
+
+- (void)onPlay:(id)sender
+{
+    NSLog(@"on play");
+    [[CCDirector sharedDirector] replaceScene:[Level node]];
+}
+
+- (void)onSettings:(id)sender
+{
+    NSLog(@"on settings");
+    [[CCDirector sharedDirector] replaceScene:[Level node]];
+}
+
+- (void)onAbout:(id)sender
+{
+    NSLog(@"on about");
+    [[CCDirector sharedDirector] replaceScene:[Level node]];
 }
 
 - (void) touchPointMoved:(CGPoint *)point
@@ -46,8 +64,6 @@
     [addEntityList addObject:projectile];
     
     [projectile runAction:[[projectile actionList] objectAtIndex:0]];
-    // TEMP, ne pas mettre ca dans l'init, appelle la scene du Level (1)
-    //[[CCDirector sharedDirector] replaceScene: [Level scene]];
 }
 
 
