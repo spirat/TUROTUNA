@@ -68,6 +68,13 @@
                         self.contentSize.width, self.contentSize.height);
 }
 
+- (void)moveTo:(CGPoint)destination inDuration:(ccTime)dur
+{
+    id action = [CCMoveTo actionWithDuration:dur
+                                    position:destination];
+    [self runAction:action];
+}
+
 - (void)dealloc
 {
     [super dealloc];

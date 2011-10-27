@@ -79,6 +79,11 @@
     return head;
 }
 
+- (int) getSize
+{
+    return [_pathPoints count];
+}
+
 - (void) clear
 {
     [_pathPoints removeAllObjects];

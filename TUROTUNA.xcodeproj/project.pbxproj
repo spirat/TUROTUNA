@@ -473,12 +473,12 @@
 		B3BE07ED14281ACB002D183E /* TUROTUNA */ = {
 			isa = PBXGroup;
 			children = (
+				63501210143A872D00321D3E /* AGameComportment.h */,
+				63501211143A872D00321D3E /* AGameComportment.m */,
 				63501214143A8B5800321D3E /* ActionGameComportment.h */,
 				63501215143A8B5800321D3E /* ActionGameComportment.m */,
 				63501217143A8B6C00321D3E /* MoveGameComportment.h */,
 				63501218143A8B6D00321D3E /* MoveGameComportment.m */,
-				63501210143A872D00321D3E /* AGameComportment.h */,
-				63501211143A872D00321D3E /* AGameComportment.m */,
 				B3BE093F14281ACC002D183E /* AppDelegate.h */,
 				B3BE094014281ACC002D183E /* AppDelegate.m */,
 				B3BE094214281ACC002D183E /* RootViewController.h */,

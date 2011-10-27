@@ -21,8 +21,8 @@
 
 - (id)initWithFile:(NSString *)filename rect:(CGRect)rect scene:(AScene *)screen;
 
-- (PathManager*) getPath;
-
+- (PathManager *) getPath;
+- (CGPoint) getPosition;
 - (void)update:(ccTime)dt;
 
 @end

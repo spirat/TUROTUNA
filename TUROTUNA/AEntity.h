@@ -25,5 +25,6 @@
 - (id)initWithTexture:(CCTexture2D *)texture rect:(CGRect)rect scene:(AScene *)screen;
 
 - (void)update:(ccTime)dt;
+- (void)moveTo:(CGPoint)destination inDuration:(ccTime)dur;
 
 @end

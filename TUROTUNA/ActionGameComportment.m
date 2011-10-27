@@ -7,6 +7,8 @@
 //
 
 #import "ActionGameComportment.h"
+#import "Player.h"
+#import "PathManager.h"
 
 @implementation ActionGameComportment
 
@@ -33,6 +35,16 @@
 
 - (void)update:(ccTime)dt
 {
+    if ([[_owner getPath] getSize] != 0)
+    {
+        CGPoint current = [_owner getPosition];
+        CGPoint next = [[_owner getPath] peekPoint];
+        if (CGPOINTEQUALS(current, next))
+        {
+            [_owner moveTo:next inDuration:10];
+            [[_owner getPath] popPoint];
+        }
+    }
 }
 
 - (void) touchPointMoved:(CGPoint *)point

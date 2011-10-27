@@ -50,7 +50,7 @@
 
 - (void) touchPointMoved:(CGPoint *)point
 {
-    if (_bPlayerFocused == true)
+    //if (_bPlayerFocused == true)
         [[gameComportments objectAtIndex:currentComportment] touchPointMoved:point];
 }
 

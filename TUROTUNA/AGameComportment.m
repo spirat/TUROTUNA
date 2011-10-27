@@ -7,6 +7,7 @@
 //
 
 #import "AGameComportment.h"
+#import "Player.h"
 
 @implementation AGameComportment
 
