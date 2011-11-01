@@ -14,7 +14,12 @@ enum {
     PLAYER_TYPE,
     TARGET_TYPE,
     ENEMY_TYPE,
-    OBSTACLE_TYPE
+    OBSTACLE_TYPE,
+    NEUTRAL_TYPE
+};
+
+enum {
+    GRID_WALL
 };
 
 - (void)LoadContent;

@@ -1,5 +1,6 @@
+4 512 384 Path
 0 15 45 Path/To/Player
 1 14 0 Path/To/Target
 2 44 11 Path/To/Enemy
-3 55 11 Path/To/Obstacle
+3 500 800 Path/To/Obstacle
 3 200 300 Path/To/Obstacle

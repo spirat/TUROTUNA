@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		5B8EE300145637870069B0E4 /* Plant.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B8EE2FF145637870069B0E4 /* Plant.png */; };
+		5B92B92E145F773200025B3F /* Neutral.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B92B92D145F773200025B3F /* Neutral.m */; };
+		5B92B934145F783A00025B3F /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B92B930145F783A00025B3F /* background.png */; };
+		5B92B935145F783A00025B3F /* bushes.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B92B931145F783A00025B3F /* bushes.png */; };
+		5B92B936145F783A00025B3F /* flowerbushes.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B92B932145F783A00025B3F /* flowerbushes.png */; };
+		5B92B937145F783A00025B3F /* littlebushes.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B92B933145F783A00025B3F /* littlebushes.png */; };
+		5B92B939145F7A5400025B3F /* level1.grid in Resources */ = {isa = PBXBuildFile; fileRef = 5B92B938145F7A5400025B3F /* level1.grid */; };
 		5B93B73414314C8000C75F9D /* Player.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B93B73314314C8000C75F9D /* Player.png */; };
 		5BC6F360143D436200B95454 /* Obstacle.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BC6F35F143D436200B95454 /* Obstacle.m */; };
 		5BC6F368143D459300B95454 /* Level.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BC6F367143D459300B95454 /* Level.m */; };
@@ -141,6 +147,13 @@
 
 /* Begin PBXFileReference section */
 		5B8EE2FF145637870069B0E4 /* Plant.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Plant.png; sourceTree = "<group>"; };
+		5B92B92C145F773200025B3F /* Neutral.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Neutral.h; sourceTree = "<group>"; };
+		5B92B92D145F773200025B3F /* Neutral.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Neutral.m; sourceTree = "<group>"; };
+		5B92B930145F783A00025B3F /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
+		5B92B931145F783A00025B3F /* bushes.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bushes.png; sourceTree = "<group>"; };
+		5B92B932145F783A00025B3F /* flowerbushes.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flowerbushes.png; sourceTree = "<group>"; };
+		5B92B933145F783A00025B3F /* littlebushes.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = littlebushes.png; sourceTree = "<group>"; };
+		5B92B938145F7A5400025B3F /* level1.grid */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = level1.grid; sourceTree = "<group>"; };
 		5B93B73314314C8000C75F9D /* Player.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Player.png; path = Resources/Player.png; sourceTree = "<group>"; };
 		5BC6F35E143D436200B95454 /* Obstacle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Obstacle.h; sourceTree = "<group>"; };
 		5BC6F35F143D436200B95454 /* Obstacle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Obstacle.m; sourceTree = "<group>"; };
@@ -487,6 +500,8 @@
 				7295C979143407ED00F448F9 /* Player.m */,
 				63BDBCA2143D3E3D00AC311B /* PathManager.h */,
 				63BDBCA3143D3E3D00AC311B /* PathManager.m */,
+				5B92B92C145F773200025B3F /* Neutral.h */,
+				5B92B92D145F773200025B3F /* Neutral.m */,
 				5BC6F35E143D436200B95454 /* Obstacle.h */,
 				5BC6F35F143D436200B95454 /* Obstacle.m */,
 				7295C98114340E4B00F448F9 /* AEntity.h */,
@@ -510,6 +525,10 @@
 		B3BE07EE14281ACB002D183E /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				5B92B930145F783A00025B3F /* background.png */,
+				5B92B931145F783A00025B3F /* bushes.png */,
+				5B92B932145F783A00025B3F /* flowerbushes.png */,
+				5B92B933145F783A00025B3F /* littlebushes.png */,
 				5B8EE2FF145637870069B0E4 /* Plant.png */,
 				7270519C1443BEA8001E59C2 /* Animations */,
 				5B93B73314314C8000C75F9D /* Player.png */,
@@ -524,6 +543,7 @@
 				B3BE07FF14281ACB002D183E /* Info.plist */,
 				B3BE080014281ACB002D183E /* iTunesArtwork */,
 				5BC6F36A143D45F600B95454 /* level1.map */,
+				5B92B938145F7A5400025B3F /* level1.grid */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -900,6 +920,11 @@
 				72EA98141446803000257C39 /* animationtest.png in Resources */,
 				5B8EE300145637870069B0E4 /* Plant.png in Resources */,
 				7294647214563AE900916C35 /* AnimPlayerList.plist in Resources */,
+				5B92B934145F783A00025B3F /* background.png in Resources */,
+				5B92B935145F783A00025B3F /* bushes.png in Resources */,
+				5B92B936145F783A00025B3F /* flowerbushes.png in Resources */,
+				5B92B937145F783A00025B3F /* littlebushes.png in Resources */,
+				5B92B939145F7A5400025B3F /* level1.grid in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1018,6 +1043,7 @@
 				5BC6F360143D436200B95454 /* Obstacle.m in Sources */,
 				5BC6F368143D459300B95454 /* Level.m in Sources */,
 				639717EB1443C1F8000101BD /* GameScene.m in Sources */,
+				5B92B92E145F773200025B3F /* Neutral.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
