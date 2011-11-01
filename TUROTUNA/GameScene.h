@@ -8,9 +8,8 @@
 
 #import <Foundation/Foundation.h>
 #import "AScene.h"
-#include "cocos2d.h"
-#import "ActionGameComportment.h"
-#import "MoveGameComportment.h"
+#import "cocos2d.h"
+#import "Player.h"
 
 #define MOVE_COMPORTMENT 0
 #define ACTION_COMPORTMENT 1

@@ -14,7 +14,7 @@
 {
 }
 
-- (id)init:(AScene *)scene player:(Player *)owner;
+- (id)init:(GameScene *)scene player:(Player *)owner;
 - (void)update:(ccTime)dt;
 
 - (void) touchPointMoved:(CGPoint *)point;

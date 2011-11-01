@@ -9,6 +9,9 @@
 #import "GameScene.h"
 #import "Player.h"
 #import "Level.h"
+#import "ActionGameComportment.h"
+#import "MoveGameComportment.h"
+
 
 @implementation GameScene
 

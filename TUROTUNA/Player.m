@@ -13,6 +13,7 @@
 
 @implementation Player
 
+@synthesize speed;
 
 - (id)init
 {
@@ -20,6 +21,7 @@
     self = [super init];
     if (self) {
         playerPath = [[PathManager alloc] init];
+        speed = 50.f;
     }
     
     return self;
@@ -32,6 +34,7 @@
     {
         playerPath = [[PathManager alloc]initWithScene:scene];
         [self setPosition:CGPointMake(0, 0)];
+        speed = 50.f;
     }
     return self;
 }
@@ -43,11 +46,6 @@
 - (PathManager *)getPath
 {
     return playerPath;
-}
-
-- (CGPoint) getPosition
-{
-    return self.position;
 }
 
 - (void) dealloc
