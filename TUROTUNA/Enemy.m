@@ -23,10 +23,22 @@
     return self;
 }
 
-- (id)initWithScene:(AScene*)screen path:(NSArray *)path
+- (void)runPath
 {
+    
+}
+
+- (id)initWithScene:(AScene*)screen path:(NSArray *)path
+{    
     [super initWithFile:@"enemy.png" rect:CGRectMake(0, 0, 0, 0) scene:screen];
-    pathList = [[NSArray alloc] initWithArray:path];
+
+    pathList = [[NSMutableArray alloc] init];
+    for (NSString* line in path) {
+        if (line.length) {
+            NSArray *entry = [line componentsSeparatedByString:@" "];
+            [pathList addObject:ccp([[entry objectAtIndex:1] intValue], [[entry objectAtIndex:2] intValue])];
+        }
+    }
     
     return self;
 }
@@ -34,6 +46,7 @@
 - (void) update:(ccTime)dt
 {
     [super update:dt];
+    
 }
 
 - (void) dealloc
