@@ -11,7 +11,7 @@
 #import "AScene.h"
 #import "PathManager.h"
 
-
+@class PathManager;
 
 @interface Player : AEntity 
 {

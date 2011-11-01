@@ -80,6 +80,8 @@
 
 - (bool)contains:(CGPoint)target
 {
+    NSLog(@"Position : %f %f\n", self.position.x, self.position.y);
+    [self setEntityPosition:self.position];
     if (target.x > hitBox.origin.x && target.x < hitBox.origin.x + hitBox.size.width
         && target.y > hitBox.origin.y && target.y < hitBox.origin.y + hitBox.size.height)
         return true;

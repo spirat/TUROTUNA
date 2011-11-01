@@ -21,7 +21,7 @@
     self = [super init];
     if (self) {
         playerPath = [[PathManager alloc] init];
-        speed = 50.f;
+        speed = 200.f;
     }
     
     return self;
@@ -32,9 +32,8 @@
     self = [super initWithFile:filename rect:rect scene:screen];
     if (self)
     {
-        playerPath = [[PathManager alloc]initWithScene:scene];
+        playerPath = [[PathManager alloc]initWithScene:scene Player:self];
         [self setPosition:CGPointMake(0, 0)];
-        speed = 50.f;
     }
     return self;
 }

@@ -21,9 +21,6 @@
 		7295C97A143407ED00F448F9 /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = 7295C979143407ED00F448F9 /* Player.m */; };
 		7295C98014340A4300F448F9 /* AScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 7295C97F14340A4300F448F9 /* AScene.m */; };
 		7295C98314340E4C00F448F9 /* AEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 7295C98214340E4C00F448F9 /* AEntity.m */; };
-		72D79F2F145F6F2B009175C9 /* AnimGeneriqueList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 72D79F2C145F6F2B009175C9 /* AnimGeneriqueList.plist */; };
-		72D79F30145F6F2B009175C9 /* AnimShurikenList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 72D79F2D145F6F2B009175C9 /* AnimShurikenList.plist */; };
-		72D79F31145F6F2B009175C9 /* AnimSmokeList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 72D79F2E145F6F2B009175C9 /* AnimSmokeList.plist */; };
 		72EA98141446803000257C39 /* animationtest.png in Resources */ = {isa = PBXBuildFile; fileRef = 72EA98131446803000257C39 /* animationtest.png */; };
 		B3BE07DE14281ACA002D183E /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3BE07DD14281ACA002D183E /* QuartzCore.framework */; };
 		B3BE07E014281ACA002D183E /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3BE07DF14281ACA002D183E /* OpenGLES.framework */; };
@@ -167,9 +164,6 @@
 		7295C97F14340A4300F448F9 /* AScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AScene.m; sourceTree = "<group>"; };
 		7295C98114340E4B00F448F9 /* AEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AEntity.h; sourceTree = "<group>"; };
 		7295C98214340E4C00F448F9 /* AEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AEntity.m; sourceTree = "<group>"; };
-		72D79F2C145F6F2B009175C9 /* AnimGeneriqueList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = AnimGeneriqueList.plist; path = ../../oldTUO/TUROTUNA/AnimGeneriqueList.plist; sourceTree = "<group>"; };
-		72D79F2D145F6F2B009175C9 /* AnimShurikenList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = AnimShurikenList.plist; path = ../../oldTUO/TUROTUNA/AnimShurikenList.plist; sourceTree = "<group>"; };
-		72D79F2E145F6F2B009175C9 /* AnimSmokeList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = AnimSmokeList.plist; path = ../../oldTUO/TUROTUNA/AnimSmokeList.plist; sourceTree = "<group>"; };
 		72EA98131446803000257C39 /* animationtest.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = animationtest.png; sourceTree = "<group>"; };
 		B3BE07D914281ACA002D183E /* TUROTUNA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TUROTUNA.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3BE07DD14281ACA002D183E /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -430,7 +424,6 @@
 		7270519C1443BEA8001E59C2 /* Animations */ = {
 			isa = PBXGroup;
 			children = (
-				72D79F2C145F6F2B009175C9 /* AnimGeneriqueList.plist */,
 				7270519D1443BEB2001E59C2 /* Player */,
 				72D79F33145F6F31009175C9 /* Shuriken */,
 				72D79F34145F6F39009175C9 /* Smoke */,
@@ -450,7 +443,6 @@
 		72D79F33145F6F31009175C9 /* Shuriken */ = {
 			isa = PBXGroup;
 			children = (
-				72D79F2D145F6F2B009175C9 /* AnimShurikenList.plist */,
 			);
 			name = Shuriken;
 			sourceTree = "<group>";
@@ -458,7 +450,6 @@
 		72D79F34145F6F39009175C9 /* Smoke */ = {
 			isa = PBXGroup;
 			children = (
-				72D79F2E145F6F2B009175C9 /* AnimSmokeList.plist */,
 			);
 			name = Smoke;
 			sourceTree = "<group>";
@@ -925,9 +916,6 @@
 				72EA98141446803000257C39 /* animationtest.png in Resources */,
 				5B8EE300145637870069B0E4 /* Plant.png in Resources */,
 				7294647214563AE900916C35 /* AnimPlayerList.plist in Resources */,
-				72D79F2F145F6F2B009175C9 /* AnimGeneriqueList.plist in Resources */,
-				72D79F30145F6F2B009175C9 /* AnimShurikenList.plist in Resources */,
-				72D79F31145F6F2B009175C9 /* AnimSmokeList.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

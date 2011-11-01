@@ -8,16 +8,20 @@
 
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
-#include "AScene.h"
+#import "AScene.h"
+#import "Player.h"
+
+@class Player;
 
 @interface PathManager : CCNode
 {
     @private
     NSMutableArray  *_pathPoints;
     AScene          *_scene;
+    Player          *_owner;
 }
 
-- (id)initWithScene:(AScene*)scene;
+- (id)initWithScene:(AScene*)scene Player:(Player*)owner;
 - (void)dealloc;
 
 - (void)setScene:(AScene*)scene;

@@ -67,4 +67,21 @@
     
 }
 
+- (void) onComportmentSwitchedOn
+{
+    if ([[_owner getPath] getSize] == 0)
+        return;
+    CGPoint next = [[_owner getPath] peekPoint];
+    CGPoint pos = _owner.position;
+    float distance = sqrtf(powf(next.x - pos.x, 2) + powf(next.y - pos.y, 2));
+    [_owner moveTo:next
+        inDuration:distance / _owner.speed];
+}
+
+- (void) onComportmentSwitchedOff
+{
+    [_owner moveTo:_owner.position
+        inDuration:1.f];
+}
+
 @end

@@ -51,4 +51,14 @@
     
 }
 
+- (void) onComportmentSwitchedOn
+{
+    
+}
+
+- (void) onComportmentSwitchedOff
+{
+    
+}
+
 @end

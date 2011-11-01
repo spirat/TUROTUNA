@@ -80,7 +80,9 @@
 
 - (void) switchGameComportment
 {
+    [[gameComportments objectAtIndex:currentComportment] onComportmentSwitchedOff];
     currentComportment = !currentComportment;
+    [[gameComportments objectAtIndex:currentComportment] onComportmentSwitchedOn];
 }
 
 -(bool)isPlayerFocused

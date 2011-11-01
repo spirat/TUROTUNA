@@ -18,7 +18,7 @@
 
 -(id) init
 {
-    [super init];	
+    //[super init];	
     self = [super initWithColor:ccc4(0, 0, 0, 0)];
 	if( (self)) {
         CCMenuItem *menuItem1 = [CCMenuItemFont itemFromString:@"Play" target:self selector:@selector(onPlay:)];
