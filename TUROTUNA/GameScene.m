@@ -11,7 +11,8 @@
 #import "Level.h"
 #import "ActionGameComportment.h"
 #import "MoveGameComportment.h"
-
+#import "Enemy.h"
+#import "CCLabelTTF.h"
 
 @implementation GameScene
 
@@ -42,6 +43,10 @@
         [self addEntity:_player];
         currentComportment = MOVE_COMPORTMENT;
         _bPlayerFocused = false;
+        NSArray *coord = [NSArray arrayWithObjects:@"0 100 100", @"1 100 400", @"2 400 400", @"3 100 400", nil];
+        Enemy *toto = [[Enemy alloc] initWithScene:self path:coord];
+        [self addEntity:toto];
+        [toto doSquare];
     }
     return self;
 }

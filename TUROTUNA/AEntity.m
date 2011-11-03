@@ -31,29 +31,32 @@
     [super init];
     if (self) {
         actionList = [[NSMutableArray alloc] init];
-        NSString *pListPath = [[NSBundle mainBundle] pathForResource:pListName ofType:@"plist"];
-        NSDictionary *dictionary = [[NSDictionary alloc] initWithContentsOfFile:pListPath];
-        
-        for (NSString *key in dictionary)
+        if (pListName)
         {
-            NSDictionary *info = [dictionary objectForKey:key];
-            CCSpriteBatchNode *node = [CCSpriteBatchNode batchNodeWithFile:[info objectForKey:@"file"]];
+            NSString *pListPath = [[NSBundle mainBundle] pathForResource:pListName ofType:@"plist"];
+            NSDictionary *dictionary = [[NSDictionary alloc] initWithContentsOfFile:pListPath];
+        
+            for (NSString *key in dictionary)
+            {   
+                NSDictionary *info = [dictionary objectForKey:key];
+                CCSpriteBatchNode *node = [CCSpriteBatchNode batchNodeWithFile:[info objectForKey:@"file"]];
             
-            if (node != nil)
-            {
-                NSMutableArray *tmp = [[NSMutableArray alloc] init];
-                NSArray *animList = [info objectForKey:@"rectList"];
-                for (int i = 0; i < [animList count]; i++)
+                if (node != nil)
                 {
-                    NSDictionary *animRect = [animList objectAtIndex:i];
-                    [tmp addObject:[CCSpriteFrame frameWithTexture:node.texture rect:CGRectMake(                                                                                                [[animRect objectForKey:@"x"] intValue],[[animRect objectForKey:@"y"] intValue], [[animRect objectForKey:@"width"] intValue], [[animRect objectForKey:@"height"] intValue])]];
+                    NSMutableArray *tmp = [[NSMutableArray alloc] init];
+                    NSArray *animList = [info objectForKey:@"rectList"];
+                    for (int i = 0; i < [animList count]; i++)
+                    {
+                        NSDictionary *animRect = [animList objectAtIndex:i];
+                        [tmp addObject:[CCSpriteFrame frameWithTexture:node.texture rect:CGRectMake(                                                                                                [[animRect objectForKey:@"x"] intValue],[[animRect objectForKey:@"y"] intValue], [[animRect objectForKey:@"width"] intValue], [[animRect objectForKey:@"height"] intValue])]];
+                    }
+                
+                    CCAnimation *animation = [CCAnimation animationWithFrames:tmp delay:0.1];
+                    CCAnimate *anim = [CCAnimate actionWithAnimation:animation];
+                
+                    CCRepeatForever *action = [CCRepeatForever actionWithAction:anim];
+                    [actionList addObject:action];
                 }
-                
-                CCAnimation *animation = [CCAnimation animationWithFrames:tmp delay:0.1];
-                CCAnimate *anim = [CCAnimate actionWithAnimation:animation];
-                
-                CCRepeatForever *action = [CCRepeatForever actionWithAction:anim];
-                [actionList addObject:action];
             }
         }
         hitBox = CGRectMake(self.position.x - (self.contentSize.width / 2),

@@ -18,5 +18,6 @@
 
 - (id)initWithScene:(AScene*)screen path:(NSArray *)path;
 - (void)update:(ccTime)dt;
+- (void)doSquare;
 
 @end
