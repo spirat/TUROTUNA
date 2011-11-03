@@ -2,6 +2,8 @@
 #import "Player.h"
 #import "Level.h"
 #import "CCLayer.h"
+#import "About.h"
+#import "Help.h"
 
 // HelloWorldLayer implementation
 @implementation SplashScreen
@@ -18,12 +20,12 @@
 
 -(id) init
 {
-    //[super init];	
     self = [super initWithColor:ccc4(0, 0, 0, 0)];
 	if( (self)) {
         CCMenuItem *menuItem1 = [CCMenuItemFont itemFromString:@"Play" target:self selector:@selector(onPlay:)];
-        CCMenuItem *menuItem2 = [CCMenuItemFont itemFromString:@"About" target:self selector:@selector(onAbout:)];	
-        CCMenu *menu = [CCMenu menuWithItems:menuItem1, menuItem2, nil];
+        CCMenuItem *menuItem2 = [CCMenuItemFont itemFromString:@"Help" target:self selector:@selector(onHelp:)];
+        CCMenuItem *menuItem3 = [CCMenuItemFont itemFromString:@"About" target:self selector:@selector(onAbout:)];	
+        CCMenu *menu = [CCMenu menuWithItems:menuItem1, menuItem2, menuItem3, nil];
         [menu alignItemsVertically];
         [self addChild:menu];
     }
@@ -32,20 +34,17 @@
 
 - (void)onPlay:(id)sender
 {
-    NSLog(@"on play");
     [[CCDirector sharedDirector] replaceScene:[Level node]];
 }
 
-- (void)onSettings:(id)sender
+- (void)onHelp:(id)sender
 {
-    NSLog(@"on settings");
-    [[CCDirector sharedDirector] replaceScene:[Level node]];
+    [[CCDirector sharedDirector] replaceScene:[Help node]];
 }
 
 - (void)onAbout:(id)sender
 {
-    NSLog(@"on about");
-    [[CCDirector sharedDirector] replaceScene:[Level node]];
+    [[CCDirector sharedDirector] replaceScene:[About node]];
 }
 
 - (void) touchPointMoved:(CGPoint *)point

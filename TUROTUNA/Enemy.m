@@ -36,7 +36,7 @@
     for (NSString* line in path) {
         if (line.length) {
             NSArray *entry = [line componentsSeparatedByString:@" "];
-            [pathList addObject:ccp([[entry objectAtIndex:1] intValue], [[entry objectAtIndex:2] intValue])];
+           // [pathList addObject:ccp([[entry objectAtIndex:1] intValue], [[entry objectAtIndex:2] intValue])];
         }
     }
     

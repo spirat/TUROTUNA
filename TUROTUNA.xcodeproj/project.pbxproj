@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5B8D120D14622746009402C3 /* About.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B8D120C14622746009402C3 /* About.m */; };
+		5B8D121514623392009402C3 /* Help.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B8D121414623392009402C3 /* Help.m */; };
 		5B8EE300145637870069B0E4 /* Plant.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B8EE2FF145637870069B0E4 /* Plant.png */; };
 		5B92B92E145F773200025B3F /* Neutral.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B92B92D145F773200025B3F /* Neutral.m */; };
 		5B92B934145F783A00025B3F /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B92B930145F783A00025B3F /* background.png */; };
@@ -147,6 +149,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5B8D120B14622746009402C3 /* About.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = About.h; sourceTree = "<group>"; };
+		5B8D120C14622746009402C3 /* About.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = About.m; sourceTree = "<group>"; };
+		5B8D121314623392009402C3 /* Help.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Help.h; sourceTree = "<group>"; };
+		5B8D121414623392009402C3 /* Help.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Help.m; sourceTree = "<group>"; };
 		5B8EE2FF145637870069B0E4 /* Plant.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Plant.png; sourceTree = "<group>"; };
 		5B92B92C145F773200025B3F /* Neutral.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Neutral.h; sourceTree = "<group>"; };
 		5B92B92D145F773200025B3F /* Neutral.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Neutral.m; sourceTree = "<group>"; };
@@ -536,6 +542,10 @@
 				B3BE094814281ACC002D183E /* GameConfig.h */,
 				5BC6F366143D459300B95454 /* Level.h */,
 				5BC6F367143D459300B95454 /* Level.m */,
+				5B8D120B14622746009402C3 /* About.h */,
+				5B8D120C14622746009402C3 /* About.m */,
+				5B8D121314623392009402C3 /* Help.h */,
+				5B8D121414623392009402C3 /* Help.m */,
 				B3BE07EE14281ACB002D183E /* Resources */,
 				B3BE080214281ACB002D183E /* libs */,
 				B3BE093B14281ACC002D183E /* Supporting Files */,
@@ -1069,6 +1079,8 @@
 				639717EB1443C1F8000101BD /* GameScene.m in Sources */,
 				5B92B92E145F773200025B3F /* Neutral.m in Sources */,
 				72705C1E145F78190096F7B2 /* Enemy.m in Sources */,
+				5B8D120D14622746009402C3 /* About.m in Sources */,
+				5B8D121514623392009402C3 /* Help.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
