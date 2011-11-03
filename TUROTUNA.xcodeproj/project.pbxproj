@@ -545,6 +545,10 @@
 				B3BE094814281ACC002D183E /* GameConfig.h */,
 				5BC6F366143D459300B95454 /* Level.h */,
 				5BC6F367143D459300B95454 /* Level.m */,
+				5B8D120B14622746009402C3 /* About.h */,
+				5B8D120C14622746009402C3 /* About.m */,
+				5B8D121314623392009402C3 /* Help.h */,
+				5B8D121414623392009402C3 /* Help.m */,
 				6369F2C91462374600EE2B69 /* MathUtils.h */,
 				6369F2CA1462374600EE2B69 /* MathUtils.m */,
 				B3BE07EE14281ACB002D183E /* Resources */,
@@ -1080,6 +1084,8 @@
 				639717EB1443C1F8000101BD /* GameScene.m in Sources */,
 				5B92B92E145F773200025B3F /* Neutral.m in Sources */,
 				72705C1E145F78190096F7B2 /* Enemy.m in Sources */,
+				5B8D120D14622746009402C3 /* About.m in Sources */,
+				5B8D121514623392009402C3 /* Help.m in Sources */,
 				6369F2CB1462374600EE2B69 /* MathUtils.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
