@@ -8,6 +8,7 @@
 
 #import "Player.h"
 #import "Obstacle.h"
+#import "Neutral.h"
 #import "Level.h"
 #import "SplashScreen.h"
 
@@ -39,10 +40,10 @@
 // We must clear the scene first
 // OR we use static stuff and instance a new Level class each time
 // that way we don't have to destroy/free/.. anything ourselves
-- (void)LoadContent
+- (void)LoadContentMap
 {
     AEntity *entity;
-    int playerType;
+    int type;
     NSString *path = [[NSBundle mainBundle] pathForResource:@"level1" ofType:@"map"];
     NSString *contents = [NSString stringWithContentsOfFile:path encoding:NSASCIIStringEncoding error:nil];
     NSArray *lines = [contents componentsSeparatedByCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"\r\n"]];
@@ -50,27 +51,62 @@
     for (NSString* line in lines) {
         if (line.length) {
             NSArray *entry = [line componentsSeparatedByString:@" "];
-            playerType = [[entry objectAtIndex:0] intValue];
+            type = [[entry objectAtIndex:0] intValue];
             entity = NULL;
             
-            if (playerType == PLAYER_TYPE) {
+            if (type == PLAYER_TYPE) {
                 entity = [[Player alloc] initWithFile:@"Player.png" rect:CGRectMake(0, 0, 27, 40)];
                 entity.position = ccp([[entry objectAtIndex:1] intValue], [[entry objectAtIndex:2] intValue]);
             }
-            else if (playerType == TARGET_TYPE) {
+            else if (type == TARGET_TYPE) {
             }
-            else if (playerType == ENEMY_TYPE) {
+            else if (type == ENEMY_TYPE) {
             }
-            else if (playerType == OBSTACLE_TYPE) {
-                entity = [[Obstacle alloc] initWithFile:@"Plant.png" rect:CGRectMake(0, 0, 96, 96)];
+            else if (type == OBSTACLE_TYPE) {
+                entity = [[Obstacle alloc] initWithFile:@"bushes.png" rect:CGRectMake(0, 0, 96, 96)];
                 entity.position = ccp([[entry objectAtIndex:1] intValue], [[entry objectAtIndex:2] intValue]);
             }
-            
+            else if (type == NEUTRAL_TYPE)
+            {
+                //entity = [[Neutral alloc] initWithFile:@"background.png" rect:CGRectMake(0, 0, 1024, 768)];
+                //entity.position = ccp([[entry objectAtIndex:1] intValue], [[entry objectAtIndex:2] intValue]);
+            }
             if (entity != NULL) {
                 [self addEntity:entity];
             }
         }
     }
+}
+
+- (void)LoadContentGrid
+{
+    AEntity *entity;
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"level1" ofType:@"grid"];
+    NSString *contents = [NSString stringWithContentsOfFile:path encoding:NSASCIIStringEncoding error:nil];
+    NSArray *lines = [contents componentsSeparatedByCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"\r\n"]];
+
+    int lineNb = 0;
+    for (NSString* line in lines) {
+        if (line.length) {
+            for (int i = 0; i < 24; ++i) {
+                entity = NULL;
+//                if ([line characterAtIndex:i] == GRID_WALL) {
+ //                   entity = [[Neutral alloc] initWithFile:@"littlebushes.png" rect:CGRectMake(0, 0, 32, 32)];
+   //                 entity.position = ccp((i * 32) + 16, (lineNb * 32) + 16);                    
+  //              }
+                if (entity != NULL)
+                    [self addEntity:entity];
+            }
+            lineNb++;
+        }
+    }
+
+}
+
+- (void)LoadContent
+{
+    [self LoadContentMap];
+    [self LoadContentGrid];
 }
 
 - (void)onEnd:(ccTime)dt
