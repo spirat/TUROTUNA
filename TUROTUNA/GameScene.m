@@ -9,6 +9,9 @@
 #import "GameScene.h"
 #import "Player.h"
 #import "Level.h"
+#import "ActionGameComportment.h"
+#import "MoveGameComportment.h"
+
 
 @implementation GameScene
 
@@ -31,27 +34,37 @@
         _player = [[Player alloc] initWithFile:@"Player.png" 
                                           rect:CGRectMake(0, 0, 27, 40)
                                          scene:self];
-        _player.position = CGPointMake(0, 0);
+        [_player setEntityPosition:CGPointMake(300, 300)];
         gameComportments = [[NSArray alloc] initWithObjects:[[MoveGameComportment alloc] init:self
                                                                                        player:_player],
                             [[ActionGameComportment alloc] init:self 
                                                          player:_player], nil];
+        [self addEntity:_player];
         currentComportment = MOVE_COMPORTMENT;
         _bPlayerFocused = false;
-        [self addEntity:_player];
     }
     return self;
 }
  
 - (void) newTouchBegan:(CGPoint *)point
 {
+    if ([_player contains:*point])
+        _bPlayerFocused = true;
     [[gameComportments objectAtIndex:currentComportment] newTouchBegan:point];
 }
 
 - (void) touchPointMoved:(CGPoint *)point
 {
-    //if (_bPlayerFocused == true)
+    if (_bPlayerFocused == true)
         [[gameComportments objectAtIndex:currentComportment] touchPointMoved:point];
+}
+
+- (void) touchEnded:(UITouch *)touch atLocation:(CGPoint)location
+{
+    _bPlayerFocused = false;
+    [[gameComportments objectAtIndex:currentComportment] touchEnded:touch
+                                                         atLocation:location];
+    [self switchGameComportment];
 }
 
 - (int) getCurrentComportment
@@ -67,8 +80,14 @@
 
 - (void) switchGameComportment
 {
+    [[gameComportments objectAtIndex:currentComportment] onComportmentSwitchedOff];
     currentComportment = !currentComportment;
+    [[gameComportments objectAtIndex:currentComportment] onComportmentSwitchedOn];
 }
 
+-(bool)isPlayerFocused
+{
+    return _bPlayerFocused;
+}
 
 @end

@@ -22,12 +22,13 @@
     return self;
 }
 
-- (id) initWithScene:(AScene*)scene
+- (id) initWithScene:(AScene*)scene Player:(Player*)owner
 {
     self = [super init];
     if (self)
     {
         _scene = scene;
+        _owner = owner;
         _pathPoints = [[NSMutableArray alloc]init];
         [scene addChild:self];
     }
@@ -97,12 +98,14 @@
     if (end < 2)
         return;
     
-    CGPoint next = [(NSValue*)[_pathPoints objectAtIndex:0] CGPointValue];
-    CGPoint beg;
-    
     glEnable(GL_LINE_SMOOTH);
     glColor4f(1.f, 0.f, 0.f, 1.f);
     glLineWidth(5.f);
+    
+    CGPoint next = [(NSValue*)[_pathPoints objectAtIndex:0] CGPointValue];
+    CGPoint beg;
+
+    ccDrawLine(_owner.position, next);
     
     while (idx < end)
     {

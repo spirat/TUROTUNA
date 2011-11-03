@@ -18,7 +18,7 @@
 
 -(id) init
 {
-    [super init];	
+    //[super init];	
     self = [super initWithColor:ccc4(0, 0, 0, 0)];
 	if( (self)) {
         CCMenuItem *menuItem1 = [CCMenuItemFont itemFromString:@"Play" target:self selector:@selector(onPlay:)];
@@ -55,6 +55,7 @@
 
 - (void) newTouchBegan:(CGPoint *)point
 {
+    /*
     Player *projectile = [[Player alloc] initWithFile:@"Player.png"
                                                  rect:CGRectMake(0, 0, 27, 40) 
                                                 scene:self];
@@ -64,6 +65,7 @@
     [addEntityList addObject:projectile];
     
     [projectile runAction:[[projectile actionList] objectAtIndex:0]];
+*/
 }
 
 

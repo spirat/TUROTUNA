@@ -8,20 +8,24 @@
 
 #import <Foundation/Foundation.h>
 
-#include "AScene.h"
-#include "Player.h"
+#import "AScene.h"
+#import "Player.h"
+#import "GameScene.h"
 
 @interface AGameComportment : NSObject
 {
     @protected
-    AScene  *_scene;
+    GameScene  *_scene;
     Player  *_owner;
 }
 
-- (id)init:(AScene*)scene player:(Player*)owner;
+- (id)init:(GameScene*)scene player:(Player*)owner;
 - (void)update:(ccTime)dt;
 
 - (void) touchPointMoved:(CGPoint *)point;
 - (void) newTouchBegan:(CGPoint *)point;
+- (void) touchEnded:(UITouch*)touch atLocation:(CGPoint)location;
+- (void) onComportmentSwitchedOn;
+- (void) onComportmentSwitchedOff;
 
 @end

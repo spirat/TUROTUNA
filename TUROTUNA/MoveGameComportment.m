@@ -20,7 +20,7 @@
     return self;
 }
 
-- (id)init:(AScene *)scene player:(Player *)owner
+- (id)init:(GameScene *)scene player:(Player *)owner
 {
     self = [super init:scene player:owner];
     if (self)
@@ -35,12 +35,34 @@
 
 - (void) touchPointMoved:(CGPoint *)point
 {
-    [[_owner getPath] pushNextPoint:point];
+    if ([_scene isPlayerFocused])
+        [[_owner getPath] pushNextPoint:point];
 }
 
 - (void) newTouchBegan:(CGPoint *)point
 {
-    [[_owner getPath] pushNextPoint:point];
+    if (![_scene isPlayerFocused])
+        return;
+    if ([_owner contains:*point])
+    {
+        [[_owner getPath] clear];
+        *point = _owner.position;
+        [[_owner getPath] pushNextPoint:point];
+    }
+}
+
+-(void) touchEnded:(UITouch *)touch atLocation:(CGPoint)location
+{
+}
+
+- (void) onComportmentSwitchedOn
+{
+    
+}
+
+- (void) onComportmentSwitchedOff
+{
+    
 }
 
 @end

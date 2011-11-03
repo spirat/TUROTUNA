@@ -11,18 +11,20 @@
 #import "AScene.h"
 #import "PathManager.h"
 
-
+@class PathManager;
 
 @interface Player : AEntity 
 {
     @private
     PathManager *playerPath;
+    float speed;
 }
+
+@property float speed;
 
 - (id)initWithFile:(NSString *)filename rect:(CGRect)rect scene:(AScene *)screen;
 
 - (PathManager *) getPath;
-- (CGPoint) getPosition;
 - (void)update:(ccTime)dt;
 
 @end

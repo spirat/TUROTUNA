@@ -31,7 +31,7 @@
         // Initialization code here.
     }
     [self LoadContent];
-            [self schedule:@selector(onEnd:) interval:5];
+    //[self schedule:@selector(onEnd:) interval:5];
     return self;
 }
 
