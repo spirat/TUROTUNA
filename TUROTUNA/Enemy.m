@@ -42,10 +42,14 @@
     for (NSString* line in path) {
         if (line.length) {
             NSArray *entry = [line componentsSeparatedByString:@" "];
+
             NSValue *coord = [NSValue valueWithCGPoint:ccp([[entry objectAtIndex:1] intValue], [[entry objectAtIndex:2] intValue])];
             [pathList addObject:coord];
             NSLog(@"%d %d", [[entry objectAtIndex:1] intValue], [[entry objectAtIndex:2] intValue]);
             [coord release];
+
+         
+
         }
     }
     self.position = [[pathList objectAtIndex:3] CGPointValue];

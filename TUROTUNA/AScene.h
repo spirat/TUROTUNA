@@ -26,6 +26,8 @@
 - (void)delEntity:(CCSprite *) entity;
 - (void)update:(ccTime) dt;
 
+- (NSMutableArray *) getEntities;
+
 +(CCScene *) scene;
 
 @end

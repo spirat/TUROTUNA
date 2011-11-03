@@ -125,6 +125,11 @@
     [delEntityList removeAllObjects];
 }
 
+- (NSMutableArray *) getEntities
+{
+    return entityList;
+}
+
 - (void)dealloc
 {
     [super dealloc];

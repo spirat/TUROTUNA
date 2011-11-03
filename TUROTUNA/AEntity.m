@@ -84,7 +84,7 @@
 - (bool)contains:(CGPoint)target
 {
     NSLog(@"Position : %f %f\n", self.position.x, self.position.y);
-    [self setEntityPosition:self.position];
+    NSLog(@"Target : %f %f\n", self.position.x, self.position.y);
     if (target.x > hitBox.origin.x && target.x < hitBox.origin.x + hitBox.size.width
         && target.y > hitBox.origin.y && target.y < hitBox.origin.y + hitBox.size.height)
         return true;
@@ -97,6 +97,11 @@
     hitBox = CGRectMake(self.position.x - (self.contentSize.width / 2),
                         self.position.y - (self.contentSize.height / 2),
                         self.contentSize.width, self.contentSize.height);
+}
+
+- (CGRect)getHitbox
+{
+    return hitBox;
 }
 
 - (void)dealloc
