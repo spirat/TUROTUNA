@@ -30,4 +30,7 @@
 
 - (bool)contains:(CGPoint)target;
 - (void)setEntityPosition:(CGPoint)position;
+
+- (CGRect)getHitbox;
+
 @end

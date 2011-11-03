@@ -7,6 +7,8 @@
 //
 
 #import "MoveGameComportment.h"
+#import "Obstacle.h"
+#import "MathUtils.h"
 
 @implementation MoveGameComportment
 
@@ -33,10 +35,38 @@
 {
 }
 
+- (bool) pointIntersectsObstacle:(CGPoint)origin point2:(CGPoint)end
+{
+    
+    CGRect vectBound = CGRectMake(origin.x, origin.y, fabsf(end.x - origin.x), fabsf(end.y - origin.y));
+    NSMutableArray *entities = [_scene getEntities];
+
+    for (int i = 0, end = [entities count]; i < end; ++i)
+    {
+        if ([[entities objectAtIndex:i] isMemberOfClass:[Obstacle class]])
+        {
+            Obstacle *e = (Obstacle*)[entities objectAtIndex:i];
+
+            if (CGRectIntersectsRect(vectBound, [e getHitbox]))
+            {
+                NSLog(@"Bounding box collision detected");
+                // if MathVectorIntersects pour chaque cote de e.hitbox
+            }
+        }
+    }
+     
+    return false;
+}
+
 - (void) touchPointMoved:(CGPoint *)point
 {
     if ([_scene isPlayerFocused])
-        [[_owner getPath] pushNextPoint:point];
+    {
+        if ([[_owner getPath] getSize] == 0
+            || [self pointIntersectsObstacle:[[_owner getPath] lastPointAdded]
+                                 point2:*point] == false)
+            [[_owner getPath] pushNextPoint:point];
+    }
 }
 
 - (void) newTouchBegan:(CGPoint *)point

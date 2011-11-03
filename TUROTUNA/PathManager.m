@@ -30,7 +30,7 @@
         _scene = scene;
         _owner = owner;
         _pathPoints = [[NSMutableArray alloc]init];
-        [scene addChild:self];
+        [scene addChild:self z:1];
     }
     return self;
 }
@@ -64,6 +64,11 @@
     }
     id next = (id)[NSValue valueWithCGPoint:*point];
     [_pathPoints addObject:next];
+}
+
+- (CGPoint)lastPointAdded
+{
+    return [(NSValue*)[_pathPoints objectAtIndex:[_pathPoints count] - 1] CGPointValue];
 }
 
 - (CGPoint)peekPoint

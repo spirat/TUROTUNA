@@ -40,6 +40,7 @@
 
 - (void) update:(ccTime)dt
 {
+    [super update:dt];
 }
 
 - (PathManager *)getPath

@@ -26,6 +26,7 @@
 
 - (void)setScene:(AScene*)scene;
 - (void)pushNextPoint:(CGPoint*)point;
+- (CGPoint)lastPointAdded;
 - (CGPoint)peekPoint;
 - (CGPoint)popPoint;
 - (int)getSize;
