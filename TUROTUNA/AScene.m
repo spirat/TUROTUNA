@@ -73,6 +73,7 @@
     
     //AEntity *projectile = [[AEntity alloc] spriteWithFile:@"Player.png"
     //                                       rect:CGRectMake(0, 0, 27, 40) scene:self];
+    NSLog(@"New touch began : %f %f\n", location.x, location.y);
     [self newTouchBegan:&location];
     
 }

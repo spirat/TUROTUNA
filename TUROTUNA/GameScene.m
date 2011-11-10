@@ -43,10 +43,10 @@
         [self addEntity:_player];
         currentComportment = MOVE_COMPORTMENT;
         _bPlayerFocused = false;
-        NSArray *coord = [NSArray arrayWithObjects:@"0 100 100", @"1 100 400", @"2 400 400", @"3 100 400", nil];
+        /*NSArray *coord = [NSArray arrayWithObjects:@"0 100 100", @"1 100 400", @"2 400 400", @"3 100 400", nil];
         Enemy *toto = [[Enemy alloc] initWithScene:self path:coord];
         [self addEntity:toto];
-        [toto doSquare];
+        [toto doSquare];*/
     }
     return self;
 }
