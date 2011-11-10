@@ -27,6 +27,7 @@
 		639717EB1443C1F8000101BD /* GameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 639717EA1443C1F8000101BD /* GameScene.m */; };
 		63BDBCA4143D3E3D00AC311B /* PathManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 63BDBCA3143D3E3D00AC311B /* PathManager.m */; };
 		72705C1E145F78190096F7B2 /* Enemy.m in Sources */ = {isa = PBXBuildFile; fileRef = 72705C1D145F78190096F7B2 /* Enemy.m */; };
+		7288CA48146B66E100FE2272 /* enemyPath1.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7288CA47146B66E100FE2272 /* enemyPath1.plist */; };
 		7294647214563AE900916C35 /* AnimPlayerList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7294647114563AE900916C35 /* AnimPlayerList.plist */; };
 		7295C97A143407ED00F448F9 /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = 7295C979143407ED00F448F9 /* Player.m */; };
 		7295C98014340A4300F448F9 /* AScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 7295C97F14340A4300F448F9 /* AScene.m */; };
@@ -174,7 +175,7 @@
 		63501215143A8B5800321D3E /* ActionGameComportment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActionGameComportment.m; sourceTree = "<group>"; };
 		63501217143A8B6C00321D3E /* MoveGameComportment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoveGameComportment.h; sourceTree = "<group>"; };
 		63501218143A8B6D00321D3E /* MoveGameComportment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoveGameComportment.m; sourceTree = "<group>"; };
-		6369F2C91462374600EE2B69 /* MathUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; path = MathUtils.h; sourceTree = "<group>"; };
+		6369F2C91462374600EE2B69 /* MathUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MathUtils.h; sourceTree = "<group>"; };
 		6369F2CA1462374600EE2B69 /* MathUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MathUtils.m; sourceTree = "<group>"; };
 		639717E91443C1F8000101BD /* GameScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameScene.h; sourceTree = "<group>"; };
 		639717EA1443C1F8000101BD /* GameScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameScene.m; sourceTree = "<group>"; };
@@ -182,6 +183,7 @@
 		63BDBCA3143D3E3D00AC311B /* PathManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PathManager.m; sourceTree = "<group>"; };
 		72705C1C145F78190096F7B2 /* Enemy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Enemy.h; sourceTree = "<group>"; };
 		72705C1D145F78190096F7B2 /* Enemy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Enemy.m; sourceTree = "<group>"; };
+		7288CA47146B66E100FE2272 /* enemyPath1.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = enemyPath1.plist; sourceTree = "<group>"; };
 		7294647114563AE900916C35 /* AnimPlayerList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = AnimPlayerList.plist; sourceTree = "<group>"; };
 		7295C978143407ED00F448F9 /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
 		7295C979143407ED00F448F9 /* Player.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Player.m; sourceTree = "<group>"; };
@@ -465,6 +467,22 @@
 			name = Player;
 			sourceTree = "<group>";
 		};
+		7288CA44146B66A900FE2272 /* Level */ = {
+			isa = PBXGroup;
+			children = (
+				7288CA46146B66B900FE2272 /* Map1 */,
+			);
+			name = Level;
+			sourceTree = "<group>";
+		};
+		7288CA46146B66B900FE2272 /* Map1 */ = {
+			isa = PBXGroup;
+			children = (
+				7288CA47146B66E100FE2272 /* enemyPath1.plist */,
+			);
+			name = Map1;
+			sourceTree = "<group>";
+		};
 		72D79F33145F6F31009175C9 /* Shuriken */ = {
 			isa = PBXGroup;
 			children = (
@@ -561,6 +579,7 @@
 		B3BE07EE14281ACB002D183E /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				7288CA44146B66A900FE2272 /* Level */,
 				5B92B930145F783A00025B3F /* background.png */,
 				5B92B931145F783A00025B3F /* bushes.png */,
 				5B92B932145F783A00025B3F /* flowerbushes.png */,
@@ -964,6 +983,7 @@
 				5B92B936145F783A00025B3F /* flowerbushes.png in Resources */,
 				5B92B937145F783A00025B3F /* littlebushes.png in Resources */,
 				5B92B939145F7A5400025B3F /* level1.grid in Resources */,
+				7288CA48146B66E100FE2272 /* enemyPath1.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
