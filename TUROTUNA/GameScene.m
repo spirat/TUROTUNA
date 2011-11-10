@@ -36,10 +36,10 @@
                                           rect:CGRectMake(0, 0, 27, 40)
                                          scene:self];
         [_player setEntityPosition:CGPointMake(300, 300)];
-        gameComportments = [[NSArray alloc] initWithObjects:[[MoveGameComportment alloc] init:self
-                                                                                       player:_player],
-                            [[ActionGameComportment alloc] init:self 
-                                                         player:_player], nil];
+        gameComportments = [[NSArray alloc] initWithObjects:[[[MoveGameComportment alloc] init:self
+                                                                                       player:_player] autorelease],
+                            [[[ActionGameComportment alloc] init:self 
+                                                         player:_player] autorelease], nil];
         [self addEntity:_player];
         currentComportment = MOVE_COMPORTMENT;
         _bPlayerFocused = false;
