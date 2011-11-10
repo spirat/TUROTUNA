@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>enemies</key>
+	<array>
+		<array>
+			<array>
+				<integer>100</integer>
+				<integer>100</integer>
+			</array>
+			<array>
+				<integer>100</integer>
+				<integer>400</integer>
+			</array>
+			<array>
+				<integer>400</integer>
+				<integer>400</integer>
+			</array>
+			<array>
+				<integer>400</integer>
+				<integer>100</integer>
+			</array>
+		</array>
+		<array>
+			<array>
+				<integer>700</integer>
+				<integer>500</integer>
+			</array>
+			<array>
+				<integer>500</integer>
+				<integer>500</integer>
+			</array>
+			<array>
+				<integer>500</integer>
+				<integer>700</integer>
+			</array>
+			<array>
+				<integer>700</integer>
+				<integer>700</integer>
+			</array>
+		</array>
+	</array>
+</dict>
+</plist>

@@ -11,10 +11,10 @@
 
 @interface Enemy : AEntity
 {
-    NSMutableArray *pathList;
+    NSArray *pathList;
 }
 
-@property (nonatomic, retain) NSMutableArray *pathList;
+@property (nonatomic, retain) NSArray *pathList;
 
 - (id)initWithScene:(AScene*)screen path:(NSArray *)path;
 - (void)update:(ccTime)dt;

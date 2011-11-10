@@ -41,16 +41,43 @@
     CGRect vectBound = CGRectMake(origin.x, origin.y, fabsf(end.x - origin.x), fabsf(end.y - origin.y));
     NSMutableArray *entities = [_scene getEntities];
 
-    for (int i = 0, end = [entities count]; i < end; ++i)
+    for (int i = 0, itEnd = [entities count]; i < itEnd; ++i)
     {
         if ([[entities objectAtIndex:i] isMemberOfClass:[Obstacle class]])
         {
-            Obstacle *e = (Obstacle*)[entities objectAtIndex:i];
+            CGRect obst = [(Obstacle*)[entities objectAtIndex:i] getHitbox];
 
-            if (CGRectIntersectsRect(vectBound, [e getHitbox]))
+            if (CGRectIntersectsRect(vectBound, obst))
             {
                 NSLog(@"Bounding box collision detected");
-                // if MathVectorIntersects pour chaque cote de e.hitbox
+ 
+                bool intersects = false;
+                CGPoint p3, p4;
+                
+                //top right to bot right
+                p3.x = obst.origin.x + obst.size.width / 2;
+                p3.y = obst.origin.y + obst.size.height / 2;
+                p4.x = p3.x;
+                p4.y = p3.y - obst.size.height;
+                intersects |= MathVectorIntersects(origin, end, p3, p4, NULL);
+                
+                //bot right to bot left
+                p3.y = p4.y;
+                p3.x = p4.x - obst.size.height;
+                intersects |= MathVectorIntersects(origin, end, p4, p3, NULL);
+                
+                //bot left to top left
+                p4.x = p3.x;
+                p4.y = p3.y + obst.size.height;
+                intersects |= MathVectorIntersects(origin, end, p3, p4, NULL);
+                
+                //top left to top right
+                p3.y = p4.y;
+                p3.x = p4.x + obst.size.width;
+                intersects |= MathVectorIntersects(origin, end, p4, p3, NULL);
+
+                if (intersects == true)
+                    return true;
             }
         }
     }

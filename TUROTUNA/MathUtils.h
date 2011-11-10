@@ -8,4 +8,4 @@
 
 #import <Foundation/Foundation.h>
 
-bool MathVectorIntersects(CGPoint, CGPoint, CGPoint, CGPoint);
+bool MathVectorIntersects(CGPoint, CGPoint, CGPoint, CGPoint, CGPoint*);

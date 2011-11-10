@@ -129,14 +129,17 @@
     NSArray *lines = [contents componentsSeparatedByCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"\r\n"]];
 
     int lineNb = 0;
+
     for (NSString* line in lines) {
         if (line.length) {
-            for (int i = 0; i < 24; ++i) {
+            for (int i = 0; i < [line length] - 1; ++i) {
                 entity = NULL;
-//                if ([line characterAtIndex:i] == GRID_WALL) {
- //                   entity = [[Neutral alloc] initWithFile:@"littlebushes.png" rect:CGRectMake(0, 0, 32, 32)];
-   //                 entity.position = ccp((i * 32) + 16, (lineNb * 32) + 16);                    
-  //              }
+                /*
+                if ([line characterAtIndex:i] == GRID_WALL + '0') {
+                    entity = [[Neutral alloc] initWithFile:@"littlebushes.png" rect:CGRectMake(0, 0, 32, 32)];
+                    entity.position = ccp((i * 32) + 16, (lineNb * 32) + 16);                    
+                }
+                 */
                 if (entity != NULL)
                     [self addEntity:entity];
             }
