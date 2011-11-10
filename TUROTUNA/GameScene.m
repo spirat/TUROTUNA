@@ -43,10 +43,28 @@
         [self addEntity:_player];
         currentComportment = MOVE_COMPORTMENT;
         _bPlayerFocused = false;
-        /*NSArray *coord = [NSArray arrayWithObjects:@"0 100 100", @"1 100 400", @"2 400 400", @"3 100 400", nil];
-        Enemy *toto = [[Enemy alloc] initWithScene:self path:coord];
-        [self addEntity:toto];
-        [toto doSquare];*/
+  
+        NSString *pListPath = [[NSBundle mainBundle] pathForResource:@"enemyPath1" ofType:@"plist"];
+        NSDictionary *dictionary = [[NSDictionary alloc] initWithContentsOfFile:pListPath];
+        
+        NSArray *enemies = [dictionary objectForKey:@"enemies"];
+        
+        for (NSArray *enemyCoord in enemies)
+        {
+            NSMutableArray *coord = [[NSMutableArray alloc] init];
+            
+            for (NSArray *pos in enemyCoord)
+            {
+                [coord addObject:[NSValue valueWithCGPoint:ccp([[pos objectAtIndex:0] intValue], [[pos objectAtIndex:1] intValue])]];
+            }
+            Enemy *enemy = [[Enemy alloc] initWithScene:self path:coord];
+            [addEntityList addObject:enemy];
+            [enemy doSquare];
+            [coord release];
+            [enemy release];
+        }
+        
+        [dictionary release];
     }
     return self;
 }
