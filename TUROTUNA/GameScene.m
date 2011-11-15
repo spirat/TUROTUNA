@@ -12,6 +12,7 @@
 #import "ActionGameComportment.h"
 #import "MoveGameComportment.h"
 #import "Enemy.h"
+#import "Shuriken.h"
 #import "CCLabelTTF.h"
 
 @implementation GameScene
@@ -52,19 +53,18 @@
         for (NSArray *enemyCoord in enemies)
         {
             NSMutableArray *coord = [[NSMutableArray alloc] init];
-            
-            for (NSArray *pos in enemyCoord)
-            {
-                [coord addObject:[NSValue valueWithCGPoint:ccp([[pos objectAtIndex:0] intValue], [[pos objectAtIndex:1] intValue])]];
-            }
-            Enemy *enemy = [[Enemy alloc] initWithScene:self path:coord];
+
+            Enemy *enemy = [[Enemy alloc] initWithScene:self path:enemyCoord];
             [addEntityList addObject:enemy];
-            [enemy doSquare];
             [coord release];
             [enemy release];
         }
         
         [dictionary release];
+
+        Shuriken *shuriTmp = [[Shuriken alloc] initWithScene:self startingPos:CGPointMake(1000, 400) endingPos:CGPointMake(0, 0)];
+        [addEntityList addObject:shuriTmp];
+        [shuriTmp release];
     }
     return self;
 }
