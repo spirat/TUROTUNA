@@ -106,7 +106,8 @@
             else if (type == ENEMY_TYPE) {
             }
             else if (type == OBSTACLE_TYPE) {
-                entity = [[Obstacle alloc] initWithFile:@"bushes.png" rect:CGRectMake(0, 0, 96, 96)];
+                //entity = [[Obstacle alloc] initWithFile:@"bushes.png" rect:CGRectMake(0, 0, 64, 64)];
+                entity = [[Obstacle alloc] initWithFile:@"bushes.png"];
                 entity.position = ccp([[entry objectAtIndex:1] intValue], [[entry objectAtIndex:2] intValue]);
             }
             else if (type == NEUTRAL_TYPE)

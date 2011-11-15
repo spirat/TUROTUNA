@@ -26,7 +26,25 @@ bool MathVectorIntersects(CGPoint p1, CGPoint p2,
                           CGPoint p3, CGPoint p4,
                           CGPoint *result)
 {
-    struct divop ua;
+/*    CGPoint ab1;
+    CGPoint ab2;
+    
+    ab1.x = ;
+    ab1.y = ;
+    ab2.x = ;
+    ab2.y = ;
+*/
+    return false;
+}
+
+
+/*
+bool MathVectorIntersects(CGPoint p1, CGPoint p2,
+                          CGPoint p3, CGPoint p4,
+                          CGPoint *result)
+{
+    
+  struct divop ua;
     struct divop ub;
     
     ua.n = (p4.x - p3.x) * (p1.y - p3.y) - (p4.y - p3.y) * (p1.x - p3.x);
@@ -49,5 +67,8 @@ bool MathVectorIntersects(CGPoint p1, CGPoint p2,
         result->x = p1.x + resulta * (p2.x - p1.x);
         result->y = p1.y + resultb * (p2.y - p1.y);
     }
+    
+    
     return true;
 }
+*/
