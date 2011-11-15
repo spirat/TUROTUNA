@@ -35,6 +35,31 @@
     return self;
 }
 
+- (void)checkCollision:(unsigned char*)baseData x:(int)x y:(int)y path:(NSString*)obstaclePath size:(int)obstacleSize bytesPerPixel:(int)bytesPerPixel
+{
+    // compute subrect offset
+    int offset = (64 - obstacleSize) / 2;
+    
+    // generate rawData for obstacle
+    UIImage *obstacleImg = [UIImage imageNamed:obstaclePath];
+    CGImageRef imageRef = [obstacleImg CGImage];
+    NSUInteger width = CGImageGetWidth(imageRef);
+    NSUInteger height = CGImageGetHeight(imageRef);
+    unsigned char *obsData = malloc(height * width * 4);
+
+    // iterate subrect obstacle (just add x and y for the baseData
+    for (int h = offset; h < obstacleSize + offset; ++h) {
+        for (int w = offset; w < obstacleSize + offset; ++w) {
+            CGFloat redObs   = (obsData[(w * bytesPerPixel) + (h * width)]     * 1.0) / 255.0;
+            CGFloat greenObs = (obsData[(w * bytesPerPixel) + (h * width) + 1] * 1.0) / 255.0;
+            CGFloat blueObs  = (obsData[(w * bytesPerPixel) + (h * width) + 2] * 1.0) / 255.0;
+            CGFloat alphaObs = (obsData[(w * bytesPerPixel) + (h * width) + 3] * 1.0) / 255.0;
+            //comparer avec bgPixColor (utiliser UIColor.CGColor.CGColorEqualToColor
+        }
+    }
+    free(obsData);
+}
+
 // 64 x 64
 // http://www.cocos2d-iphone.org/archives/61 RGBA8888 pixel format
 - (void)LoadCollisionBox
@@ -55,24 +80,14 @@
     CGContextDrawImage(context, CGRectMake(0, 0, width, height), imageRef);
     CGContextRelease(context);
     
-    int max = width * height * 4;
-    uint byteIndex = 0;
-    while (byteIndex < max)
-    {
-        CGFloat red   = (rawData[byteIndex]     * 1.0) / 255.0;
-        CGFloat green = (rawData[byteIndex + 1] * 1.0) / 255.0;
-        CGFloat blue  = (rawData[byteIndex + 2] * 1.0) / 255.0;
-        CGFloat alpha = (rawData[byteIndex + 3] * 1.0) / 255.0;
-        byteIndex += 4;
-
-        // Isoler un carre a chaque tour
-        UIColor *bgPixColor = [UIColor colorWithRed:red green:green blue:blue alpha:alpha];
-        
-        // foreach obstacle a la con
-        // recuperer rawData
-        // foreach byte
-        // recuperer Uicolor
-        // comparer avec bgPixColor (utiliser UIColor.CGColor.CGColorEqualToColor
+    NSString *obstaclePath = [[NSBundle mainBundle] pathForResource:@"Plant" ofType:@"png"];
+    int obstacleSize = 16;
+    
+    for (int y = 0; y < height / 64; y += 64) {
+        for (int x = 0; x < width / 64; x += 64) {
+            // foreach obstacle sprite path
+            [self checkCollision:rawData x:x y:y path:obstaclePath size:obstacleSize bytesPerPixel:bytesPerPixel];
+        }
     }
     free(rawData);
 }
