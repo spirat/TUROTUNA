@@ -19,6 +19,13 @@
     return self;
 }
 
+- (id)initWithFile:(NSString *)name scene:(AScene *)screen
+{
+    [super initWithFile:name];
+    scene = screen;
+    return self;
+}
+
 - (id)initWithTexture:(CCTexture2D *)texture rect:(CGRect)rect scene:(AScene *)screen
 {
     [super initWithTexture:texture rect:rect];

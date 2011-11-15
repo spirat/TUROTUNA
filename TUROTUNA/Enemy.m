@@ -23,12 +23,24 @@
     return self;
 }
 
+- (void)saveRotation:(NSNumber *)rot
+{
+    rotation = [rot intValue];
+}
+
 - (void)doSquare
 {    
     NSMutableArray *actions = [[[NSMutableArray alloc] init] autorelease];
     
-    for (int i = 0; i < [pathList count]; i++)
-        [actions addObject:[CCMoveTo actionWithDuration:2 position:[[pathList objectAtIndex:i] CGPointValue]]];
+    for (NSArray *pos in pathList)
+    {
+        NSInteger rotate = [[pos objectAtIndex:2] intValue];
+        [actions addObject:[CCRotateTo actionWithDuration:0 angle:rotate]];
+        // CC animation...
+
+        [actions addObject:[CCCallFuncO actionWithTarget:self selector:@selector(saveRotation:) object:[NSNumber numberWithInt:rotate]]];
+        [actions addObject:[CCMoveTo actionWithDuration:2 position:ccp([[pos objectAtIndex:0] intValue], [[pos objectAtIndex:1] intValue])]];
+    }
     
     CCRepeatForever *repeat = [CCRepeatForever actionWithAction:[CCSequence actionsWithArray:actions]];
     [self runAction:repeat];
@@ -40,27 +52,17 @@
     self = [super initWithFile:@"animationtest.png" rect:CGRectMake(0, 0, 39, 62) scene:screen];
 
     pathList = [[NSArray alloc] initWithArray:path];
-    /*
-    for (NSString* line in path) {
-        if (line.length) {
-            NSArray *entry = [line componentsSeparatedByString:@" "];
+    NSArray *tmpPos = [pathList objectAtIndex:[pathList count] - 1];
+    self.position = ccp([[tmpPos objectAtIndex:0] intValue], [[tmpPos objectAtIndex:1] intValue]);
+ 
+    [self doSquare];
 
-            NSValue *coord = [NSValue valueWithCGPoint:ccp([[entry objectAtIndex:1] intValue], [[entry objectAtIndex:2] intValue])];
-            [pathList addObject:coord];
-            [coord release];
-        }
-    }
-    */
-    self.position = [[pathList objectAtIndex:0] CGPointValue];
-    
     return self;
 }
 
 - (void) update:(ccTime)dt
 {
     [super update:dt];
-    
-    
 }
 
 - (void) dealloc

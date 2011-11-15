@@ -12,6 +12,7 @@
 @interface Enemy : AEntity
 {
     NSArray *pathList;
+    NSInteger rotation;
 }
 
 @property (nonatomic, retain) NSArray *pathList;

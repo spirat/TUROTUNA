@@ -22,6 +22,7 @@
 @property (nonatomic) CGRect hitBox;
 @property (nonatomic, retain) NSMutableArray *actionList;
 
+- (id)initWithFile:(NSString *)name scene:(AScene *)screen;
 - (id)initWithFile:(NSString *)name rect:(CGRect)rect scene:(AScene *)screen;
 - (id)initWithTexture:(CCTexture2D *)texture rect:(CGRect)rect scene:(AScene *)screen;
 
