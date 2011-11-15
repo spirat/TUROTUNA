@@ -24,6 +24,7 @@
 
 - (id)initWithFile:(NSString *)name scene:(AScene *)screen;
 - (id)initWithFile:(NSString *)name rect:(CGRect)rect scene:(AScene *)screen;
+- (id)initWithFile:(NSString *)filename scene:(AScene*)screen;
 - (id)initWithTexture:(CCTexture2D *)texture rect:(CGRect)rect scene:(AScene *)screen;
 
 - (void)update:(ccTime)dt;

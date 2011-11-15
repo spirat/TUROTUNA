@@ -12,4 +12,6 @@
 
 @interface Obstacle : AEntity
 
+- (void) update:(ccTime)dt;
+
 @end

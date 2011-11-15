@@ -35,6 +35,48 @@
     return self;
 }
 
+// 64 x 64
+// http://www.cocos2d-iphone.org/archives/61 RGBA8888 pixel format
+- (void)LoadCollisionBox
+{
+    UIImage *backgroundImage = [UIImage imageNamed:@"background.png"];
+    CGImageRef imageRef = [backgroundImage CGImage];
+    NSUInteger width = CGImageGetWidth(imageRef);
+    NSUInteger height = CGImageGetHeight(imageRef);
+    CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
+    unsigned char *rawData = malloc(height * width * 4);
+    NSUInteger bytesPerPixel = 4;
+    NSUInteger bytesPerRow = bytesPerPixel * width;
+    NSUInteger bitsPerComponent = 8;
+    CGContextRef context = CGBitmapContextCreate(rawData, width, height,
+                                                 bitsPerComponent, bytesPerRow, colorSpace,
+                                                 kCGImageAlphaPremultipliedLast | kCGBitmapByteOrder32Big);
+    CGColorSpaceRelease(colorSpace);
+    CGContextDrawImage(context, CGRectMake(0, 0, width, height), imageRef);
+    CGContextRelease(context);
+    
+    int max = width * height * 4;
+    uint byteIndex = 0;
+    while (byteIndex < max)
+    {
+        CGFloat red   = (rawData[byteIndex]     * 1.0) / 255.0;
+        CGFloat green = (rawData[byteIndex + 1] * 1.0) / 255.0;
+        CGFloat blue  = (rawData[byteIndex + 2] * 1.0) / 255.0;
+        CGFloat alpha = (rawData[byteIndex + 3] * 1.0) / 255.0;
+        byteIndex += 4;
+
+        // Isoler un carre a chaque tour
+        UIColor *bgPixColor = [UIColor colorWithRed:red green:green blue:blue alpha:alpha];
+        
+        // foreach obstacle a la con
+        // recuperer rawData
+        // foreach byte
+        // recuperer Uicolor
+        // comparer avec bgPixColor (utiliser UIColor.CGColor.CGColorEqualToColor
+    }
+    free(rawData);
+}
+
 // Init level array, each time LoadContent finishes, increment the index
 // like that each time LoadContent is called a new level is loaded
 // We must clear the scene first
@@ -48,6 +90,7 @@
     NSString *contents = [NSString stringWithContentsOfFile:path encoding:NSASCIIStringEncoding error:nil];
     NSArray *lines = [contents componentsSeparatedByCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"\r\n"]];
 
+    //[self LoadCollisionBox];
     for (NSString* line in lines) {
         if (line.length) {
             NSArray *entry = [line componentsSeparatedByString:@" "];
@@ -63,7 +106,8 @@
             else if (type == ENEMY_TYPE) {
             }
             else if (type == OBSTACLE_TYPE) {
-                entity = [[Obstacle alloc] initWithFile:@"bushes.png" rect:CGRectMake(0, 0, 96, 96)];
+                //entity = [[Obstacle alloc] initWithFile:@"bushes.png" rect:CGRectMake(0, 0, 64, 64)];
+                entity = [[Obstacle alloc] initWithFile:@"bushes.png"];
                 entity.position = ccp([[entry objectAtIndex:1] intValue], [[entry objectAtIndex:2] intValue]);
             }
             else if (type == NEUTRAL_TYPE)

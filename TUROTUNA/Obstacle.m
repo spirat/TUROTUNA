@@ -20,4 +20,16 @@
     return self;
 }
 
+- (void) checkPosition
+{
+    int x = self.position.x;
+    int y = self.position.y;
+}
+
+- (void) update:(ccTime)dt
+{
+    [super update:dt];
+    [self checkPosition];
+}
+
 @end
