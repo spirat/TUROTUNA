@@ -26,6 +26,8 @@
 		6369F2CB1462374600EE2B69 /* MathUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 6369F2CA1462374600EE2B69 /* MathUtils.m */; };
 		639717EB1443C1F8000101BD /* GameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 639717EA1443C1F8000101BD /* GameScene.m */; };
 		63BDBCA4143D3E3D00AC311B /* PathManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 63BDBCA3143D3E3D00AC311B /* PathManager.m */; };
+		72073CDD1471F0FA0071F800 /* Shuriken.m in Sources */ = {isa = PBXBuildFile; fileRef = 72073CDC1471F0FA0071F800 /* Shuriken.m */; };
+		72073CE01471F62E0071F800 /* shuriken.png in Resources */ = {isa = PBXBuildFile; fileRef = 72073CDF1471F62E0071F800 /* shuriken.png */; };
 		72705C1E145F78190096F7B2 /* Enemy.m in Sources */ = {isa = PBXBuildFile; fileRef = 72705C1D145F78190096F7B2 /* Enemy.m */; };
 		7288CA48146B66E100FE2272 /* enemyPath1.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7288CA47146B66E100FE2272 /* enemyPath1.plist */; };
 		7294647214563AE900916C35 /* AnimPlayerList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7294647114563AE900916C35 /* AnimPlayerList.plist */; };
@@ -181,6 +183,9 @@
 		639717EA1443C1F8000101BD /* GameScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameScene.m; sourceTree = "<group>"; };
 		63BDBCA2143D3E3D00AC311B /* PathManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PathManager.h; sourceTree = "<group>"; };
 		63BDBCA3143D3E3D00AC311B /* PathManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PathManager.m; sourceTree = "<group>"; };
+		72073CDB1471F0F90071F800 /* Shuriken.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Shuriken.h; sourceTree = "<group>"; };
+		72073CDC1471F0FA0071F800 /* Shuriken.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Shuriken.m; sourceTree = "<group>"; };
+		72073CDF1471F62E0071F800 /* shuriken.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shuriken.png; sourceTree = "<group>"; };
 		72705C1C145F78190096F7B2 /* Enemy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Enemy.h; sourceTree = "<group>"; };
 		72705C1D145F78190096F7B2 /* Enemy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Enemy.m; sourceTree = "<group>"; };
 		7288CA47146B66E100FE2272 /* enemyPath1.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = enemyPath1.plist; sourceTree = "<group>"; };
@@ -546,6 +551,8 @@
 				7295C979143407ED00F448F9 /* Player.m */,
 				72705C1C145F78190096F7B2 /* Enemy.h */,
 				72705C1D145F78190096F7B2 /* Enemy.m */,
+				72073CDB1471F0F90071F800 /* Shuriken.h */,
+				72073CDC1471F0FA0071F800 /* Shuriken.m */,
 				63BDBCA2143D3E3D00AC311B /* PathManager.h */,
 				63BDBCA3143D3E3D00AC311B /* PathManager.m */,
 				5B92B92C145F773200025B3F /* Neutral.h */,
@@ -581,6 +588,7 @@
 			children = (
 				7288CA44146B66A900FE2272 /* Level */,
 				5B92B930145F783A00025B3F /* background.png */,
+				72073CDF1471F62E0071F800 /* shuriken.png */,
 				5B92B931145F783A00025B3F /* bushes.png */,
 				5B92B932145F783A00025B3F /* flowerbushes.png */,
 				5B92B933145F783A00025B3F /* littlebushes.png */,
@@ -984,6 +992,7 @@
 				5B92B937145F783A00025B3F /* littlebushes.png in Resources */,
 				5B92B939145F7A5400025B3F /* level1.grid in Resources */,
 				7288CA48146B66E100FE2272 /* enemyPath1.plist in Resources */,
+				72073CE01471F62E0071F800 /* shuriken.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1107,6 +1116,7 @@
 				5B8D120D14622746009402C3 /* About.m in Sources */,
 				5B8D121514623392009402C3 /* Help.m in Sources */,
 				6369F2CB1462374600EE2B69 /* MathUtils.m in Sources */,
+				72073CDD1471F0FA0071F800 /* Shuriken.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
