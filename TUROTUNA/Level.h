@@ -18,9 +18,14 @@ enum {
     NEUTRAL_TYPE
 };
 
-enum {
-    GRID_WALL
-};
+#define FLOOR '0'
+#define GRASS '1'
+#define FLOWERS '2'
+#define SWAMP '3'
+#define OBS_H '4'
+#define OBS_M '5'
+#define OBS_T '6'
+
 
 - (void)LoadContent;
 
