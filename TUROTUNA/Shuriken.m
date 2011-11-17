@@ -15,6 +15,7 @@
     self = [super initWithFile:@"shuriken.png" scene:screen];
     self.position = start;
     self.scale = 2;
+    [self moveTo:end inDuration:1.0f];
     [self runAction:[CCRepeatForever actionWithAction:[CCRotateBy actionWithDuration:0.025 angle:30]]];
     
     return self;
