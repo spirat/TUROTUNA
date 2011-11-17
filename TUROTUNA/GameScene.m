@@ -80,7 +80,7 @@
 
 - (void) touchEnded:(UITouch *)touch atLocation:(CGPoint)location
 {
-    if (_bPlayerFocused == true)
+    if (_bPlayerFocused != true)
     {   
         Shuriken *shuriTmp = [[Shuriken alloc] initWithScene:self startingPos:_player.position endingPos:location];
         [addEntityList addObject:shuriTmp];
