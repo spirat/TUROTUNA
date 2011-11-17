@@ -108,7 +108,7 @@
     for(AEntity *toAdd in addEntityList)
     {
         [entityList addObject:toAdd];
-        [self addChild:toAdd];
+        [self addChild:toAdd z:toAdd.depth];
     }
    [addEntityList removeAllObjects];
     

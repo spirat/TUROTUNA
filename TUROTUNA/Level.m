@@ -159,16 +159,17 @@
                 else if ([line characterAtIndex:i] == SWAMP)
                     entity = [[Neutral alloc] initWithFile:@"swamp.png" rect:CGRectMake(0, 0, 64, 64)];
                 else if ([line characterAtIndex:i] == OBS_T)
-                    entity = [[Neutral alloc] initWithFile:@"hbushes1.png" rect:CGRectMake(0, 0, 64, 64)];
+                    entity = [[Obstacle alloc] initWithFile:@"hbushes1.png" rect:CGRectMake(0, 0, 64, 64)];
                 else if ([line characterAtIndex:i] == OBS_M)
-                    entity = [[Neutral alloc] initWithFile:@"hbushes2.png" rect:CGRectMake(0, 0, 64, 64)];
+                    entity = [[Obstacle alloc] initWithFile:@"hbushes2.png" rect:CGRectMake(0, 0, 64, 64)];
                 else if ([line characterAtIndex:i] == OBS_H)
-                    entity = [[Neutral alloc] initWithFile:@"hbushes3.png" rect:CGRectMake(0, 0, 64, 64)];
+                    entity = [[Obstacle alloc] initWithFile:@"hbushes3.png" rect:CGRectMake(0, 0, 64, 64)];
                 
                 if (entity != NULL)
                 {
+                    entity.depth = 0;
                     [self addEntity:entity];
-                    entity.position = ccp((i * 64) + 32, (lineNb * 64) + 32);                    
+                    entity.position = ccp((i * 64) + 32, (lineNb * 64) + 32);
                 }
             }
             lineNb++;
