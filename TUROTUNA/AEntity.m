@@ -66,12 +66,13 @@
                 }
             }
         }
-    /*    hitBox = CGRectMake(self.position.x - (self.contentSize.width / 2),
+        //self.position : bottom left of hitbox but center of sprite
+        hitBox = CGRectMake(self.position.x - (self.contentSize.width / 2),
                             self.position.y - (self.contentSize.height / 2),
                             self.contentSize.width, self.contentSize.height);
-     */
-        hitBox = CGRectMake(self.position.x, self.position.y, 
-                            self.contentSize.width, self.contentSize.height);
+     
+       // hitBox = CGRectMake(self.position.x, self.position.y, 
+       //                     self.contentSize.width, self.contentSize.height);
      }
     
     return self;
@@ -79,12 +80,12 @@
 
 - (void)update:(ccTime)dt
 {
-/*    hitBox = CGRectMake(self.position.x - (self.contentSize.width / 2),
+    hitBox = CGRectMake(self.position.x - (self.contentSize.width / 2),
                         self.position.y - (self.contentSize.height / 2),
                         self.contentSize.width, self.contentSize.height);
-*/
-    hitBox = CGRectMake(self.position.x, self.position.y, 
-                        self.contentSize.width, self.contentSize.height);
+
+//    hitBox = CGRectMake(self.position.x, self.position.y, 
+//                        self.contentSize.width, self.contentSize.height);
 }
 
 - (void)moveTo:(CGPoint)destination inDuration:(ccTime)dur
@@ -97,8 +98,8 @@
 - (bool)contains:(CGPoint)target
 {
     NSLog(@"Position : %f %f\n", self.position.x, self.position.y);
-    if (target.x > hitBox.origin.x - hitBox.size.width / 2 && target.x < hitBox.origin.x + hitBox.size.width / 2
-        && target.y > hitBox.origin.y - hitBox.size.height / 2 && target.y < hitBox.origin.y + hitBox.size.height / 2)
+    if (target.x > hitBox.origin.x  && target.x < hitBox.origin.x + hitBox.size.width
+        && target.y > hitBox.origin.y && target.y < hitBox.origin.y + hitBox.size.height)
         return true;
     return false;
 }

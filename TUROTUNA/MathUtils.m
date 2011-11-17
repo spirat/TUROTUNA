@@ -22,18 +22,44 @@ struct divop
     };
 };
 
+float DotProduct(CGPoint p1, CGPoint p2)
+{
+    return p1.x * p2.x + p1.y * p2.y;
+}
+
 bool MathVectorIntersects(CGPoint p1, CGPoint p2,
                           CGPoint p3, CGPoint p4,
                           CGPoint *result)
 {
-/*    CGPoint ab1;
-    CGPoint ab2;
+    CGPoint E;
+    CGPoint F;
+    CGPoint P;
+    CGPoint AC;
+    float h;
     
-    ab1.x = ;
-    ab1.y = ;
-    ab2.x = ;
-    ab2.y = ;
-*/
+    E.x = (p2.x - p1.x);
+    E.y = (p2.y - p1.y);
+    F.x = (p4.x - p3.x);
+    F.y = (p4.y - p3.y);
+    P.x = - E.y;
+    P.y = E.x;
+    AC.x = p1.x - p3.x;
+    AC.y = p1.y - p3.y;
+    
+    h = DotProduct(AC, P) / DotProduct(F, P);
+
+    
+    if (result)
+    {
+        result->x = p3.x + F.x * h;
+        result->y = p3.y + F.y * h;
+    }
+    
+    if (h >= 0 && h <= 1)
+        return true;
+    
+
+    
     return false;
 }
 

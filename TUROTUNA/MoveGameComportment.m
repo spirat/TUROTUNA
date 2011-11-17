@@ -35,7 +35,7 @@
 {
 }
 
-- (bool) pointIntersectsObstacle:(CGPoint)origin point2:(CGPoint)end
+- (bool) pointIntersectsObstacle:(CGPoint)origin point2:(CGPoint)end side:(int*)s
 {
     
     CGRect vectBound = CGRectMake(origin.x, origin.y, fabsf(end.x - origin.x), fabsf(end.y - origin.y));
@@ -51,32 +51,35 @@
             {
                 NSLog(@"Bounding box collision detected");
  
-                bool intersects = false;
+                CGPoint r;
+                int intersects = 0;
                 CGPoint p3, p4;
                 
                 //top right to bot right
-                p3.x = obst.origin.x + obst.size.width / 2;
-                p3.y = obst.origin.y + obst.size.height / 2;
+                p3.x = obst.origin.x + obst.size.width;
+                p3.y = obst.origin.y + obst.size.height;
                 p4.x = p3.x;
                 p4.y = p3.y - obst.size.height;
-                intersects |= MathVectorIntersects(origin, end, p3, p4, NULL);
+                intersects |= MathVectorIntersects(origin, end, p3, p4, &r);
                 
                 //bot right to bot left
                 p3.y = p4.y;
                 p3.x = p4.x - obst.size.height;
-                intersects |= MathVectorIntersects(origin, end, p4, p3, NULL);
+                intersects |= MathVectorIntersects(origin, end, p4, p3, &r) << 1;
                 
                 //bot left to top left
                 p4.x = p3.x;
                 p4.y = p3.y + obst.size.height;
-                intersects |= MathVectorIntersects(origin, end, p3, p4, NULL);
+                intersects |= MathVectorIntersects(origin, end, p3, p4, &r) << 2;
                 
                 //top left to top right
                 p3.y = p4.y;
                 p3.x = p4.x + obst.size.width;
-                intersects |= MathVectorIntersects(origin, end, p4, p3, NULL);
+                intersects |= MathVectorIntersects(origin, end, p4, p3, &r) << 3;
 
-                if (intersects == true)
+                *s = intersects;
+                
+                if (intersects != false)
                     return true;
             }
         }
@@ -89,10 +92,23 @@
 {
     if ([_scene isPlayerFocused])
     {
-        if ([[_owner getPath] getSize] == 0
-            || [self pointIntersectsObstacle:[[_owner getPath] lastPointAdded]
-                                 point2:*point] == false)
-            [[_owner getPath] pushNextPoint:point];
+        if ([[_owner getPath] getSize] != 0)
+        {
+            int s;
+            if ([self pointIntersectsObstacle:[[_owner getPath] lastPointAdded]
+                                 point2:*point side:&s] == true)
+            {
+                if (s == 1)
+                    point->x += 2;
+                else if (s == 1 << 1)
+                    point->y -= 2;
+                else if (s == 1 << 2)
+                    point->x -= 2;
+                else if (s == 1 << 3)
+                    point->y += 2;
+            }
+        }
+        [[_owner getPath] pushNextPoint:point];
     }
 }
 
