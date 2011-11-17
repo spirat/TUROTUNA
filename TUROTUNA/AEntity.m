@@ -10,7 +10,7 @@
 
 @implementation AEntity
 
-@synthesize hitBox, actionList;
+@synthesize hitBox, actionList, depth;
 
 - (id)initWithFile:(NSString *)name rect:(CGRect)rect scene:(AScene *)screen
 {
