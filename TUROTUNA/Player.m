@@ -22,6 +22,7 @@
     if (self) {
         playerPath = [[PathManager alloc] init];
         speed = 200.f;
+        self.depth = 1;
     }
     
     return self;

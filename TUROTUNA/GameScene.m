@@ -61,10 +61,6 @@
         }
         
         [dictionary release];
-
-        Shuriken *shuriTmp = [[Shuriken alloc] initWithScene:self startingPos:CGPointMake(1000, 400) endingPos:CGPointMake(0, 0)];
-        [addEntityList addObject:shuriTmp];
-        [shuriTmp release];
     }
     return self;
 }
@@ -84,6 +80,12 @@
 
 - (void) touchEnded:(UITouch *)touch atLocation:(CGPoint)location
 {
+    if (_bPlayerFocused != true)
+    {   
+        Shuriken *shuriTmp = [[Shuriken alloc] initWithScene:self startingPos:_player.position endingPos:location];
+        [addEntityList addObject:shuriTmp];
+        [shuriTmp release];
+    }
     _bPlayerFocused = false;
     [[gameComportments objectAtIndex:currentComportment] touchEnded:touch
                                                          atLocation:location];

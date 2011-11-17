@@ -59,6 +59,7 @@
     CGPoint location = [touch locationInView:[touch view]];
     location = [[CCDirector sharedDirector] convertToGL:location];
     
+	
     [self touchPointMoved:&location];
 }
 
@@ -67,7 +68,6 @@
     UITouch *touch = [touches anyObject];
     CGPoint location = [touch locationInView:[touch view]];
     location = [[CCDirector sharedDirector] convertToGL:location];
-    
     // Set up initial location of projectile
     // CGSize winSize = [[CCDirector sharedDirector] winSize];
     
@@ -83,9 +83,9 @@
     UITouch *touch = [touches anyObject];
     CGPoint location = [touch locationInView:[touch view]];
     location = [[CCDirector sharedDirector] convertToGL:location];
-    
     [self touchEnded:touch atLocation:location];
 }
+
 
 -(void)ccTouchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event
 {
@@ -108,7 +108,7 @@
     for(AEntity *toAdd in addEntityList)
     {
         [entityList addObject:toAdd];
-        [self addChild:toAdd];
+        [self addChild:toAdd z:toAdd.depth];
     }
    [addEntityList removeAllObjects];
     

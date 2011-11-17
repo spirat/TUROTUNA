@@ -13,12 +13,14 @@
 
 @interface AEntity : CCSprite
 {
+    float depth;
     AScene *scene;
     NSString *pListName;
     NSMutableArray *actionList;
     CGRect hitBox;
 }
 
+@property (nonatomic) float depth;
 @property (nonatomic) CGRect hitBox;
 @property (nonatomic, retain) NSMutableArray *actionList;
 
