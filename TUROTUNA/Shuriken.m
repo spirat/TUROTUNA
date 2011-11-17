@@ -12,7 +12,7 @@
 
 - (id)initWithScene:(AScene*)screen startingPos:(CGPoint)start endingPos:(CGPoint)end
 {
-    [super initWithFile:@"shuriken.png" scene:screen];
+    self = [super initWithFile:@"shuriken.png" scene:screen];
     self.position = start;
     self.scale = 2;
     [self runAction:[CCRepeatForever actionWithAction:[CCRotateBy actionWithDuration:0.025 angle:30]]];

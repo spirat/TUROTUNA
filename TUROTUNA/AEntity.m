@@ -14,28 +14,28 @@
 
 - (id)initWithFile:(NSString *)name rect:(CGRect)rect scene:(AScene *)screen
 {
-    [super initWithFile:name rect:rect];
+    self = [super initWithFile:name rect:rect];
     scene = screen;
     return self;
 }
 
 - (id)initWithFile:(NSString *)name scene:(AScene *)screen
 {
-    [super initWithFile:name];
+    self = [super initWithFile:name];
     scene = screen;
     return self;
 }
 
 - (id)initWithTexture:(CCTexture2D *)texture rect:(CGRect)rect scene:(AScene *)screen
 {
-    [super initWithTexture:texture rect:rect];
+    self = [super initWithTexture:texture rect:rect];
     scene = screen;
     return self;
 }
 
 - (id)init
 {
-    [super init];
+    self = [super init];
     if (self) {
         actionList = [[NSMutableArray alloc] init];
         if (pListName)
