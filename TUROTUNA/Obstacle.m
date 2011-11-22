@@ -24,6 +24,9 @@
 {
     int x = self.position.x;
     int y = self.position.y;
+    
+    (void)x;
+    (void)y;
 }
 
 - (void) update:(ccTime)dt
