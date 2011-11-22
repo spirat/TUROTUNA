@@ -36,7 +36,7 @@
         _player = [[Player alloc] initWithFile:@"Player.png" 
                                           rect:CGRectMake(0, 0, 27, 40)
                                          scene:self];
-        [_player setEntityPosition:CGPointMake(300, 300)];
+        [_player setEntityPosition:CGPointMake(10, 10)];
         gameComportments = [[NSArray alloc] initWithObjects:[[[MoveGameComportment alloc] init:self
                                                                                        player:_player] autorelease],
                             [[[ActionGameComportment alloc] init:self 
