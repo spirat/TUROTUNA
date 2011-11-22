@@ -58,13 +58,15 @@ bool MathVectorIntersects(CGPoint p1, CGPoint p2,
         
         NSLog(@"Vector (%f-%f, %f-%f) and (%f-%f,%f-%f) intersects in point (%f,%f)", p1.x, p1.y, p2.x, p2.y, p3.x, p3.y, p4.x, p4.y, r.x, r.y);
         
-        if (r.x >= MIN(p1.x, p2.x) && r.x <= MAX(p1.x, p2.x) && r.x >= MIN(p3.x, p4.x) && r.x <= MAX(p3.x, p4.x))
+        if (r.x >= MIN(p1.x, p2.x) && r.x <= MAX(p1.x, p2.x) && r.x >= MIN(p3.x, p4.x) && r.x <= MAX(p3.x, p4.x)
+            && r.y >= MIN(p1.y, p2.y) && r.y <= MAX(p1.y, p2.y) && r.y >= MIN(p3.y, p4.y) && r.y <= MAX(p3.y, p4.y))
         {
             if (result)
             {
                 result->x = r.x;
                 result->y = r.y;
             }
+            NSLog(@"Collision properly detected !");
             return true;
         }
     }

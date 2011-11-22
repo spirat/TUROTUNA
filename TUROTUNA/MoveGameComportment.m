@@ -35,7 +35,7 @@
 {
 }
 
-- (bool) pointIntersectsObstacle:(CGPoint)origin point2:(CGPoint)end side:(int*)s
+- (bool) pointIntersectsObstacle:(CGPoint)origin point2:(CGPoint)end side:(int*)s point:(CGPoint*)intersection
 {
     
     CGRect vectBound = CGRectMake(origin.x, origin.y, fabsf(end.x - origin.x), fabsf(end.y - origin.y));
@@ -51,7 +51,6 @@
             {
                 NSLog(@"Bounding box collision detected");
  
-                CGPoint r;
                 int intersects = 0;
                 CGPoint p3, p4;
                 
@@ -60,27 +59,37 @@
                 p3.y = obst.origin.y + obst.size.height;
                 p4.x = p3.x;
                 p4.y = p3.y - obst.size.height;
-                intersects |= MathVectorIntersects(origin, end, p3, p4, &r);
+                intersects |= MathVectorIntersects(origin, end, p3, p4, intersection);
                 
                 //bot right to bot left
                 p3.y = p4.y;
                 p3.x = p4.x - obst.size.height;
-                intersects |= MathVectorIntersects(origin, end, p4, p3, &r) << 1;
+                intersects |= MathVectorIntersects(origin, end, p4, p3, intersection) << 1;
                 
                 //bot left to top left
                 p4.x = p3.x;
                 p4.y = p3.y + obst.size.height;
-                intersects |= MathVectorIntersects(origin, end, p3, p4, &r) << 2;
+                intersects |= MathVectorIntersects(origin, end, p3, p4, intersection) << 2;
                 
                 //top left to top right
                 p3.y = p4.y;
                 p3.x = p4.x + obst.size.width;
-                intersects |= MathVectorIntersects(origin, end, p4, p3, &r) << 3;
+                intersects |= MathVectorIntersects(origin, end, p4, p3, intersection) << 3;
 
-                *s = intersects;
-                
-                if (intersects != false)
+                if (intersects != 0)
+                {
+                    *s = intersects;
                     return true;
+                }
+                
+                if (CGRectContainsPoint(obst, end))
+                {
+                    if (*s & 0x5)
+                        intersection->x = end.x;
+                    else if (*s & 0xA)
+                        intersection->y = end.y;
+                    return true;
+                }
             }
         }
     }
@@ -94,18 +103,20 @@
     {
         if ([[_owner getPath] getSize] != 0)
         {
-            int s;
+            static int lastSide;
+            static CGPoint lastIntersection;
             if ([self pointIntersectsObstacle:[[_owner getPath] lastPointAdded]
-                                 point2:*point side:&s] == true)
+                                       point2:*point side:&lastSide point:&lastIntersection] == true)
             {
-                if (s == 1)
-                    point->x += 2;
-                else if (s == 1 << 1)
-                    point->y -= 2;
-                else if (s == 1 << 2)
-                    point->x -= 2;
-                else if (s == 1 << 3)
-                    point->y += 2;
+                NSLog(@"Side : %d", lastSide);
+                if (lastSide == 1)
+                    point->x = lastIntersection.x + 5;
+                else if (lastSide == 1 << 1)
+                    point->y = lastIntersection.y - 5;
+                else if (lastSide == 1 << 2)
+                    point->x = lastIntersection.x - 5;
+                else if (lastSide == 1 << 3)
+                    point->y = lastIntersection.y + 5;
             }
         }
         [[_owner getPath] pushNextPoint:point];
