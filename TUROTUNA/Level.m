@@ -35,63 +35,80 @@
     return self;
 }
 
-//- (void)checkCollision:(unsigned char*)baseData x:(int)x y:(int)y path:(NSString*)obstaclePath size:(int)obstacleSize bytesPerPixel:(int)bytesPerPixel
-//{
-//    // compute subrect offset
-//    int offset = (64 - obstacleSize) / 2;
-//    
-//    // generate rawData for obstacle
-//    UIImage *obstacleImg = [UIImage imageNamed:obstaclePath];
-//    CGImageRef imageRef = [obstacleImg CGImage];
-//    NSUInteger width = CGImageGetWidth(imageRef);
-//    NSUInteger height = CGImageGetHeight(imageRef);
-//    unsigned char *obsData = malloc(height * width * 4);
-//
-//    // iterate subrect obstacle (just add x and y for the baseData
-//    for (int h = offset; h < obstacleSize + offset; ++h) {
-//        for (int w = offset; w < obstacleSize + offset; ++w) {
-//            CGFloat redObs   = (obsData[(w * bytesPerPixel) + (h * width)]     * 1.0) / 255.0;
-//            CGFloat greenObs = (obsData[(w * bytesPerPixel) + (h * width) + 1] * 1.0) / 255.0;
-//            CGFloat blueObs  = (obsData[(w * bytesPerPixel) + (h * width) + 2] * 1.0) / 255.0;
-//            CGFloat alphaObs = (obsData[(w * bytesPerPixel) + (h * width) + 3] * 1.0) / 255.0;
-//            //comparer avec bgPixColor (utiliser UIColor.CGColor.CGColorEqualToColor
-//        }
-//    }
-//    free(obsData);
-//}
+// TODO: test... return 0 or 1 for match or mismatch or bool... :p
+- (void)checkCollision:(const uint8_t*)pixel path:(NSString*)obstaclePath size:(int)obstacleSize bytesPerPixel:(int)bytesPerPixel
+{
+    // generate raw data
+    UIImage *obstacleImage = [UIImage imageNamed:obstaclePath];
+    CGImageRef imageRef = [obstacleImage CGImage];
+    
+    size_t width  = CGImageGetWidth(imageRef);
+    size_t height = CGImageGetHeight(imageRef);
+    
+    size_t bpr = CGImageGetBytesPerRow(imageRef);
+    size_t bpp = CGImageGetBitsPerPixel(imageRef);
+    size_t bpc = CGImageGetBitsPerComponent(imageRef);
+    size_t bytes_per_pixel = bpp / bpc;
+    
+    CGDataProviderRef provider = CGImageGetDataProvider(imageRef);
+    NSData* data = (id)CGDataProviderCopyData(provider);
+    [data autorelease];
+    const uint8_t* bytes = [data bytes];
 
-//// 64 x 64
-//// http://www.cocos2d-iphone.org/archives/61 RGBA8888 pixel format
-//- (void)LoadCollisionBox
-//{
-//    UIImage *backgroundImage = [UIImage imageNamed:@"background.png"];
-//    CGImageRef imageRef = [backgroundImage CGImage];
-//    NSUInteger width = CGImageGetWidth(imageRef);
-//    NSUInteger height = CGImageGetHeight(imageRef);
-//    CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
-//    unsigned char *rawData = malloc(height * width * 4);
-//    NSUInteger bytesPerPixel = 4;
-//    NSUInteger bytesPerRow = bytesPerPixel * width;
-//    NSUInteger bitsPerComponent = 8;
-//    CGContextRef context = CGBitmapContextCreate(rawData, width, height,
-//                                                 bitsPerComponent, bytesPerRow, colorSpace,
-//                                                 kCGImageAlphaPremultipliedLast | kCGBitmapByteOrder32Big);
-//    CGColorSpaceRelease(colorSpace);
-//    CGContextDrawImage(context, CGRectMake(0, 0, width, height), imageRef);
-//    CGContextRelease(context);
-//    
-//    NSString *obstaclePath = [[NSBundle mainBundle] pathForResource:@"Plant" ofType:@"png"];
-//    int obstacleSize = 16;
-//    
-//    for (int y = 0; y < height / 64; y += 64) {
-//        for (int x = 0; x < width / 64; x += 64) {
-//            // foreach obstacle sprite path
-//            [self checkCollision:rawData x:x y:y path:obstaclePath size:obstacleSize bytesPerPixel:bytesPerPixel];
-//        }
-//    }
-//    free(rawData);
-//}
-//
+    // compute subrect offset (don't use subrect for now, assume size 64)
+    // TODO: integrate subrect
+    //int offset = (64 - obstacleSize) / 2;
+    
+    // iterate subrect obstacle (just add x and y for the baseData)
+    for (int y = 0; y < height; ++y) {
+        for (int x = 0; x < width; ++x) {
+            const uint8_t* obsPixel = &bytes[y * bpr + x * bytes_per_pixel];
+            const uint8_t* backPixel = &pixel[y * bpr + x * bytes_per_pixel];
+            
+            for (size_t x = 0; x < bytes_per_pixel; x++)
+            {
+                if (obsPixel[x] != backPixel[x]) {
+                    NSLog(@"Pixel mismatch");
+                    return;
+                }
+            }
+        }
+    }
+    NSLog(@"OBSTACLE MATCH");
+}
+
+// 64 x 64
+// http://www.cocos2d-iphone.org/archives/61 RGBA8888 pixel format
+- (void)LoadCollisionBox
+{
+    UIImage *backgroundImage = [UIImage imageNamed:@"background.png"];
+    CGImageRef imageRef = [backgroundImage CGImage];
+    
+    size_t width  = CGImageGetWidth(imageRef);
+    size_t height = CGImageGetHeight(imageRef);
+    
+    size_t bpr = CGImageGetBytesPerRow(imageRef);
+    size_t bpp = CGImageGetBitsPerPixel(imageRef);
+    size_t bpc = CGImageGetBitsPerComponent(imageRef);
+    size_t bytes_per_pixel = bpp / bpc;
+
+    CGDataProviderRef provider = CGImageGetDataProvider(imageRef);
+    NSData* data = (id)CGDataProviderCopyData(provider);
+    [data autorelease];
+    const uint8_t* bytes = [data bytes];
+    
+    // tmp test TODO: faire une liste de NSString vers les obstacles ou un dico ou..
+    NSString* obs = [[NSBundle mainBundle] pathForResource:@"grass" ofType:@"png"];
+    
+    for (int y = 0; y < height / 64; y += 64) {
+        for (int x = 0; x < width / 64; x += 64) {
+            const uint8_t* pixel = &bytes[y * bpr + x * bytes_per_pixel];
+            // TODO iterer sur les obstacles foreach "obs" in obstaclesPaths
+            [self checkCollision:pixel path:obs size:64 bytesPerPixel:bpp];
+        }
+    }
+}
+
 //// Init level array, each time LoadContent finishes, increment the index
 //// like that each time LoadContent is called a new level is loaded
 //// We must clear the scene first
