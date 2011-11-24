@@ -24,7 +24,6 @@
 		5BBC32B11474A17A00BBCAD6 /* smoke.png in Resources */ = {isa = PBXBuildFile; fileRef = 5BBC32A61474A17A00BBCAD6 /* smoke.png */; };
 		5BBC32B21474A17A00BBCAD6 /* swamp.png in Resources */ = {isa = PBXBuildFile; fileRef = 5BBC32A71474A17A00BBCAD6 /* swamp.png */; };
 		5BBC32B41474A51100BBCAD6 /* MapInfo.inf in Resources */ = {isa = PBXBuildFile; fileRef = 5BBC32B31474A51100BBCAD6 /* MapInfo.inf */; };
-		5BBC32B61474A67B00BBCAD6 /* MapInfo.c in Sources */ = {isa = PBXBuildFile; fileRef = 5BBC32B51474A67B00BBCAD6 /* MapInfo.c */; };
 		5BC6F360143D436200B95454 /* Obstacle.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BC6F35F143D436200B95454 /* Obstacle.m */; };
 		5BC6F368143D459300B95454 /* Level.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BC6F367143D459300B95454 /* Level.m */; };
 		5BC6F36B143D45F600B95454 /* level1.map in Resources */ = {isa = PBXBuildFile; fileRef = 5BC6F36A143D45F600B95454 /* level1.map */; };
@@ -183,7 +182,6 @@
 		5BBC32A61474A17A00BBCAD6 /* smoke.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = smoke.png; sourceTree = "<group>"; };
 		5BBC32A71474A17A00BBCAD6 /* swamp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = swamp.png; sourceTree = "<group>"; };
 		5BBC32B31474A51100BBCAD6 /* MapInfo.inf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = MapInfo.inf; sourceTree = "<group>"; };
-		5BBC32B51474A67B00BBCAD6 /* MapInfo.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = MapInfo.c; sourceTree = "<group>"; };
 		5BC6F35E143D436200B95454 /* Obstacle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Obstacle.h; sourceTree = "<group>"; };
 		5BC6F35F143D436200B95454 /* Obstacle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Obstacle.m; sourceTree = "<group>"; };
 		5BC6F366143D459300B95454 /* Level.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Level.h; sourceTree = "<group>"; };
@@ -602,7 +600,6 @@
 				B3BE07EE14281ACB002D183E /* Resources */,
 				B3BE080214281ACB002D183E /* libs */,
 				B3BE093B14281ACC002D183E /* Supporting Files */,
-				5BBC32B51474A67B00BBCAD6 /* MapInfo.c */,
 			);
 			path = TUROTUNA;
 			sourceTree = "<group>";
