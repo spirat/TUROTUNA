@@ -1,4 +1,5 @@
 //
+
 //  Obstacle.m
 //  TUROTUNA
 //
@@ -16,6 +17,17 @@
     if (self) {
         // Initialization code here.
     }
+    
+    return self;
+}
+
+- (id)initWithFile:(NSString *)filename scene:(AScene *)screen
+{
+    self = [super initWithFile:filename scene:scene];
+    
+    life = 1;
+    killable = NO;
+    attack = 0;
     
     return self;
 }

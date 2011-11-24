@@ -168,7 +168,10 @@
                 if (entity != NULL)
                 {
                     entity.depth = 0;
-                    [self addEntity:entity];
+                    if ([entity isKindOfClass:[Obstacle class]])
+                        [self addEntity:entity];
+                    else
+                        [self addChild:entity];
                     entity.position = ccp((i * 64) + 32, (lineNb * 64) + 32);
                 }
             }

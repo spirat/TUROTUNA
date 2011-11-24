@@ -17,6 +17,10 @@
     self = [super init];
     if (self) {
         
+        self.depth = 1;
+        killable = YES;
+        life = 10;
+        attack = 100;
         //pListName = @"AnimEnemyList";
     }
     

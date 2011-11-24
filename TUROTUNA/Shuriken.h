@@ -13,6 +13,8 @@
 {
     CGPoint direction;
     float speed;
+    CGSize winSize;
+    
 }
 
 - (id)initWithScene:(AScene*)screen startingPos:(CGPoint)start endingPos:(CGPoint)end;
