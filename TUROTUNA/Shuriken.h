@@ -11,9 +11,10 @@
 
 @interface Shuriken : AEntity
 {
-    CGPoint endPos;
+    CGPoint direction;
+    float speed;
 }
-    
+
 - (id)initWithScene:(AScene*)screen startingPos:(CGPoint)start endingPos:(CGPoint)end;
 
 
