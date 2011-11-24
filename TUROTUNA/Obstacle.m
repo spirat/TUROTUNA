@@ -7,8 +7,10 @@
 //
 
 #import "Obstacle.h"
+#import "SquareDraw.h"
 
 @implementation Obstacle
+
 
 - (id)init
 {
@@ -16,7 +18,6 @@
     if (self) {
         // Initialization code here.
     }
-    
     return self;
 }
 
