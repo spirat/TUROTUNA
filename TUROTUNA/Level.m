@@ -176,11 +176,11 @@
                 else if ([line characterAtIndex:i] == SWAMP)
                     entity = [[Neutral alloc] initWithFile:@"swamp.png" rect:CGRectMake(0, 0, 64, 64)];
                 else if ([line characterAtIndex:i] == OBS_T)
-                    entity = [[Obstacle alloc] initWithFile:@"hbushes3.png" rect:CGRectMake(0, 0, 64, 64)];
+                    entity = [[Obstacle alloc] initWithFile:@"hbushes3.png" scene:self];
                 else if ([line characterAtIndex:i] == OBS_M)
-                    entity = [[Obstacle alloc] initWithFile:@"hbushes2.png" rect:CGRectMake(0, 0, 64, 64)];
+                    entity = [[Obstacle alloc] initWithFile:@"hbushes2.png" scene:self];
                 else if ([line characterAtIndex:i] == OBS_H)
-                    entity = [[Obstacle alloc] initWithFile:@"hbushes1.png" rect:CGRectMake(0, 0, 64, 64)];
+                    entity = [[Obstacle alloc] initWithFile:@"hbushes1.png" scene:self];
                 
                 if (entity != NULL)
                 {

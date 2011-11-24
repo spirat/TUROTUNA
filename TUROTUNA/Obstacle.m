@@ -30,6 +30,10 @@
     killable = NO;
     attack = 0;
     
+    SquareDraw *p = [[SquareDraw alloc]initWithScene:screen];
+    
+    [p setRect:hitBox];
+    
     return self;
 }
 
