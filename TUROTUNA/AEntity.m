@@ -6,11 +6,12 @@
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
+#import "Neutral.h"
 #import "AEntity.h"
 
 @implementation AEntity
 
-@synthesize hitBox, actionList, depth;
+@synthesize hitBox, actionList, depth, life, attack, killable;
 
 - (id)initWithFile:(NSString *)name rect:(CGRect)rect scene:(AScene *)screen
 {
@@ -87,6 +88,26 @@
     hitBox.origin.y += 2;
 //    hitBox = CGRectMake(self.position.x, self.position.y, 
 //                        self.contentSize.width, self.contentSize.height);
+
+    int entityCount = [[scene getEntities] count];
+    for (int i = 0; i < entityCount; i++)
+    {
+        AEntity *e = [[scene getEntities] objectAtIndex:i];
+        
+        if (![e isKindOfClass:[Neutral class]] &&
+            e != self)
+        {
+            if (CGRectIntersectsRect(hitBox, e.hitBox))
+            {
+                [self resultCollision:e];
+                [e resultCollision:self];
+            }
+        }
+    }
+
+    
+    if (killable && life <= 0)
+        [scene delEntity:self];
 }
 
 - (void)moveTo:(CGPoint)destination inDuration:(ccTime)dur
@@ -94,6 +115,10 @@
     id action = [CCMoveTo actionWithDuration:dur
                                     position:destination];
     [self runAction:action];
+}
+
+- (void)resultCollision:(AEntity *)entity
+{
 }
 
 - (bool)contains:(CGPoint)target

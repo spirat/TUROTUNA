@@ -42,6 +42,8 @@
 		7295C97A143407ED00F448F9 /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = 7295C979143407ED00F448F9 /* Player.m */; };
 		7295C98014340A4300F448F9 /* AScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 7295C97F14340A4300F448F9 /* AScene.m */; };
 		7295C98314340E4C00F448F9 /* AEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 7295C98214340E4C00F448F9 /* AEntity.m */; };
+		72A1B322147DE77500EDE0A0 /* Effect.m in Sources */ = {isa = PBXBuildFile; fileRef = 72A1B321147DE77400EDE0A0 /* Effect.m */; };
+		72A1B324147DE8ED00EDE0A0 /* spy.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 72A1B323147DE8ED00EDE0A0 /* spy.mp3 */; };
 		72EA98141446803000257C39 /* animationtest.png in Resources */ = {isa = PBXBuildFile; fileRef = 72EA98131446803000257C39 /* animationtest.png */; };
 		B3BE07DE14281ACA002D183E /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3BE07DD14281ACA002D183E /* QuartzCore.framework */; };
 		B3BE07E014281ACA002D183E /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3BE07DF14281ACA002D183E /* OpenGLES.framework */; };
@@ -213,6 +215,9 @@
 		7295C97F14340A4300F448F9 /* AScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AScene.m; sourceTree = "<group>"; };
 		7295C98114340E4B00F448F9 /* AEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AEntity.h; sourceTree = "<group>"; };
 		7295C98214340E4C00F448F9 /* AEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AEntity.m; sourceTree = "<group>"; };
+		72A1B320147DE77300EDE0A0 /* Effect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Effect.h; sourceTree = "<group>"; };
+		72A1B321147DE77400EDE0A0 /* Effect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Effect.m; sourceTree = "<group>"; };
+		72A1B323147DE8ED00EDE0A0 /* spy.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = spy.mp3; sourceTree = "<group>"; };
 		72EA98131446803000257C39 /* animationtest.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = animationtest.png; sourceTree = "<group>"; };
 		B3BE07D914281ACA002D183E /* TUROTUNA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TUROTUNA.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3BE07DD14281ACA002D183E /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -574,6 +579,8 @@
 				63BDBCA3143D3E3D00AC311B /* PathManager.m */,
 				5B92B92C145F773200025B3F /* Neutral.h */,
 				5B92B92D145F773200025B3F /* Neutral.m */,
+				72A1B320147DE77300EDE0A0 /* Effect.h */,
+				72A1B321147DE77400EDE0A0 /* Effect.m */,
 				5BC6F35E143D436200B95454 /* Obstacle.h */,
 				5BC6F35F143D436200B95454 /* Obstacle.m */,
 				7295C98114340E4B00F448F9 /* AEntity.h */,
@@ -605,6 +612,7 @@
 		B3BE07EE14281ACB002D183E /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				72A1B323147DE8ED00EDE0A0 /* spy.mp3 */,
 				5BBC329D1474A17A00BBCAD6 /* axe.png */,
 				5BBC329E1474A17A00BBCAD6 /* floor.png */,
 				5BBC329F1474A17A00BBCAD6 /* flowers.png */,
@@ -1026,6 +1034,7 @@
 				5BBC32B11474A17A00BBCAD6 /* smoke.png in Resources */,
 				5BBC32B21474A17A00BBCAD6 /* swamp.png in Resources */,
 				5BBC32B41474A51100BBCAD6 /* MapInfo.inf in Resources */,
+				72A1B324147DE8ED00EDE0A0 /* spy.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

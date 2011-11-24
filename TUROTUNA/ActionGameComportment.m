@@ -45,13 +45,11 @@
             [[_owner getPath] popPoint];
             next = [[_owner getPath] peekPoint];
             float distance = sqrtf(powf(next.x - current.x, 2) + powf(next.y - current.y, 2));
-            NSLog(@"%f %f", next.x, next.y);
             [_owner moveTo:next inDuration: distance / _owner.speed];
         }
     }
     else
     {
-        NSLog(@"TOTO");
         [_scene switchGameComportment];
     }
 }
@@ -84,7 +82,6 @@
 
 - (void) onComportmentSwitchedOff
 {
-    NSLog(@"toto lolo");
     [_owner moveTo:_owner.position
         inDuration:1.f];
 }

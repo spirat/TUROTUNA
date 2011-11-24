@@ -18,9 +18,15 @@
     NSString *pListName;
     NSMutableArray *actionList;
     CGRect hitBox;
+    bool killable;
+    int life;
+    int attack;
 }
 
-@property (nonatomic) float depth;
+@property float depth;
+@property int life;
+@property bool killable;
+@property int attack;
 @property (nonatomic) CGRect hitBox;
 @property (nonatomic, retain) NSMutableArray *actionList;
 
@@ -31,6 +37,7 @@
 
 - (void)update:(ccTime)dt;
 - (void)moveTo:(CGPoint)destination inDuration:(ccTime)dur;
+- (void)resultCollision:(AEntity *)entity;
 
 - (bool)contains:(CGPoint)target;
 - (void)setEntityPosition:(CGPoint)position;
