@@ -100,7 +100,9 @@
     int idx = 1;
     int end = [_pathPoints count];
     
-    if (end < 2)
+    if (end == 1)
+        ccDrawLine(_owner.position, [(NSValue*)[_pathPoints objectAtIndex:0] CGPointValue]);
+    else if (end < 2)
         return;
     
     glEnable(GL_LINE_SMOOTH);
