@@ -33,6 +33,7 @@
 		6369F2CB1462374600EE2B69 /* MathUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 6369F2CA1462374600EE2B69 /* MathUtils.m */; };
 		639717EB1443C1F8000101BD /* GameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 639717EA1443C1F8000101BD /* GameScene.m */; };
 		63BDBCA4143D3E3D00AC311B /* PathManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 63BDBCA3143D3E3D00AC311B /* PathManager.m */; };
+		63D00F15147DE6EF00516F3B /* SquareDraw.m in Sources */ = {isa = PBXBuildFile; fileRef = 63D00F14147DE6EF00516F3B /* SquareDraw.m */; };
 		72073CDD1471F0FA0071F800 /* Shuriken.m in Sources */ = {isa = PBXBuildFile; fileRef = 72073CDC1471F0FA0071F800 /* Shuriken.m */; };
 		72073CE01471F62E0071F800 /* shuriken.png in Resources */ = {isa = PBXBuildFile; fileRef = 72073CDF1471F62E0071F800 /* shuriken.png */; };
 		72705C1E145F78190096F7B2 /* Enemy.m in Sources */ = {isa = PBXBuildFile; fileRef = 72705C1D145F78190096F7B2 /* Enemy.m */; };
@@ -41,6 +42,8 @@
 		7295C97A143407ED00F448F9 /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = 7295C979143407ED00F448F9 /* Player.m */; };
 		7295C98014340A4300F448F9 /* AScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 7295C97F14340A4300F448F9 /* AScene.m */; };
 		7295C98314340E4C00F448F9 /* AEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 7295C98214340E4C00F448F9 /* AEntity.m */; };
+		72A1B322147DE77500EDE0A0 /* Effect.m in Sources */ = {isa = PBXBuildFile; fileRef = 72A1B321147DE77400EDE0A0 /* Effect.m */; };
+		72A1B324147DE8ED00EDE0A0 /* spy.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 72A1B323147DE8ED00EDE0A0 /* spy.mp3 */; };
 		72EA98141446803000257C39 /* animationtest.png in Resources */ = {isa = PBXBuildFile; fileRef = 72EA98131446803000257C39 /* animationtest.png */; };
 		B3BE07DE14281ACA002D183E /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3BE07DD14281ACA002D183E /* QuartzCore.framework */; };
 		B3BE07E014281ACA002D183E /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3BE07DF14281ACA002D183E /* OpenGLES.framework */; };
@@ -197,6 +200,8 @@
 		639717EA1443C1F8000101BD /* GameScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameScene.m; sourceTree = "<group>"; };
 		63BDBCA2143D3E3D00AC311B /* PathManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PathManager.h; sourceTree = "<group>"; };
 		63BDBCA3143D3E3D00AC311B /* PathManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PathManager.m; sourceTree = "<group>"; };
+		63D00F13147DE6EF00516F3B /* SquareDraw.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SquareDraw.h; sourceTree = "<group>"; };
+		63D00F14147DE6EF00516F3B /* SquareDraw.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SquareDraw.m; sourceTree = "<group>"; };
 		72073CDB1471F0F90071F800 /* Shuriken.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Shuriken.h; sourceTree = "<group>"; };
 		72073CDC1471F0FA0071F800 /* Shuriken.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Shuriken.m; sourceTree = "<group>"; };
 		72073CDF1471F62E0071F800 /* shuriken.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shuriken.png; sourceTree = "<group>"; };
@@ -210,6 +215,9 @@
 		7295C97F14340A4300F448F9 /* AScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AScene.m; sourceTree = "<group>"; };
 		7295C98114340E4B00F448F9 /* AEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AEntity.h; sourceTree = "<group>"; };
 		7295C98214340E4C00F448F9 /* AEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AEntity.m; sourceTree = "<group>"; };
+		72A1B320147DE77300EDE0A0 /* Effect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Effect.h; sourceTree = "<group>"; };
+		72A1B321147DE77400EDE0A0 /* Effect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Effect.m; sourceTree = "<group>"; };
+		72A1B323147DE8ED00EDE0A0 /* spy.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = spy.mp3; sourceTree = "<group>"; };
 		72EA98131446803000257C39 /* animationtest.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = animationtest.png; sourceTree = "<group>"; };
 		B3BE07D914281ACA002D183E /* TUROTUNA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TUROTUNA.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3BE07DD14281ACA002D183E /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -571,6 +579,8 @@
 				63BDBCA3143D3E3D00AC311B /* PathManager.m */,
 				5B92B92C145F773200025B3F /* Neutral.h */,
 				5B92B92D145F773200025B3F /* Neutral.m */,
+				72A1B320147DE77300EDE0A0 /* Effect.h */,
+				72A1B321147DE77400EDE0A0 /* Effect.m */,
 				5BC6F35E143D436200B95454 /* Obstacle.h */,
 				5BC6F35F143D436200B95454 /* Obstacle.m */,
 				7295C98114340E4B00F448F9 /* AEntity.h */,
@@ -590,6 +600,8 @@
 				5B8D121414623392009402C3 /* Help.m */,
 				6369F2C91462374600EE2B69 /* MathUtils.h */,
 				6369F2CA1462374600EE2B69 /* MathUtils.m */,
+				63D00F13147DE6EF00516F3B /* SquareDraw.h */,
+				63D00F14147DE6EF00516F3B /* SquareDraw.m */,
 				B3BE07EE14281ACB002D183E /* Resources */,
 				B3BE080214281ACB002D183E /* libs */,
 				B3BE093B14281ACC002D183E /* Supporting Files */,
@@ -600,6 +612,7 @@
 		B3BE07EE14281ACB002D183E /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				72A1B323147DE8ED00EDE0A0 /* spy.mp3 */,
 				5BBC329D1474A17A00BBCAD6 /* axe.png */,
 				5BBC329E1474A17A00BBCAD6 /* floor.png */,
 				5BBC329F1474A17A00BBCAD6 /* flowers.png */,
@@ -1021,6 +1034,7 @@
 				5BBC32B11474A17A00BBCAD6 /* smoke.png in Resources */,
 				5BBC32B21474A17A00BBCAD6 /* swamp.png in Resources */,
 				5BBC32B41474A51100BBCAD6 /* MapInfo.inf in Resources */,
+				72A1B324147DE8ED00EDE0A0 /* spy.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1145,6 +1159,9 @@
 				5B8D121514623392009402C3 /* Help.m in Sources */,
 				6369F2CB1462374600EE2B69 /* MathUtils.m in Sources */,
 				72073CDD1471F0FA0071F800 /* Shuriken.m in Sources */,
+				63D00F15147DE6EF00516F3B /* SquareDraw.m in Sources */,
+				5BBC32B61474A67B00BBCAD6 /* MapInfo.c in Sources */,
+				72A1B322147DE77500EDE0A0 /* Effect.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

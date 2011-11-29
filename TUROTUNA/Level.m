@@ -193,8 +193,17 @@
                 if (entity != NULL)
                 {
                     entity.depth = 0;
+                    if ([entity isKindOfClass:[Obstacle class]])
+                        [self addEntity:entity];
+                    else
+                        [self addChild:entity];
+                    /*
+                    entity.position = ccp((i * 64) + 32, (lineNb * 64) + 32);
+
                     [self addEntity:entity];
+                    */
                     entity.position = ccp(((/*15 -*/ i) * 64) + 32, ((11 - lineNb) * 64) + 32);
+
                 }
             }
             lineNb++;
