@@ -39,8 +39,8 @@
 {
     CGRect hitbox1 = entity1.hitBox;
     CGRect hitbox2 = entity2.hitBox;
-    //int diffX = entity2.hitBox.origin.x - entity1.hitBox.origin.x;
-    //int diffY = entity2.hitBox.origin.y - entity1.hitBox.origin.y;
+    int diffX = entity2.hitBox.origin.x - entity1.hitBox.origin.x;
+    int diffY = entity2.hitBox.origin.y - entity1.hitBox.origin.y;
     size_t size1 = hitbox1.size.width * hitbox1.size.height * 4;
     size_t size2 = hitbox2.size.width * hitbox2.size.height * 4;
     void*   pixels1 = malloc(size1);
@@ -50,11 +50,15 @@
     if (pixels1 || pixels2)
         goto cleanup;
     
+    if (hitbox1.origin.x >= hitbox2.origin.x && hitbox1.origin.x <= hitbox2.origin.x + hitbox2.size.width) {
+    }
+    if (hitbox1.origin.y >= hitbox2.origin.y && hitbox1.origin.y <= hitbox2.origin.y + hitbox2.size.height) {
+    }
+    
     // get pixel data
     glReadPixels(hitbox1.origin.x, hitbox1.origin.y, hitbox1.size.width, hitbox1.size.height, GL_RGBA, GL_UNSIGNED_BYTE, pixels1);
     glReadPixels(hitbox2.origin.x, hitbox2.origin.y, hitbox2.size.width, hitbox2.size.height, GL_RGBA, GL_UNSIGNED_BYTE, pixels2);
 
-    // find offX and offY
     // pixel collision
     for (int i = 0; i < size1; ++i) {
     }
