@@ -10,6 +10,10 @@
 #import "AEntity.h"
 #import "AScene.h"
 
-@interface Neutral : AEntity
+@interface Effect : AEntity
+{
+}
+
+- (id)initWithScene:(AScene*)screen effetName:(NSString *)name position:(CGPoint)pos;
 
 @end

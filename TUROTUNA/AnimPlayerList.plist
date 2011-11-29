@@ -4,6 +4,10 @@
 <dict>
 	<key>walk</key>
 	<dict>
+		<key>autodel</key>
+		<false/>
+		<key>loop</key>
+		<true/>
 		<key>file</key>
 		<string>animationtest.png</string>
 		<key>rectList</key>

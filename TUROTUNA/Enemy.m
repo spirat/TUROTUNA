@@ -7,6 +7,7 @@
 //
 
 #import "Enemy.h"
+#import "Shuriken.h"
 
 @implementation Enemy
 
@@ -67,6 +68,12 @@
 - (void) update:(ccTime)dt
 {
     [super update:dt];
+}
+
+- (void)resultCollision:(AEntity *)entity
+{
+    if ([entity isKindOfClass:[Shuriken class]])
+        life -= entity.attack;
 }
 
 - (void) dealloc
