@@ -70,9 +70,7 @@
         //self.position : bottom left of hitbox but center of sprite
         hitBox = CGRectMake(self.position.x - (self.contentSize.width / 2),
                             self.position.y - (self.contentSize.height / 2),
-                            self.contentSize.width+ 2, self.contentSize.height + 2);
-        hitBox.origin.y += 2;
-        hitBox.origin.x -= 2;
+                            self.contentSize.width, self.contentSize.height);
         
        // hitBox = CGRectMake(self.position.x, self.position.y, 
        //                     self.contentSize.width, self.contentSize.height);
@@ -85,9 +83,7 @@
 {
     hitBox = CGRectMake(self.position.x - (self.contentSize.width / 2),
                         self.position.y - (self.contentSize.height / 2),
-                        self.contentSize.width + 2, self.contentSize.height + 2);
-    hitBox.origin.x -= 2;
-    hitBox.origin.y += 2;
+                        self.contentSize.width, self.contentSize.height);
 //    hitBox = CGRectMake(self.position.x, self.position.y, 
 //                        self.contentSize.width, self.contentSize.height);
 
@@ -135,13 +131,13 @@
 - (void)setEntityPosition:(CGPoint)position
 {
     self.position = position;
-/*
+
     hitBox = CGRectMake(self.position.x - (self.contentSize.width / 2),
                         self.position.y - (self.contentSize.height / 2),
                         self.contentSize.width, self.contentSize.height);
-*/
-    hitBox = CGRectMake(self.position.x, self.position.y, 
-                        self.contentSize.width, self.contentSize.height);
+
+    /*hitBox = CGRectMake(self.position.x, self.position.y, 
+                        self.contentSize.width, self.contentSize.height);*/
  }
 
 - (CGRect)getHitbox
