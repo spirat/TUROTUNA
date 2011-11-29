@@ -10,6 +10,7 @@
 #import "Enemy.h"
 #import "Shuriken.h"
 #import "Neutral.h"
+#import "Effect.h"
 
 @implementation Shuriken
 
@@ -33,6 +34,7 @@
     self.depth = 1;
     
     speed = 600;
+    timeDead = 2.0f;
     direction = ccpNormalize(ccp(end.x - start.x, end.y - start.y));
     killable = NO;
     attack = 10;
@@ -51,20 +53,30 @@
     
     if (self.position.x <= 0 || self.position.x >= winSize.width || self.position.y <= 0 || self.position.y >= winSize.height)
         [scene delEntity:self];
+    if (attack == 0)
+    {
+        timeDead -= dt;
+        if (timeDead <= 0)
+        {
+            [scene delEntity:self];
+            Effect *shurikenHit = [[Effect alloc] initWithScene:scene effetName:@"ShurikenHit" position:self.position];
+            //[shurikenHit runAction:[actionList objectAtIndex:0]];
+        }
+    }
 }
 
 - (void)resultCollision:(AEntity *)entity
 {
     if ([entity isKindOfClass:[Enemy class]])
-        if (killable)
-            life -= entity.attack;
+        life -= entity.attack;
     
     if ([entity isKindOfClass:[Obstacle class]])
     {
         if (killable)
             [scene delEntity:self];
         else
-        {
+        {            
+            attack = 0;
             speed = 0;
             [self stopAllActions];
         }

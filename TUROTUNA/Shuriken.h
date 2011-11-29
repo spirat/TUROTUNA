@@ -12,6 +12,7 @@
 @interface Shuriken : AEntity
 {
     CGPoint direction;
+    float timeDead;
     float speed;
     CGSize winSize;
     

@@ -44,7 +44,7 @@
         [self addEntity:_player];
         currentComportment = MOVE_COMPORTMENT;
         _bPlayerFocused = false;
-        /*
+        
         NSString *pListPath = [[NSBundle mainBundle] pathForResource:@"enemyPath1" ofType:@"plist"];
         NSDictionary *dictionary = [[NSDictionary alloc] initWithContentsOfFile:pListPath];
         
@@ -61,7 +61,7 @@
         }
         
         [dictionary release];
-         */
+         
     }
     return self;
 }

@@ -8,6 +8,7 @@
 
 #import "Neutral.h"
 #import "AEntity.h"
+#import "Shuriken.h"
 
 @implementation AEntity
 
@@ -34,6 +35,11 @@
     return self;
 }
 
+- (void)deleteSelf
+{
+    [scene delEntity:self];
+}
+
 - (id)init
 {
     self = [super init];
@@ -58,21 +64,33 @@
                         NSDictionary *animRect = [animList objectAtIndex:i];
                         [tmp addObject:[CCSpriteFrame frameWithTexture:node.texture rect:CGRectMake(                                                                                                [[animRect objectForKey:@"x"] intValue],[[animRect objectForKey:@"y"] intValue], [[animRect objectForKey:@"width"] intValue], [[animRect objectForKey:@"height"] intValue])]];
                     }
-                
+                    
                     CCAnimation *animation = [CCAnimation animationWithFrames:tmp delay:0.1];
                     CCAnimate *anim = [CCAnimate actionWithAnimation:animation];
                 
-                    CCRepeatForever *action = [CCRepeatForever actionWithAction:anim];
-                    [actionList addObject:action];
+                    bool loop = [[info objectForKey:@"loop"] boolValue];
+                    if (loop == YES)
+                    {               
+                        NSLog(@"loop");
+                        CCRepeatForever *action = [CCRepeatForever actionWithAction:anim];
+                        [actionList addObject:action];
+                    }
+                    else
+                    {   
+                        bool autodel = [[info objectForKey:@"autodel"] boolValue];
+                        if (autodel == YES)
+                            [actionList addObject:[CCSequence actions:anim, [CCCallFuncO actionWithTarget:scene selector:@selector(delEntity:) object:self], nil]];
+                        else
+                            [actionList addObject:anim];
+                        
+                    }
                 }
             }
         }
         //self.position : bottom left of hitbox but center of sprite
         hitBox = CGRectMake(self.position.x - (self.contentSize.width / 2),
                             self.position.y - (self.contentSize.height / 2),
-                            self.contentSize.width+ 2, self.contentSize.height + 2);
-        hitBox.origin.y += 2;
-        hitBox.origin.x -= 2;
+                            self.contentSize.width, self.contentSize.height);
         
        // hitBox = CGRectMake(self.position.x, self.position.y, 
        //                     self.contentSize.width, self.contentSize.height);
@@ -85,9 +103,7 @@
 {
     hitBox = CGRectMake(self.position.x - (self.contentSize.width / 2),
                         self.position.y - (self.contentSize.height / 2),
-                        self.contentSize.width + 2, self.contentSize.height + 2);
-    hitBox.origin.x -= 2;
-    hitBox.origin.y += 2;
+                        self.contentSize.width, self.contentSize.height);
 //    hitBox = CGRectMake(self.position.x, self.position.y, 
 //                        self.contentSize.width, self.contentSize.height);
 
@@ -96,17 +112,19 @@
     {
         AEntity *e = [[scene getEntities] objectAtIndex:i];
         
-        if (![e isKindOfClass:[Neutral class]] &&
-            e != self)
-        {
-            if (CGRectIntersectsRect(hitBox, e.hitBox))
-            {
-                [self resultCollision:e];
-                [e resultCollision:self];
-            }
-        }
+        //if ([e isKindOfClass:[Shuriken class]])
+             //{
+                 if (![e isKindOfClass:[Neutral class]] &&
+                     e != self)
+                 {
+                     if (CGRectIntersectsRect(hitBox, e.hitBox))
+                     {
+                         [self resultCollision:e];
+                         [e resultCollision:self];
+                     }
+                 }
+             //}
     }
-
     
     if (killable && life <= 0)
         [scene delEntity:self];
@@ -135,13 +153,13 @@
 - (void)setEntityPosition:(CGPoint)position
 {
     self.position = position;
-/*
+
     hitBox = CGRectMake(self.position.x - (self.contentSize.width / 2),
                         self.position.y - (self.contentSize.height / 2),
                         self.contentSize.width, self.contentSize.height);
-*/
-    hitBox = CGRectMake(self.position.x, self.position.y, 
-                        self.contentSize.width, self.contentSize.height);
+
+    /*hitBox = CGRectMake(self.position.x, self.position.y, 
+                        self.contentSize.width, self.contentSize.height);*/
  }
 
 - (CGRect)getHitbox

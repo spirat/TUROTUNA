@@ -10,4 +10,15 @@
 
 @implementation Effect
 
+- (id)initWithScene:(AScene*)screen effetName:(NSString *)name position:(CGPoint)pos
+{
+    pListName = [NSString stringWithFormat:@"Anim%@List", name];
+    self = [super initWithFile:[NSString stringWithFormat:@"%@.png", name] scene:screen];
+    
+    self.depth = 1;
+    self.position = pos;
+     
+    return self;
+}
+
 @end

@@ -140,7 +140,7 @@
         {
             CGRect obst = [(Obstacle*)[entities objectAtIndex:i] getHitbox];
             
-            if (CGRectIntersectsRect(vectBound, obst))
+            if (CGRectIntersectsRect(vectBound, obst) || CGRectContainsPoint(obst, end)) //contains does not work on sides of the rect ?
             {
                 NSLog(@"Bounding box collision detected");
                 
@@ -193,33 +193,36 @@
         if ([path getSize] != 0)
         {
             int s;
-            CGPoint intersection;
+            CGPoint intersectionPoint;
+            // if last doesn't exist
+            // if last is too far away from the wall (?)
             CGPoint last = [path lastPointAdded];
             CGRect  obst;
             bool it = [self pointIntersectsObstacle:last
                                              point2:*point 
                                                side:&s 
-                                              point:&intersection
+                                              point:&intersectionPoint
                                            obstacle:&obst];
             if (it == true)
             {
                 if (inObstacle == false)
                 {
-                    if (last.x < obst.origin.x)
+                    NSLog(@"COLLISION DEBUG : last.y = %f obst = %f + %f", last.y, obst.origin.y, obst.size.height);
+                    if (last.x <= obst.origin.x)
                         point->x = obst.origin.x - 5;
-                    else if (last.x > obst.origin.x + obst.size.width)
+                    else if (last.x >= (obst.origin.x + obst.size.width))
                         point->x = obst.origin.x + obst.size.width + 5;
-                    else if (last.y > obst.origin.y)
-                        point->y = obst.origin.y + 5;
-                    else if (last.y < obst.origin.y - obst.size.height)
-                        point->y = obst.origin.y - obst.size.height - 5;
+                    else if (last.y >= obst.origin.y + obst.size.height)
+                        point->y = obst.origin.y + obst.size.height + 5;
+                    else if (last.y <= obst.origin.y)
+                        point->y = obst.origin.y - 5;
                     inObstacle = true;
                 }
                 else
                 {
-                    if (last.x < obst.origin.x || last.x > obst.origin.x + obst.size.width)
+                    if (last.x <= obst.origin.x || last.x >= obst.origin.x + obst.size.width)
                         point->x = last.x;
-                    else if (last.y > obst.origin.y || last.x < obst.origin.y - obst.size.height)
+                    else if (last.y >= obst.origin.y || last.x <= obst.origin.y - obst.size.height)
                         point->y = last.y;
                 }
             }
