@@ -35,8 +35,14 @@
     return self;
 }
 
-// TODO: test... return 0 or 1 for match or mismatch or bool... :p
-- (void)checkCollision:(const uint8_t*)pixel path:(NSString*)obstaclePath size:(int)obstacleSize bytesPerPixel:(int)bytesPerPixel
+- (BOOL)checkSpriteCollision
+{
+    
+}
+
+// Compare un sprite d'obstacle donne avec un 64x64 du background
+// Peut aussi gerer des comparaison de sub-rectangles (changer obstacleSize)
+- (BOOL)checkCollision:(const uint8_t*)pixel path:(NSString*)obstaclePath size:(int)obstacleSize bytesPerPixel:(int)bytesPerPixel
 {
     // generate raw data
     UIImage *obstacleImage = [UIImage imageNamed:obstaclePath];
@@ -69,15 +75,17 @@
             {
                 if (obsPixel[x] != backPixel[x]) {
                     NSLog(@"Pixel mismatch");
-                    return;
+                    return false;
                 }
             }
         }
     }
     NSLog(@"OBSTACLE MATCH");
+    return true;
 }
 
-// 64 x 64
+// Itere sur le background, par carre de 64x64 et compare avec 
+// chaque sprite d'obstacle
 // http://www.cocos2d-iphone.org/archives/61 RGBA8888 pixel format
 - (void)LoadCollisionBox
 {
