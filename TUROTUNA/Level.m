@@ -35,16 +35,40 @@
     return self;
 }
 
-- (BOOL)checkSpriteCollision
+- (BOOL)checkSpriteCollision:(AEntity*)entity1 entity2:(AEntity*)entity2 
 {
+    CGRect hitbox1 = entity1.hitBox;
+    CGRect hitbox2 = entity2.hitBox;
+    //int diffX = entity2.hitBox.origin.x - entity1.hitBox.origin.x;
+    //int diffY = entity2.hitBox.origin.y - entity1.hitBox.origin.y;
+    size_t size1 = hitbox1.size.width * hitbox1.size.height * 4;
+    size_t size2 = hitbox2.size.width * hitbox2.size.height * 4;
+    void*   pixels1 = malloc(size1);
+    void*   pixels2 = malloc(size2);
     
+    // allocation error
+    if (pixels1 || pixels2)
+        goto cleanup;
+    
+    // get pixel data
+    glReadPixels(hitbox1.origin.x, hitbox1.origin.y, hitbox1.size.width, hitbox1.size.height, GL_RGBA, GL_UNSIGNED_BYTE, pixels1);
+    glReadPixels(hitbox2.origin.x, hitbox2.origin.y, hitbox2.size.width, hitbox2.size.height, GL_RGBA, GL_UNSIGNED_BYTE, pixels2);
+
+    // find offX and offY
+    // pixel collision
+    for (int i = 0; i < size1; ++i) {
+    }
+    
+cleanup:
+    free(pixels1);
+    free(pixels2);
+    return false;
 }
 
 // Compare un sprite d'obstacle donne avec un 64x64 du background
 // Peut aussi gerer des comparaison de sub-rectangles (changer obstacleSize)
 - (BOOL)checkCollision:(const uint8_t*)pixel path:(NSString*)obstaclePath size:(int)obstacleSize bytesPerPixel:(int)bytesPerPixel
 {
-    // generate raw data
     UIImage *obstacleImage = [UIImage imageNamed:obstaclePath];
     CGImageRef imageRef = [obstacleImage CGImage];
     
@@ -65,12 +89,11 @@
     // TODO: integrate subrect
     //int offset = (64 - obstacleSize) / 2;
     
-    // iterate subrect obstacle (just add x and y for the baseData)
     for (int y = 0; y < height; ++y) {
         for (int x = 0; x < width; ++x) {
             const uint8_t* obsPixel = &bytes[y * bpr + x * bytes_per_pixel];
             const uint8_t* backPixel = &pixel[y * bpr + x * bytes_per_pixel];
-            
+
             for (size_t x = 0; x < bytes_per_pixel; x++)
             {
                 if (obsPixel[x] != backPixel[x]) {
