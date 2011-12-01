@@ -35,6 +35,7 @@
         addEntityList = [[NSMutableArray alloc] init];
         [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"spy.mp3" loop:YES];
         self.isTouchEnabled = true;
+        
         [self schedule:@selector(update:)];
     }
     
@@ -55,29 +56,53 @@
 {
 }
 
+- (void)multipleTouchesBegan:(NSSet *)touches
+{
+    
+}
+
+- (void)multipleTouchesMoved:(NSSet *)touches
+{
+    
+}
+
 - (void) ccTouchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    UITouch *touch = [touches anyObject];
-    CGPoint location = [touch locationInView:[touch view]];
-    location = [[CCDirector sharedDirector] convertToGL:location];
+    int touchesCount = [[event allTouches] count];
     
-	
-    [self touchPointMoved:&location];
+    if (touchesCount == 1)
+    {        
+        UITouch *touch = [touches anyObject];
+        CGPoint location = [touch locationInView:[touch view]];
+        location = [[CCDirector sharedDirector] convertToGL:location];
+        
+        [self touchPointMoved:&location];
+    }
+    else
+        [self multipleTouchesMoved:[event allTouches]];
+    
+    
 }
 
 - (void)ccTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    UITouch *touch = [touches anyObject];
-    CGPoint location = [touch locationInView:[touch view]];
-    location = [[CCDirector sharedDirector] convertToGL:location];
-    // Set up initial location of projectile
-    // CGSize winSize = [[CCDirector sharedDirector] winSize];
+    int touchesCount = [[event allTouches] count];
     
-    //AEntity *projectile = [[AEntity alloc] spriteWithFile:@"Player.png"
-    //                                       rect:CGRectMake(0, 0, 27, 40) scene:self];
-    NSLog(@"New touch at x:%f y:%f", location.x, location.y);
-    [self newTouchBegan:&location];
-    
+    if (touchesCount == 1)
+    {        
+        UITouch *touch = [touches anyObject];
+        CGPoint location = [touch locationInView:[touch view]];
+        location = [[CCDirector sharedDirector] convertToGL:location];
+        // Set up initial location of projectile
+        // CGSize winSize = [[CCDirector sharedDirector] winSize];
+        
+        //AEntity *projectile = [[AEntity alloc] spriteWithFile:@"Player.png"
+        //                                       rect:CGRectMake(0, 0, 27, 40) scene:self];
+        NSLog(@"New touch at x:%f y:%f", location.x, location.y);
+        [self newTouchBegan:&location];
+    }
+    else
+        [self multipleTouchesBegan:[event allTouches]];
 }
 
 - (void)ccTouchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
@@ -87,7 +112,6 @@
     location = [[CCDirector sharedDirector] convertToGL:location];
     [self touchEnded:touch atLocation:location];
 }
-
 
 -(void)ccTouchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event
 {

@@ -22,6 +22,9 @@
 - (void)newTouchBegan:(CGPoint *)point;
 - (void)touchEnded:(UITouch*)touch atLocation:(CGPoint)location;
 
+- (void)multipleTouchesBegan:(NSSet *)touches;
+- (void)multipleTouchesMoved:(NSSet *)touches;
+
 - (void)addEntity:(CCSprite *) entity;
 - (void)delEntity:(CCSprite *) entity;
 - (void)update:(ccTime) dt;

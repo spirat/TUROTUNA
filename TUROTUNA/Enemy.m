@@ -41,7 +41,6 @@
     {
         NSInteger rotate = [[pos objectAtIndex:2] intValue];
         [actions addObject:[CCRotateTo actionWithDuration:0 angle:rotate]];
-        // CC animation...
 
         [actions addObject:[CCCallFuncO actionWithTarget:self selector:@selector(saveRotation:) object:[NSNumber numberWithInt:rotate]]];
         [actions addObject:[CCMoveTo actionWithDuration:2 position:ccp([[pos objectAtIndex:0] intValue], [[pos objectAtIndex:1] intValue])]];

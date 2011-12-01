@@ -44,6 +44,7 @@
 		7295C97A143407ED00F448F9 /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = 7295C979143407ED00F448F9 /* Player.m */; };
 		7295C98014340A4300F448F9 /* AScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 7295C97F14340A4300F448F9 /* AScene.m */; };
 		7295C98314340E4C00F448F9 /* AEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 7295C98214340E4C00F448F9 /* AEntity.m */; };
+		729CF49F148719750035A77D /* 1x1pixel.png in Resources */ = {isa = PBXBuildFile; fileRef = 729CF49E148719740035A77D /* 1x1pixel.png */; };
 		72A1B322147DE77500EDE0A0 /* Effect.m in Sources */ = {isa = PBXBuildFile; fileRef = 72A1B321147DE77400EDE0A0 /* Effect.m */; };
 		72A1B324147DE8ED00EDE0A0 /* spy.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 72A1B323147DE8ED00EDE0A0 /* spy.mp3 */; };
 		72EA98141446803000257C39 /* animationtest.png in Resources */ = {isa = PBXBuildFile; fileRef = 72EA98131446803000257C39 /* animationtest.png */; };
@@ -219,6 +220,7 @@
 		7295C97F14340A4300F448F9 /* AScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AScene.m; sourceTree = "<group>"; };
 		7295C98114340E4B00F448F9 /* AEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AEntity.h; sourceTree = "<group>"; };
 		7295C98214340E4C00F448F9 /* AEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AEntity.m; sourceTree = "<group>"; };
+		729CF49E148719740035A77D /* 1x1pixel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1x1pixel.png; sourceTree = "<group>"; };
 		72A1B320147DE77300EDE0A0 /* Effect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Effect.h; sourceTree = "<group>"; };
 		72A1B321147DE77400EDE0A0 /* Effect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Effect.m; sourceTree = "<group>"; };
 		72A1B323147DE8ED00EDE0A0 /* spy.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = spy.mp3; sourceTree = "<group>"; };
@@ -482,6 +484,7 @@
 		7270519C1443BEA8001E59C2 /* Animations */ = {
 			isa = PBXGroup;
 			children = (
+				729CF49E148719740035A77D /* 1x1pixel.png */,
 				7270519D1443BEB2001E59C2 /* Player */,
 				72D79F33145F6F31009175C9 /* Shuriken */,
 				72D79F34145F6F39009175C9 /* Smoke */,
@@ -1043,6 +1046,7 @@
 				72A1B324147DE8ED00EDE0A0 /* spy.mp3 in Resources */,
 				7218D251148460A000E4048B /* AnimShurikenHitList.plist in Resources */,
 				7218D2531484623300E4048B /* AnimSmokeList.plist in Resources */,
+				729CF49F148719750035A77D /* 1x1pixel.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

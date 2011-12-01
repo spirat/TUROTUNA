@@ -11,6 +11,7 @@
 #import "Shuriken.h"
 #import "Neutral.h"
 #import "Effect.h"
+#import "Player.h"
 
 @implementation Shuriken
 
@@ -36,7 +37,7 @@
     speed = 600;
     timeDead = 2.0f;
     direction = ccpNormalize(ccp(end.x - start.x, end.y - start.y));
-    killable = NO;
+    killable = YES;
     attack = 10;
     life = 10;
 
@@ -58,28 +59,28 @@
         timeDead -= dt;
         if (timeDead <= 0)
         {
-            [scene delEntity:self];
-            Effect *shurikenHit = [[Effect alloc] initWithScene:scene effetName:@"ShurikenHit" position:self.position];
-            //[shurikenHit runAction:[actionList objectAtIndex:0]];
+            Effect *smoke = [[Effect alloc] initWithScene:scene effetName:@"Smoke" position:self.position];
+            [scene addEntity:smoke];
+            life = 0;
         }
     }
 }
 
 - (void)resultCollision:(AEntity *)entity
 {
-    if ([entity isKindOfClass:[Enemy class]])
+    if ([entity isKindOfClass:[Enemy class]] && attack > 0)
+    {
         life -= entity.attack;
+        Effect *shurikenHit = [[Effect alloc] initWithScene:scene effetName:@"ShurikenHit" position:self.position];
+        shurikenHit.scale = 1.3;
+        [scene addEntity:shurikenHit];
+    }
     
     if ([entity isKindOfClass:[Obstacle class]])
-    {
-        if (killable)
-            [scene delEntity:self];
-        else
-        {            
-            attack = 0;
-            speed = 0;
-            [self stopAllActions];
-        }
+    {          
+        attack = 0;
+        speed = 0;
+        [self stopAllActions];
     }
 }
 

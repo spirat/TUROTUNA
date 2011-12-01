@@ -13,12 +13,19 @@
 - (id)initWithScene:(AScene*)screen effetName:(NSString *)name position:(CGPoint)pos
 {
     pListName = [NSString stringWithFormat:@"Anim%@List", name];
-    self = [super initWithFile:[NSString stringWithFormat:@"%@.png", name] scene:screen];
-    
+    self = [super initWithFile:@"1x1pixel.png" scene:screen];
     self.depth = 1;
     self.position = pos;
-     
+    
+    [self runAction:[[self actionList] objectAtIndex:0]];
     return self;
 }
+
+- (void)update:(ccTime)dt
+{
+    [super update:dt];
+}
+
+
 
 @end
