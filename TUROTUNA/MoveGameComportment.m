@@ -185,7 +185,8 @@ bool _CGRectContainsPoint(CGRect r, CGPoint p)
                 if (intersects != 0 || _CGRectContainsPoint(obst, end))
                 {
                     NSLog(@"Intersection OK");
-                    *obstInt = obst;
+                    if (obstInt)
+                        *obstInt = obst;
                     return true;
                 }
             }
