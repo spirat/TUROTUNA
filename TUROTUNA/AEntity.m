@@ -99,6 +99,51 @@
     return self;
 }
 
+- (bool) checkCollisionBetween:(AEntity*)e1 and:(AEntity*)e2
+{
+        BOOL isCollision = NO;
+        CGRect intersection = CGRectIntersection([e1 hitBox], [e2 hitBox]);
+
+        if (!CGRectIsEmpty(intersection))
+        {
+
+            unsigned int x = intersection.origin.x;
+            unsigned int y = intersection.origin.y;
+            unsigned int w = intersection.size.width;
+            unsigned int h = intersection.size.height;
+            unsigned int numPixels = w * h;
+            
+            [scene.rt beginWithClear:0 g:0 b:0 a:0];
+
+            glColorMask(1, 0, 0, 1);
+            [e1 visit];
+            glColorMask(0, 1, 0, 1);
+            [e2 visit];
+            glColorMask(1, 1, 1, 1);
+
+            ccColor4B *buffer = malloc( sizeof(ccColor4B) * numPixels );
+            glReadPixels(x, y, w, h, GL_RGBA, GL_UNSIGNED_BYTE, buffer);
+
+            [scene.rt end];
+
+            unsigned int step = 1;
+            for(unsigned int i=0; i<numPixels; i+=step)
+            {
+                ccColor4B color = buffer[i];
+                
+                if (color.r > 0 && color.g > 0)
+                {
+                    isCollision = YES;
+                    break;
+                }
+            }
+            
+            free(buffer);
+        }
+        
+        return isCollision;
+}
+
 - (void)update:(ccTime)dt
 {
     hitBox = CGRectMake(self.position.x - (self.contentSize.width / 2),
@@ -117,7 +162,8 @@
                  if (![e isKindOfClass:[Neutral class]] &&
                      e != self)
                  {
-                     if (CGRectIntersectsRect(hitBox, e.hitBox))
+                     if (//CGRectIntersectsRect(hitBox, e.hitBox)
+                         [self checkCollisionBetween:self and:e])
                      {
                          [self resultCollision:e];
                          [e resultCollision:self];
