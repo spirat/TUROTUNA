@@ -13,8 +13,10 @@
     NSMutableArray *entityList;
     NSMutableArray *addEntityList;
     NSMutableArray *delEntityList;
+    CCRenderTexture *rt;
 }
 
+@property (nonatomic, retain) CCRenderTexture *rt;
 @property (nonatomic, retain) NSMutableArray *entityList;
 
 /* Must be overridden in each scene */

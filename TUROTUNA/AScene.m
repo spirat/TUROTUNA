@@ -12,7 +12,7 @@
 
 @implementation AScene
 
-@synthesize entityList;
+@synthesize entityList, rt;
 
 +(CCScene *) scene
 {
@@ -30,6 +30,9 @@
     self = [super initWithColor:ccc4(255, 255, 255, 255)];
     if (self) {
         // Initialization code here.
+        rt = [[CCRenderTexture alloc] initWithWidth:512 height:512 pixelFormat:kCCTexture2DPixelFormat_RGBA8888];
+        rt.scale = 1;
+        rt.rotation = 0;
         entityList = [[NSMutableArray alloc] init];
         delEntityList = [[NSMutableArray alloc] init];
         addEntityList = [[NSMutableArray alloc] init];
@@ -37,7 +40,7 @@
         self.isTouchEnabled = true;
         [self schedule:@selector(update:)];
     }
-    
+
     return self;
 }
 

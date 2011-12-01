@@ -20,8 +20,8 @@
 		5BBC32AD1474A17A00BBCAD6 /* hbushes2.png in Resources */ = {isa = PBXBuildFile; fileRef = 5BBC32A21474A17A00BBCAD6 /* hbushes2.png */; };
 		5BBC32AE1474A17A00BBCAD6 /* hbushes3.png in Resources */ = {isa = PBXBuildFile; fileRef = 5BBC32A31474A17A00BBCAD6 /* hbushes3.png */; };
 		5BBC32AF1474A17A00BBCAD6 /* Map1.png in Resources */ = {isa = PBXBuildFile; fileRef = 5BBC32A41474A17A00BBCAD6 /* Map1.png */; };
-		5BBC32B01474A17A00BBCAD6 /* shurikenHit.png in Resources */ = {isa = PBXBuildFile; fileRef = 5BBC32A51474A17A00BBCAD6 /* shurikenHit.png */; };
-		5BBC32B11474A17A00BBCAD6 /* smoke.png in Resources */ = {isa = PBXBuildFile; fileRef = 5BBC32A61474A17A00BBCAD6 /* smoke.png */; };
+		5BBC32B01474A17A00BBCAD6 /* ShurikenHit.png in Resources */ = {isa = PBXBuildFile; fileRef = 5BBC32A51474A17A00BBCAD6 /* ShurikenHit.png */; };
+		5BBC32B11474A17A00BBCAD6 /* Smoke.png in Resources */ = {isa = PBXBuildFile; fileRef = 5BBC32A61474A17A00BBCAD6 /* Smoke.png */; };
 		5BBC32B21474A17A00BBCAD6 /* swamp.png in Resources */ = {isa = PBXBuildFile; fileRef = 5BBC32A71474A17A00BBCAD6 /* swamp.png */; };
 		5BBC32B41474A51100BBCAD6 /* MapInfo.inf in Resources */ = {isa = PBXBuildFile; fileRef = 5BBC32B31474A51100BBCAD6 /* MapInfo.inf */; };
 		5BC6F360143D436200B95454 /* Obstacle.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BC6F35F143D436200B95454 /* Obstacle.m */; };
@@ -35,7 +35,9 @@
 		63BDBCA4143D3E3D00AC311B /* PathManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 63BDBCA3143D3E3D00AC311B /* PathManager.m */; };
 		63D00F15147DE6EF00516F3B /* SquareDraw.m in Sources */ = {isa = PBXBuildFile; fileRef = 63D00F14147DE6EF00516F3B /* SquareDraw.m */; };
 		72073CDD1471F0FA0071F800 /* Shuriken.m in Sources */ = {isa = PBXBuildFile; fileRef = 72073CDC1471F0FA0071F800 /* Shuriken.m */; };
-		72073CE01471F62E0071F800 /* shuriken.png in Resources */ = {isa = PBXBuildFile; fileRef = 72073CDF1471F62E0071F800 /* shuriken.png */; };
+		72073CE01471F62E0071F800 /* Shuriken.png in Resources */ = {isa = PBXBuildFile; fileRef = 72073CDF1471F62E0071F800 /* Shuriken.png */; };
+		7218D251148460A000E4048B /* AnimShurikenHitList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7218D2501484609F00E4048B /* AnimShurikenHitList.plist */; };
+		7218D2531484623300E4048B /* AnimSmokeList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7218D2521484623300E4048B /* AnimSmokeList.plist */; };
 		72705C1E145F78190096F7B2 /* Enemy.m in Sources */ = {isa = PBXBuildFile; fileRef = 72705C1D145F78190096F7B2 /* Enemy.m */; };
 		7288CA48146B66E100FE2272 /* enemyPath1.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7288CA47146B66E100FE2272 /* enemyPath1.plist */; };
 		7294647214563AE900916C35 /* AnimPlayerList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7294647114563AE900916C35 /* AnimPlayerList.plist */; };
@@ -179,8 +181,8 @@
 		5BBC32A21474A17A00BBCAD6 /* hbushes2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hbushes2.png; sourceTree = "<group>"; };
 		5BBC32A31474A17A00BBCAD6 /* hbushes3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hbushes3.png; sourceTree = "<group>"; };
 		5BBC32A41474A17A00BBCAD6 /* Map1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Map1.png; sourceTree = "<group>"; };
-		5BBC32A51474A17A00BBCAD6 /* shurikenHit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shurikenHit.png; sourceTree = "<group>"; };
-		5BBC32A61474A17A00BBCAD6 /* smoke.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = smoke.png; sourceTree = "<group>"; };
+		5BBC32A51474A17A00BBCAD6 /* ShurikenHit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ShurikenHit.png; sourceTree = "<group>"; };
+		5BBC32A61474A17A00BBCAD6 /* Smoke.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Smoke.png; sourceTree = "<group>"; };
 		5BBC32A71474A17A00BBCAD6 /* swamp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = swamp.png; sourceTree = "<group>"; };
 		5BBC32B31474A51100BBCAD6 /* MapInfo.inf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = MapInfo.inf; sourceTree = "<group>"; };
 		5BC6F35E143D436200B95454 /* Obstacle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Obstacle.h; sourceTree = "<group>"; };
@@ -204,7 +206,9 @@
 		63D00F14147DE6EF00516F3B /* SquareDraw.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SquareDraw.m; sourceTree = "<group>"; };
 		72073CDB1471F0F90071F800 /* Shuriken.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Shuriken.h; sourceTree = "<group>"; };
 		72073CDC1471F0FA0071F800 /* Shuriken.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Shuriken.m; sourceTree = "<group>"; };
-		72073CDF1471F62E0071F800 /* shuriken.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shuriken.png; sourceTree = "<group>"; };
+		72073CDF1471F62E0071F800 /* Shuriken.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Shuriken.png; sourceTree = "<group>"; };
+		7218D2501484609F00E4048B /* AnimShurikenHitList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = AnimShurikenHitList.plist; sourceTree = "<group>"; };
+		7218D2521484623300E4048B /* AnimSmokeList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = AnimSmokeList.plist; sourceTree = "<group>"; };
 		72705C1C145F78190096F7B2 /* Enemy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Enemy.h; sourceTree = "<group>"; };
 		72705C1D145F78190096F7B2 /* Enemy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Enemy.m; sourceTree = "<group>"; };
 		7288CA47146B66E100FE2272 /* enemyPath1.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = enemyPath1.plist; sourceTree = "<group>"; };
@@ -513,6 +517,9 @@
 		72D79F33145F6F31009175C9 /* Shuriken */ = {
 			isa = PBXGroup;
 			children = (
+				72073CDF1471F62E0071F800 /* Shuriken.png */,
+				5BBC32A51474A17A00BBCAD6 /* ShurikenHit.png */,
+				7218D2501484609F00E4048B /* AnimShurikenHitList.plist */,
 			);
 			name = Shuriken;
 			sourceTree = "<group>";
@@ -520,6 +527,8 @@
 		72D79F34145F6F39009175C9 /* Smoke */ = {
 			isa = PBXGroup;
 			children = (
+				5BBC32A61474A17A00BBCAD6 /* Smoke.png */,
+				7218D2521484623300E4048B /* AnimSmokeList.plist */,
 			);
 			name = Smoke;
 			sourceTree = "<group>";
@@ -621,11 +630,8 @@
 				5BBC32A21474A17A00BBCAD6 /* hbushes2.png */,
 				5BBC32A31474A17A00BBCAD6 /* hbushes3.png */,
 				5BBC32A41474A17A00BBCAD6 /* Map1.png */,
-				5BBC32A51474A17A00BBCAD6 /* shurikenHit.png */,
-				5BBC32A61474A17A00BBCAD6 /* smoke.png */,
 				5BBC32A71474A17A00BBCAD6 /* swamp.png */,
 				7288CA44146B66A900FE2272 /* Level */,
-				72073CDF1471F62E0071F800 /* shuriken.png */,
 				7270519C1443BEA8001E59C2 /* Animations */,
 				5B93B73314314C8000C75F9D /* Player.png */,
 				B3BE07EF14281ACB002D183E /* Default.png */,
@@ -1021,7 +1027,7 @@
 				7294647214563AE900916C35 /* AnimPlayerList.plist in Resources */,
 				5B92B939145F7A5400025B3F /* level1.grid in Resources */,
 				7288CA48146B66E100FE2272 /* enemyPath1.plist in Resources */,
-				72073CE01471F62E0071F800 /* shuriken.png in Resources */,
+				72073CE01471F62E0071F800 /* Shuriken.png in Resources */,
 				5BBC32A81474A17A00BBCAD6 /* axe.png in Resources */,
 				5BBC32A91474A17A00BBCAD6 /* floor.png in Resources */,
 				5BBC32AA1474A17A00BBCAD6 /* flowers.png in Resources */,
@@ -1030,11 +1036,13 @@
 				5BBC32AD1474A17A00BBCAD6 /* hbushes2.png in Resources */,
 				5BBC32AE1474A17A00BBCAD6 /* hbushes3.png in Resources */,
 				5BBC32AF1474A17A00BBCAD6 /* Map1.png in Resources */,
-				5BBC32B01474A17A00BBCAD6 /* shurikenHit.png in Resources */,
-				5BBC32B11474A17A00BBCAD6 /* smoke.png in Resources */,
+				5BBC32B01474A17A00BBCAD6 /* ShurikenHit.png in Resources */,
+				5BBC32B11474A17A00BBCAD6 /* Smoke.png in Resources */,
 				5BBC32B21474A17A00BBCAD6 /* swamp.png in Resources */,
 				5BBC32B41474A51100BBCAD6 /* MapInfo.inf in Resources */,
 				72A1B324147DE8ED00EDE0A0 /* spy.mp3 in Resources */,
+				7218D251148460A000E4048B /* AnimShurikenHitList.plist in Resources */,
+				7218D2531484623300E4048B /* AnimSmokeList.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
