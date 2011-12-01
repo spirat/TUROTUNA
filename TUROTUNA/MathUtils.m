@@ -53,8 +53,8 @@ bool MathVectorIntersects(CGPoint p1, CGPoint p2,
     {
 
         CGPoint r;
-        r.x = p3.x + F.x * h;
-        r.y = p3.y + F.y * h;
+        r.x = (int)(p3.x + F.x * h);
+        r.y = (int)(p3.y + F.y * h);
         
         NSLog(@"Vector (%f-%f, %f-%f) and (%f-%f,%f-%f) intersects in point (%f,%f)", p1.x, p1.y, p2.x, p2.y, p3.x, p3.y, p4.x, p4.y, r.x, r.y);
         
