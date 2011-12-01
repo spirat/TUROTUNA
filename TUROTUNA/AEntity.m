@@ -106,7 +106,6 @@
 
         if (!CGRectIsEmpty(intersection))
         {
-
             unsigned int x = intersection.origin.x;
             unsigned int y = intersection.origin.y;
             unsigned int w = intersection.size.width;

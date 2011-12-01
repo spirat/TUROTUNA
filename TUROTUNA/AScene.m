@@ -107,6 +107,14 @@
     [delEntityList addObject:entity];
 }
 
+- (id)searchEntity:(NSString*)type
+{
+    for(AEntity* e in entityList)
+        if ([e class] == type)
+            return e;
+    return NULL;
+}
+
 - (void)update:(ccTime)dt
 {
     
