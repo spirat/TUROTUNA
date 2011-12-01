@@ -128,10 +128,23 @@
 }
 */
 
-- (bool) pointIntersectsObstacle:(CGPoint)origin point2:(CGPoint)end side:(int*)s point:(CGPoint*)intersection obstacle:(CGRect*)obstInt
+bool _CGRectContainsPoint(CGRect r, CGPoint p)
+{
+    if (CGRectContainsPoint(r, p))
+        return true;
+    
+    if ((p.x == r.origin.x || p.x == r.origin.x + r.size.width) && p.y >= r.origin.y && p.y <= r.origin.y + r.size.height)
+        return true;
+    if ((p.y == r.origin.y || p.y == r.origin.y + r.size.height) && p.x >= r.origin.x && p.x <= r.origin.x + r.size.width)
+        return true;
+    
+    return false;
+}
+
+- (bool) pointIntersectsObstacle:(CGPoint)origin point2:(CGPoint)end point:(CGPoint*)intersection obstacle:(CGRect*)obstInt
 {
     
-    CGRect vectBound = CGRectMake(origin.x, origin.y, fabsf(end.x - origin.x), fabsf(end.y - origin.y));
+    CGRect vectBound = CGRectMake(MIN(origin.x, end.x), MIN(origin.y, end.y), fabsf(end.x - origin.x), fabsf(end.y - origin.y));
     NSMutableArray *entities = [_scene getEntities];
     
     for (int i = 0, itEnd = [entities count]; i < itEnd; ++i)
@@ -140,7 +153,7 @@
         {
             CGRect obst = [(Obstacle*)[entities objectAtIndex:i] getHitbox];
             
-            if (CGRectIntersectsRect(vectBound, obst) || CGRectContainsPoint(obst, end)) //contains does not work on sides of the rect ?
+            if (CGRectIntersectsRect(vectBound, obst) || _CGRectContainsPoint(obst, end)) //contains does not work on sides of the rect ?
             {
                 NSLog(@"Bounding box collision detected");
                 
@@ -169,11 +182,11 @@
                 p3.x = p4.x + obst.size.width;
                 intersects |= MathVectorIntersects(origin, end, p4, p3, intersection) << 3;
                 
-                if (intersects != 0 || CGRectContainsPoint(obst, end))
+                if (intersects != 0 || _CGRectContainsPoint(obst, end))
                 {
                     NSLog(@"Intersection OK");
-                    *s = intersects;
-                    *obstInt = obst;
+                    if (obstInt)
+                        *obstInt = obst;
                     return true;
                 }
             }
@@ -192,7 +205,6 @@
         
         if ([path getSize] != 0)
         {
-            int s;
             CGPoint intersectionPoint;
             // if last doesn't exist
             // if last is too far away from the wall (?)
@@ -200,7 +212,6 @@
             CGRect  obst;
             bool it = [self pointIntersectsObstacle:last
                                              point2:*point 
-                                               side:&s 
                                               point:&intersectionPoint
                                            obstacle:&obst];
             if (it == true)
