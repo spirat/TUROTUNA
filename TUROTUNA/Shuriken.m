@@ -27,7 +27,7 @@
 
 - (id)initWithScene:(AScene*)screen startingPos:(CGPoint)start endingPos:(CGPoint)end
 {
-    self = [super initWithFile:@"shuriken.png" scene:screen];
+    self = [super initWithFile:@"Shuriken.png" scene:screen];
     winSize = [[CCDirector sharedDirector] winSize];
 
     self.position = start;
@@ -61,6 +61,7 @@
         {
             Effect *smoke = [[Effect alloc] initWithScene:scene effetName:@"Smoke" position:self.position];
             [scene addEntity:smoke];
+			[smoke release];			
             life = 0;
         }
     }
@@ -68,20 +69,27 @@
 
 - (void)resultCollision:(AEntity *)entity
 {
-    if ([entity isKindOfClass:[Enemy class]] && attack > 0)
-    {
-        life -= entity.attack;
-        Effect *shurikenHit = [[Effect alloc] initWithScene:scene effetName:@"ShurikenHit" position:self.position];
-        shurikenHit.scale = 1.3;
-        [scene addEntity:shurikenHit];
-    }
+		if ([entity isKindOfClass:[Enemy class]])
+		{
+			life -= entity.attack;
+			Effect *shurikenHit = [[Effect alloc] initWithScene:scene effetName:@"ShurikenHit" position:self.position];
+			shurikenHit.scale = 1.3;
+			[scene addEntity:shurikenHit];
+			[shurikenHit release];
+		}
     
-    if ([entity isKindOfClass:[Obstacle class]])
-    {          
-        attack = 0;
-        speed = 0;
-        [self stopAllActions];
-    }
+		if ([entity isKindOfClass:[Obstacle class]])
+		{          
+			attack = 0;
+			speed = 0;
+			isCollisionable = FALSE;
+			[self stopAllActions];
+		}
+}
+
+- (void)dealloc
+{
+	[super dealloc];
 }
 
 @end
