@@ -39,6 +39,12 @@
     return self;
 }
 
+- (void)setSpeedByPercent:(float)percent
+{
+	speed = speed * percent;
+	NSLog(@"speed %f", speed);
+}
+
 - (void) update:(ccTime)dt
 {
     [super update:dt];

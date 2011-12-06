@@ -56,7 +56,7 @@ bool MathVectorIntersects(CGPoint p1, CGPoint p2,
         r.x = (int)(p3.x + F.x * h);
         r.y = (int)(p3.y + F.y * h);
         
-        NSLog(@"Vector (%f-%f, %f-%f) and (%f-%f,%f-%f) intersects in point (%f,%f)", p1.x, p1.y, p2.x, p2.y, p3.x, p3.y, p4.x, p4.y, r.x, r.y);
+        //NSLog(@"Vector (%f-%f, %f-%f) and (%f-%f,%f-%f) intersects in point (%f,%f)", p1.x, p1.y, p2.x, p2.y, p3.x, p3.y, p4.x, p4.y, r.x, r.y);
         
         if (r.x >= MIN(p1.x, p2.x) && r.x <= MAX(p1.x, p2.x) && r.x >= MIN(p3.x, p4.x) && r.x <= MAX(p3.x, p4.x)
             && r.y >= MIN(p1.y, p2.y) && r.y <= MAX(p1.y, p2.y) && r.y >= MIN(p3.y, p4.y) && r.y <= MAX(p3.y, p4.y))
@@ -66,7 +66,7 @@ bool MathVectorIntersects(CGPoint p1, CGPoint p2,
                 result->x = r.x;
                 result->y = r.y;
             }
-            NSLog(@"Collision properly detected !");
+            //NSLog(@"Collision properly detected !");
             return true;
         }
     }
@@ -109,3 +109,11 @@ bool MathVectorIntersects(CGPoint p1, CGPoint p2,
     return true;
 }
 */
+
+CGFloat DistanceBetweenTwoPoints(CGPoint point1,CGPoint point2)
+{
+	CGFloat dx = point2.x - point1.x;
+	CGFloat dy = point2.y - point1.y;
+	
+	return sqrt(dx*dx + dy*dy );
+}

@@ -155,7 +155,7 @@ bool _CGRectContainsPoint(CGRect r, CGPoint p)
             
             if (CGRectIntersectsRect(vectBound, obst) || _CGRectContainsPoint(obst, end)) //contains does not work on sides of the rect ?
             {
-                NSLog(@"Bounding box collision detected");
+                //NSLog(@"Bounding box collision detected");
                 
                 int intersects = 0;
                 CGPoint p3, p4;
@@ -184,7 +184,7 @@ bool _CGRectContainsPoint(CGRect r, CGPoint p)
                 
                 if (intersects != 0 || _CGRectContainsPoint(obst, end))
                 {
-                    NSLog(@"Intersection OK");
+                    //NSLog(@"Intersection OK");
                     if (obstInt)
                         *obstInt = obst;
                     return true;
@@ -218,7 +218,7 @@ bool _CGRectContainsPoint(CGRect r, CGPoint p)
             {
                 if (inObstacle == false)
                 {
-                    NSLog(@"COLLISION DEBUG : last.y = %f obst = %f + %f", last.y, obst.origin.y, obst.size.height);
+                    //NSLog(@"COLLISION DEBUG : last.y = %f obst = %f + %f", last.y, obst.origin.y, obst.size.height);
                     if (last.x <= obst.origin.x)
                         point->x = obst.origin.x - 5;
                     else if (last.x >= (obst.origin.x + obst.size.width))

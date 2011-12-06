@@ -96,7 +96,7 @@ bool _CGRectContainsPoint2(CGRect r, CGPoint p)
             
             if (CGRectIntersectsRect(vectBound, obst) || _CGRectContainsPoint2(obst, end)) //contains does not work on sides of the rect ?
             {
-                NSLog(@"Bounding box collision detected");
+                //NSLog(@"Bounding box collision detected");
                 
                 int intersects = 0;
                 CGPoint p3, p4;

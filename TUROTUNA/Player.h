@@ -23,7 +23,7 @@
 @property float speed;
 
 - (id)initWithFile:(NSString *)filename rect:(CGRect)rect scene:(AScene *)screen;
-
+- (void)setSpeedByPercent:(float)percent;
 - (PathManager *) getPath;
 - (void)update:(ccTime)dt;
 
