@@ -37,7 +37,6 @@
 
 - (void)deleteSelf
 {
-	NSLog(@"deleteSelf");
     [scene delEntity:self];
 }
 

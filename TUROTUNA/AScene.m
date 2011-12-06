@@ -60,13 +60,11 @@
 }
 
 - (void)multipleTouchesBegan:(NSSet *)touches
-{
-    
+{    
 }
 
 - (void)multipleTouchesMoved:(NSSet *)touches
 {
-    
 }
 
 - (void) ccTouchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
