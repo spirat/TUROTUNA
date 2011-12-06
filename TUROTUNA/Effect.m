@@ -16,6 +16,7 @@
     self = [super initWithFile:@"1x1pixel.png" scene:screen];
     self.depth = 1;
     self.position = pos;
+	self.isCollisionable = FALSE;
     
     [self runAction:[[self actionList] objectAtIndex:0]];
     return self;

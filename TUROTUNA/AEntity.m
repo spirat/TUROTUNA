@@ -12,7 +12,7 @@
 
 @implementation AEntity
 
-@synthesize hitBox, actionList, depth, life, attack, killable;
+@synthesize hitBox, actionList, depth, life, attack, killable, isCollisionable;
 
 - (id)initWithFile:(NSString *)name rect:(CGRect)rect scene:(AScene *)screen
 {
@@ -37,6 +37,7 @@
 
 - (void)deleteSelf
 {
+	NSLog(@"deleteSelf");
     [scene delEntity:self];
 }
 
@@ -44,6 +45,7 @@
 {
     self = [super init];
     if (self) {
+		isCollisionable = TRUE;
         actionList = [[NSMutableArray alloc] init];
         if (pListName)
         {
@@ -150,7 +152,11 @@
 //    hitBox = CGRectMake(self.position.x, self.position.y, 
 //                        self.contentSize.width, self.contentSize.height);
 
+	if (isCollisionable)
+	{
+	
     int entityCount = [[scene getEntities] count];
+	
     for (int i = 0; i < entityCount; i++)
     {
         AEntity *e = [[scene getEntities] objectAtIndex:i];
@@ -158,7 +164,7 @@
         //if ([e isKindOfClass:[Shuriken class]])
              //{
                  if (![e isKindOfClass:[Neutral class]] &&
-                     e != self)
+                     e != self && e.isCollisionable)
                  {
                      if (//CGRectIntersectsRect(hitBox, e.hitBox)
                          [self checkCollisionBetween:self and:e])
@@ -169,6 +175,7 @@
                  }
              //}
     }
+	}
     
     if (killable && life <= 0)
         [scene delEntity:self];
