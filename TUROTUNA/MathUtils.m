@@ -66,7 +66,7 @@ bool MathVectorIntersects(CGPoint p1, CGPoint p2,
                 result->x = r.x;
                 result->y = r.y;
             }
-            //NSLog(@"Collision properly detected !");
+
             return true;
         }
     }
@@ -74,6 +74,11 @@ bool MathVectorIntersects(CGPoint p1, CGPoint p2,
     return false;
 }
 
+
+float MathVectorSize(CGPoint a, CGPoint b)
+{
+    return sqrtf( powf(b.x - a.x, 2) + powf(b.y - a.y, 2) ); 
+}
 
 /*
 bool MathVectorIntersects(CGPoint p1, CGPoint p2,

@@ -9,3 +9,4 @@
 #import <Foundation/Foundation.h>
 
 bool MathVectorIntersects(CGPoint, CGPoint, CGPoint, CGPoint, CGPoint*);
+float MathVectorSize(CGPoint, CGPoint);
