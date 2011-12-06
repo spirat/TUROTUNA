@@ -13,6 +13,7 @@
 #import "MoveGameComportment.h"
 #import "Enemy.h"
 #import "Shuriken.h"
+#import "MathUtils.h"
 #import "CCLabelTTF.h"
 
 @implementation GameScene
@@ -65,6 +66,43 @@
     }
     return self;
 }
+
+- (void)multipleTouchesBegan:(NSSet *)touches
+{
+	CGPoint pointView1;
+	CGPoint pointView2;
+	bool i = false;
+    for (UITouch *touch in touches)
+	{
+		if (i == FALSE)
+		{
+			pointView1 = [touch locationInView:[touch view]];
+			i = TRUE;
+		}
+		else
+			pointView2 = [touch locationInView:[touch view]];
+	}
+	pinchStart = DistanceBetweenTwoPoints(pointView1, pointView2);
+}
+
+- (void)multipleTouchesMoved:(NSSet *)touches
+{
+	CGPoint pointView1;
+	CGPoint pointView2;
+	bool i = false;
+    for (UITouch *touch in touches)
+	{
+		if (i == FALSE)
+		{
+			pointView1 = [touch locationInView:[touch view]];
+			i = TRUE;
+		}
+		else
+			pointView2 = [touch locationInView:[touch view]];
+	}
+	[_player setSpeedByPercent:DistanceBetweenTwoPoints(pointView1, pointView2) * 100 / pinchStart];
+	
+}
  
 - (void) newTouchBegan:(CGPoint *)point
 {
@@ -98,6 +136,11 @@
     return currentComportment;
 }
 
+- (void)setCurrentComportment:(int)comporment
+{
+    currentComportment = comporment;
+}
+
 - (void)update:(ccTime)dt
 {
     [super update:dt];
@@ -114,6 +157,17 @@
 -(bool)isPlayerFocused
 {
     return _bPlayerFocused;
+}
+
+- (id)getPlayer
+{
+    return _player;
+}
+
+- (void)gameOver
+{
+    [self setCurrentComportment:MOVE_COMPORTMENT];
+    
 }
 
 @end

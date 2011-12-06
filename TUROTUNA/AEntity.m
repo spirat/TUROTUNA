@@ -12,7 +12,7 @@
 
 @implementation AEntity
 
-@synthesize hitBox, actionList, depth, life, attack, killable;
+@synthesize hitBox, actionList, depth, life, attack, killable, isCollisionable;
 
 - (id)initWithFile:(NSString *)name rect:(CGRect)rect scene:(AScene *)screen
 {
@@ -44,6 +44,7 @@
 {
     self = [super init];
     if (self) {
+		isCollisionable = TRUE;
         actionList = [[NSMutableArray alloc] init];
         if (pListName)
         {
@@ -71,7 +72,6 @@
                     bool loop = [[info objectForKey:@"loop"] boolValue];
                     if (loop == YES)
                     {               
-                        NSLog(@"loop");
                         CCRepeatForever *action = [CCRepeatForever actionWithAction:anim];
                         [actionList addObject:action];
                     }
@@ -79,7 +79,7 @@
                     {   
                         bool autodel = [[info objectForKey:@"autodel"] boolValue];
                         if (autodel == YES)
-                            [actionList addObject:[CCSequence actions:anim, [CCCallFuncO actionWithTarget:scene selector:@selector(delEntity:) object:self], nil]];
+                            [actionList addObject:[CCSequence actions:anim, [CCCallFunc actionWithTarget:self selector:@selector(deleteSelf)], nil]];
                         else
                             [actionList addObject:anim];
                         
@@ -110,7 +110,6 @@
 
         if (!CGRectIsEmpty(intersection))
         {
-
             unsigned int x = intersection.origin.x;
             unsigned int y = intersection.origin.y;
             unsigned int w = intersection.size.width;
@@ -160,7 +159,11 @@
 //    hitBox = CGRectMake(self.position.x, self.position.y, 
 //                        self.contentSize.width, self.contentSize.height);
 
+	if (isCollisionable)
+	{
+	
     int entityCount = [[scene getEntities] count];
+	
     for (int i = 0; i < entityCount; i++)
     {
         AEntity *e = [[scene getEntities] objectAtIndex:i];
@@ -168,7 +171,7 @@
         //if ([e isKindOfClass:[Shuriken class]])
              //{
                  if (![e isKindOfClass:[Neutral class]] &&
-                     e != self)
+                     e != self && e.isCollisionable)
                  {
                      if (//CGRectIntersectsRect(hitBox, e.hitBox)
                          [self checkCollisionBetween:self and:e])
@@ -179,6 +182,7 @@
                  }
              //}
     }
+	}
     
     if (killable && life <= 0)
         [scene delEntity:self];

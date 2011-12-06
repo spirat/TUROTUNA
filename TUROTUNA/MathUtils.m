@@ -114,3 +114,11 @@ bool MathVectorIntersects(CGPoint p1, CGPoint p2,
     return true;
 }
 */
+
+CGFloat DistanceBetweenTwoPoints(CGPoint point1,CGPoint point2)
+{
+	CGFloat dx = point2.x - point1.x;
+	CGFloat dy = point2.y - point1.y;
+	
+	return sqrt(dx*dx + dy*dy );
+}

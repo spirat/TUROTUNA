@@ -21,11 +21,13 @@
     bool killable;
     int life;
     int attack;
+	bool isCollisionable;
 }
 
 @property float depth;
 @property int life;
 @property bool killable;
+@property bool isCollisionable;
 @property int attack;
 @property (nonatomic) CGRect hitBox;
 @property (nonatomic, retain) NSMutableArray *actionList;
