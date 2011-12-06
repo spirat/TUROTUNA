@@ -141,11 +141,12 @@ bool _CGRectContainsPoint(CGRect r, CGPoint p)
     return false;
 }
 
-- (bool) pointIntersectsObstacle:(CGPoint)origin point2:(CGPoint)end point:(CGPoint*)intersection obstacle:(CGRect*)obstInt
+- (bool) pointIntersectsObstacle:(CGPoint)origin point2:(CGPoint)end point:(CGPoint*)intOut obstacle:(CGRect*)obstInt
 {
     
     CGRect vectBound = CGRectMake(MIN(origin.x, end.x), MIN(origin.y, end.y), fabsf(end.x - origin.x), fabsf(end.y - origin.y));
     NSMutableArray *entities = [_scene getEntities];
+    bool hasIntersect = false;
     
     for (int i = 0, itEnd = [entities count]; i < itEnd; ++i)
     {
@@ -159,42 +160,57 @@ bool _CGRectContainsPoint(CGRect r, CGPoint p)
                 
                 int intersects = 0;
                 CGPoint p3, p4;
+                CGPoint intersection;
                 
                 //top right to bot right
                 p3.x = obst.origin.x + obst.size.width;
                 p3.y = obst.origin.y + obst.size.height;
                 p4.x = p3.x;
                 p4.y = p3.y - obst.size.height;
-                intersects |= MathVectorIntersects(origin, end, p3, p4, intersection);
+                intersects |= MathVectorIntersects(origin, end, p3, p4, &intersection);
                 
                 //bot right to bot left
                 p3.y = p4.y;
                 p3.x = p4.x - obst.size.height;
-                intersects |= MathVectorIntersects(origin, end, p4, p3, intersection) << 1;
+                intersects |= MathVectorIntersects(origin, end, p4, p3, &intersection) << 1;
                 
                 //bot left to top left
                 p4.x = p3.x;
                 p4.y = p3.y + obst.size.height;
-                intersects |= MathVectorIntersects(origin, end, p3, p4, intersection) << 2;
+                intersects |= MathVectorIntersects(origin, end, p3, p4, &intersection) << 2;
                 
                 //top left to top right
                 p3.y = p4.y;
                 p3.x = p4.x + obst.size.width;
-                intersects |= MathVectorIntersects(origin, end, p4, p3, intersection) << 3;
+                intersects |= MathVectorIntersects(origin, end, p4, p3, &intersection) << 3;
                 
                 if (intersects != 0 || _CGRectContainsPoint(obst, end))
                 {
                     NSLog(@"Intersection OK");
-                    if (obstInt)
-                        *obstInt = obst;
-                    return true;
+                    if (hasIntersect == true && obstInt != NULL)
+                    {
+                        if (MathVectorSize(origin, obst.origin) < MathVectorSize(origin, obstInt->origin))
+                            *obstInt = obst;
+                    }
+                    else if (hasIntersect == false)
+                        if (obstInt)
+                            *obstInt = obst;
+                    
+                    if (intOut)
+                        *intOut = intersection;
+                    hasIntersect = true;
+                    //return true;
                 }
             }
         }
     }
-    return false;
+    return hasIntersect;
 }
 
+- (void) positionAdjustment
+{
+    
+}
 
 - (void) touchPointMoved:(CGPoint *)point
 {
@@ -206,10 +222,8 @@ bool _CGRectContainsPoint(CGRect r, CGPoint p)
         if ([path getSize] != 0)
         {
             CGPoint intersectionPoint;
-            // if last doesn't exist
-            // if last is too far away from the wall (?)
             CGPoint last = [path lastPointAdded];
-            CGRect  obst;
+            static CGRect  obst;
             bool it = [self pointIntersectsObstacle:last
                                              point2:*point 
                                               point:&intersectionPoint
@@ -218,22 +232,27 @@ bool _CGRectContainsPoint(CGRect r, CGPoint p)
             {
                 if (inObstacle == false)
                 {
-                    NSLog(@"COLLISION DEBUG : last.y = %f obst = %f + %f", last.y, obst.origin.y, obst.size.height);
-                    if (last.x <= obst.origin.x)
+                    if (last.x < obst.origin.x)
                         point->x = obst.origin.x - 5;
-                    else if (last.x >= (obst.origin.x + obst.size.width))
+                    else if (last.x > (obst.origin.x + obst.size.width))
                         point->x = obst.origin.x + obst.size.width + 5;
-                    else if (last.y >= obst.origin.y + obst.size.height)
+                    if (last.y > obst.origin.y + obst.size.height)
                         point->y = obst.origin.y + obst.size.height + 5;
-                    else if (last.y <= obst.origin.y)
+                    else if (last.y < obst.origin.y)
                         point->y = obst.origin.y - 5;
                     inObstacle = true;
                 }
                 else
                 {
-                    if (last.x <= obst.origin.x || last.x >= obst.origin.x + obst.size.width)
+                    /*
+                    if (last.x < obst.origin.x || last.x > obst.origin.x + obst.size.width)
                         point->x = last.x;
                     else if (last.y >= obst.origin.y || last.x <= obst.origin.y - obst.size.height)
+                        point->y = last.y;
+                     */
+                    if (abs(last.x - point->x) > abs(last.y - point->y))
+                        point->x = last.x;
+                    else
                         point->y = last.y;
                 }
             }

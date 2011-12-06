@@ -92,6 +92,10 @@
                             self.position.y - (self.contentSize.height / 2),
                             self.contentSize.width, self.contentSize.height);
         
+        hitBox.origin.x -= 2;
+        hitBox.origin.y -= 2;
+        hitBox.size.width += 4;
+        hitBox.size.height += 4;
        // hitBox = CGRectMake(self.position.x, self.position.y, 
        //                     self.contentSize.width, self.contentSize.height);
      }
@@ -149,6 +153,10 @@
     hitBox = CGRectMake(self.position.x - (self.contentSize.width / 2),
                         self.position.y - (self.contentSize.height / 2),
                         self.contentSize.width, self.contentSize.height);
+    hitBox.origin.x -= 2;
+    hitBox.origin.y -= 2;
+    hitBox.size.width += 4;
+    hitBox.size.height += 4;
 //    hitBox = CGRectMake(self.position.x, self.position.y, 
 //                        self.contentSize.width, self.contentSize.height);
 
@@ -189,9 +197,8 @@
 
 - (bool)contains:(CGPoint)target
 {
-    NSLog(@"Position : %f %f\n", self.position.x, self.position.y);
-    if (target.x > hitBox.origin.x  && target.x < hitBox.origin.x + hitBox.size.width
-        && target.y > hitBox.origin.y && target.y < hitBox.origin.y + hitBox.size.height)
+    if (target.x >= hitBox.origin.x  && target.x <= hitBox.origin.x + hitBox.size.width
+        && target.y >= hitBox.origin.y && target.y <= hitBox.origin.y + hitBox.size.height)
         return true;
     return false;
 }
@@ -203,7 +210,10 @@
     hitBox = CGRectMake(self.position.x - (self.contentSize.width / 2),
                         self.position.y - (self.contentSize.height / 2),
                         self.contentSize.width, self.contentSize.height);
-
+    hitBox.origin.x -= 2;
+    hitBox.origin.y -= 2;
+    hitBox.size.width += 4;
+    hitBox.size.height += 4;
     /*hitBox = CGRectMake(self.position.x, self.position.y, 
                         self.contentSize.width, self.contentSize.height);*/
  }
