@@ -10,3 +10,4 @@
 
 bool MathVectorIntersects(CGPoint, CGPoint, CGPoint, CGPoint, CGPoint*);
 float MathVectorSize(CGPoint, CGPoint);
+CGFloat DistanceBetweenTwoPoints(CGPoint point1,CGPoint point2);
