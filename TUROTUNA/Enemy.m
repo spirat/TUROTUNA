@@ -139,7 +139,7 @@ bool _CGRectContainsPoint2(CGRect r, CGPoint p)
     {
         CGRect *obs;
         AEntity* p;
-    
+
         p = [((GameScene*)(scene)) getPlayer];
     
         if ([self pointIntersectsObstacle:self.position point2:p.position point:NULL obstacle:obs])
