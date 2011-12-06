@@ -13,8 +13,10 @@
 {
     NSArray *pathList;
     NSInteger rotation;
+    bool isKilling;
 }
 
+@property bool isKilling;
 @property (nonatomic, retain) NSArray *pathList;
 
 - (id)initWithScene:(AScene*)screen path:(NSArray *)path;

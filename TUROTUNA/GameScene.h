@@ -28,6 +28,12 @@
 - (void)touchEnded:(UITouch *)touch atLocation:(CGPoint)location;
 
 - (int)getCurrentComportment;
+- (void)setCurrentComportment:(int)comporment;
 - (void)switchGameComportment;
 - (bool)isPlayerFocused;
+
+-(id)getPlayer;
+
+- (void)gameOver;
+
 @end
