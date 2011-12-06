@@ -7,19 +7,22 @@
 //
 
 #import "Enemy.h"
+#import "EnemyWeapon.h"
 #import "Shuriken.h"
 #import "Obstacle.h"
 #import "MathUtils.h"
+#import "GameScene.h"
 
 @implementation Enemy
 
-@synthesize pathList;
+@synthesize pathList, isKilling;
 
 - (id)init
 {
     self = [super init];
     if (self) {
         
+        isKilling = false;
         self.depth = 1;
         killable = YES;
         life = 10;
@@ -43,7 +46,6 @@
     {
         NSInteger rotate = [[pos objectAtIndex:2] intValue];
         [actions addObject:[CCRotateTo actionWithDuration:0 angle:rotate]];
-        // CC animation...
 
         [actions addObject:[CCCallFuncO actionWithTarget:self selector:@selector(saveRotation:) object:[NSNumber numberWithInt:rotate]]];
         [actions addObject:[CCMoveTo actionWithDuration:2 position:ccp([[pos objectAtIndex:0] intValue], [[pos objectAtIndex:1] intValue])]];
@@ -122,11 +124,7 @@ bool _CGRectContainsPoint2(CGRect r, CGPoint p)
                 intersects |= MathVectorIntersects(origin, end, p4, p3, intersection) << 3;
                 
                 if (intersects != 0 || _CGRectContainsPoint2(obst, end))
-                {
-                    NSLog(@"Intersection OK");
-                    //*obstInt = obst;
                     return true;
-                }
             }
         }
     }
@@ -136,16 +134,27 @@ bool _CGRectContainsPoint2(CGRect r, CGPoint p)
 - (void) update:(ccTime)dt
 {
     [super update:dt];
-    
-    CGRect *obs;
-    AEntity* p;
 
-    p = [scene searchEntity:@"Player"];
+    if (!isKilling)
+    {
+        CGRect *obs;
+        AEntity* p;
     
-    if ([self pointIntersectsObstacle:self.position point2:p.position point:NULL obstacle:obs])
-        NSLog(@"I SEE YOU !");
-    else
-        NSLog(@"all is right");
+        p = [((GameScene*)(scene)) getPlayer];
+    
+        if ([self pointIntersectsObstacle:self.position point2:p.position point:NULL obstacle:obs])
+        return;
+    
+        if (ccpDistance([self position], [p position]) < 400)
+        {
+            isKilling = true;
+            [((GameScene*)(scene)) setCurrentComportment:MOVE_COMPORTMENT];
+            EnemyWeapon *shuriTmp = [[EnemyWeapon alloc] initWithScene:scene startingPos:self.position endingPos:p.position];
+            [scene addEntity:shuriTmp];
+            [shuriTmp release];
+            [self stopAllActions];
+        }
+    }
 }
 
 - (void)resultCollision:(AEntity *)entity

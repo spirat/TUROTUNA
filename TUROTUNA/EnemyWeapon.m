@@ -8,12 +8,12 @@
 
 #import "Obstacle.h"
 #import "Enemy.h"
-#import "Shuriken.h"
+#import "EnemyWeapon.h"
 #import "Neutral.h"
 #import "Effect.h"
 #import "Player.h"
 
-@implementation Shuriken
+@implementation EnemyWeapon
 
 -(void)spriteMoveFinished:(id)sender {
     [scene delEntity:self];
@@ -27,7 +27,7 @@
 
 - (id)initWithScene:(AScene*)screen startingPos:(CGPoint)start endingPos:(CGPoint)end
 {
-    self = [super initWithFile:@"shuriken.png" scene:screen];
+    self = [super initWithFile:@"axe.png" scene:screen];
     winSize = [[CCDirector sharedDirector] winSize];
 
     self.position = start;
@@ -37,9 +37,9 @@
     speed = 600;
     timeDead = 2.0f;
     direction = ccpNormalize(ccp(end.x - start.x, end.y - start.y));
-    killable = YES;
-    attack = 10;
-    life = 10;
+    killable = NO;
+    attack = 1000;
+    life = 1000;
 
     [self runAction:[CCRepeatForever actionWithAction:[CCRotateBy actionWithDuration:0.000005 angle:30]]];
     
@@ -53,31 +53,12 @@
     
     if (self.position.x <= 0 || self.position.x >= winSize.width || self.position.y <= 0 || self.position.y >= winSize.height)
         [scene delEntity:self];
-    if (attack == 0)
-    {
-        timeDead -= dt;
-        if (timeDead <= 0)
-        {
-            Effect *smoke = [[Effect alloc] initWithScene:scene effetName:@"Smoke" position:self.position];
-            [scene addEntity:smoke];
-            life = 0;
-        }
-    }
 }
 
 - (void)resultCollision:(AEntity *)entity
 {
-    if ([entity isKindOfClass:[Enemy class]] && attack > 0)
+    if ([entity isKindOfClass:[Player class]])
     {
-        life -= entity.attack;
-        Effect *shurikenHit = [[Effect alloc] initWithScene:scene effetName:@"ShurikenHit" position:self.position];
-        shurikenHit.scale = 1.3;
-        [scene addEntity:shurikenHit];
-    }
-    
-    if ([entity isKindOfClass:[Obstacle class]])
-    {          
-        attack = 0;
         speed = 0;
         [self stopAllActions];
     }

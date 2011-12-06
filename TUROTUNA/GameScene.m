@@ -98,6 +98,11 @@
     return currentComportment;
 }
 
+- (void)setCurrentComportment:(int)comporment
+{
+    currentComportment = comporment;
+}
+
 - (void)update:(ccTime)dt
 {
     [super update:dt];
@@ -114,6 +119,17 @@
 -(bool)isPlayerFocused
 {
     return _bPlayerFocused;
+}
+
+- (id)getPlayer
+{
+    return _player;
+}
+
+- (void)gameOver
+{
+    [self setCurrentComportment:MOVE_COMPORTMENT];
+    
 }
 
 @end

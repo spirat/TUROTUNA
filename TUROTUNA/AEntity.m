@@ -71,7 +71,6 @@
                     bool loop = [[info objectForKey:@"loop"] boolValue];
                     if (loop == YES)
                     {               
-                        NSLog(@"loop");
                         CCRepeatForever *action = [CCRepeatForever actionWithAction:anim];
                         [actionList addObject:action];
                     }
@@ -79,7 +78,7 @@
                     {   
                         bool autodel = [[info objectForKey:@"autodel"] boolValue];
                         if (autodel == YES)
-                            [actionList addObject:[CCSequence actions:anim, [CCCallFuncO actionWithTarget:scene selector:@selector(delEntity:) object:self], nil]];
+                            [actionList addObject:[CCSequence actions:anim, [CCCallFunc actionWithTarget:self selector:@selector(deleteSelf)], nil]];
                         else
                             [actionList addObject:anim];
                         
