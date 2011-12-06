@@ -27,6 +27,7 @@
 - (id)searchEntity:(NSString*)type;
 - (void)multipleTouchesBegan:(NSSet *)touches;
 - (void)multipleTouchesMoved:(NSSet *)touches;
+- (void)multipleTouchesEnded:(NSSet *)touches;
 - (void)addEntity:(CCSprite *) entity;
 - (void)delEntity:(CCSprite *) entity;
 - (void)update:(ccTime) dt;

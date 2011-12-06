@@ -40,9 +40,14 @@
 }
 
 - (void)setSpeedByPercent:(float)percent
-{
-	speed = speed * percent;
-	NSLog(@"speed %f", speed);
+{	
+	speed = percent;
+	if (speed > 450.f)
+		speed = 450.f;
+	else if (speed < 50.f)
+	{
+		speed = 50.f;
+	}
 }
 
 - (void) update:(ccTime)dt

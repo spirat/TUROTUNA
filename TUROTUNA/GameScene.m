@@ -71,38 +71,70 @@
 {
 	CGPoint pointView1;
 	CGPoint pointView2;
-	bool i = false;
+	bool i = FALSE;
     for (UITouch *touch in touches)
 	{
 		if (i == FALSE)
 		{
-			pointView1 = [touch locationInView:[touch view]];
+			pointView1 = [touch locationInView:[touch window]];
+			pointView1 = [[CCDirector sharedDirector] convertToGL:pointView1];
 			i = TRUE;
 		}
 		else
-			pointView2 = [touch locationInView:[touch view]];
+		{
+			pointView2 = [touch locationInView:[touch window]];
+			pointView2 = [[CCDirector sharedDirector] convertToGL:pointView2];
+		}
 	}
-	pinchStart = DistanceBetweenTwoPoints(pointView1, pointView2);
+	
+	[_player setSpeedByPercent:ccpDistance(pointView1, pointView2)];
 }
 
 - (void)multipleTouchesMoved:(NSSet *)touches
 {
 	CGPoint pointView1;
 	CGPoint pointView2;
-	bool i = false;
+	bool i = FALSE;
     for (UITouch *touch in touches)
 	{
 		if (i == FALSE)
 		{
-			pointView1 = [touch locationInView:[touch view]];
+			pointView1 = [touch locationInView:[touch window]];
+			pointView1 = [[CCDirector sharedDirector] convertToGL:pointView1];
 			i = TRUE;
 		}
 		else
-			pointView2 = [touch locationInView:[touch view]];
+		{
+			pointView2 = [touch locationInView:[touch window]];
+			pointView2 = [[CCDirector sharedDirector] convertToGL:pointView2];
+		}
 	}
-	[_player setSpeedByPercent:DistanceBetweenTwoPoints(pointView1, pointView2) * 100 / pinchStart];
-	
+	[_player setSpeedByPercent:ccpDistance(pointView1, pointView2)];
+
 }
+
+- (void)multipleTouchesEnded:(NSSet *)touches
+{
+	CGPoint pointView1;
+	CGPoint pointView2;
+	bool i = FALSE;
+    for (UITouch *touch in touches)
+	{
+		if (i == FALSE)
+		{
+			pointView1 = [touch locationInView:[touch window]];
+			pointView1 = [[CCDirector sharedDirector] convertToGL:pointView1];
+			i = TRUE;
+		}
+		else
+		{
+			pointView2 = [touch locationInView:[touch window]];
+			pointView2 = [[CCDirector sharedDirector] convertToGL:pointView2];
+		}
+	}
+	[_player setSpeedByPercent:ccpDistance(pointView1, pointView2)];
+}
+
  
 - (void) newTouchBegan:(CGPoint *)point
 {
@@ -125,10 +157,16 @@
         [addEntityList addObject:shuriTmp];
         [shuriTmp release];
     }
-    _bPlayerFocused = false;
-    [[gameComportments objectAtIndex:currentComportment] touchEnded:touch
-                                                         atLocation:location];
-    [self switchGameComportment];
+	else {
+		
+		
+		[self switchGameComportment];
+		_bPlayerFocused = false;
+		[[gameComportments objectAtIndex:currentComportment] touchEnded:touch
+															 atLocation:location];
+	}
+
+	
 }
 
 - (int) getCurrentComportment

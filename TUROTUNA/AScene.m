@@ -67,6 +67,10 @@
 {
 }
 
+- (void)multipleTouchesEnded:(NSSet *)touches
+{
+}
+
 - (void) ccTouchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
 {
     int touchesCount = [[event allTouches] count];
@@ -107,11 +111,18 @@
 }
 
 - (void)ccTouchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
-{
-    UITouch *touch = [touches anyObject];
-    CGPoint location = [touch locationInView:[touch view]];
-    location = [[CCDirector sharedDirector] convertToGL:location];
-    [self touchEnded:touch atLocation:location];
+{    
+	int touchesCount = [[event allTouches] count];
+    
+    if (touchesCount == 1)
+    {   
+		UITouch *touch = [touches anyObject];
+		CGPoint location = [touch locationInView:[touch view]];
+		location = [[CCDirector sharedDirector] convertToGL:location];
+		[self touchEnded:touch atLocation:location];
+	}
+    else
+        [self multipleTouchesEnded:[event allTouches]];
 }
 
 -(void)ccTouchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event

@@ -9,4 +9,3 @@
 #import <Foundation/Foundation.h>
 
 bool MathVectorIntersects(CGPoint, CGPoint, CGPoint, CGPoint, CGPoint*);
-CGFloat DistanceBetweenTwoPoints(CGPoint point1,CGPoint point2);
