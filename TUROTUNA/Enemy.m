@@ -157,7 +157,7 @@ bool _CGRectContainsPoint2(CGRect r, CGPoint p)
             r = 180;
         else if (self.rotation == 180)
             r = 0;
-        
+
         if (ccpDistance([self position], [p position]) < 300 &&
             viewAngle <= r + 35 &&
             viewAngle >= r - 35)
