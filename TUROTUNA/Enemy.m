@@ -78,7 +78,7 @@ bool _CGRectContainsPoint2(CGRect r, CGPoint p)
         return true;
     if ((p.y == r.origin.y || p.y == r.origin.y + r.size.height) && p.x >= r.origin.x && p.x <= r.origin.x + r.size.width)
         return true;
-    
+
     return false;
 }
 
@@ -87,7 +87,7 @@ bool _CGRectContainsPoint2(CGRect r, CGPoint p)
     
     CGRect vectBound = CGRectMake(MIN(origin.x, end.x), MIN(origin.y, end.y), fabsf(end.x - origin.x), fabsf(end.y - origin.y));
     NSMutableArray *entities = [scene getEntities];
-    
+
     for (int i = 0, itEnd = [entities count]; i < itEnd; ++i)
     {
         if ([[entities objectAtIndex:i] isMemberOfClass:[Obstacle class]])
@@ -131,22 +131,38 @@ bool _CGRectContainsPoint2(CGRect r, CGPoint p)
     return false;
 }
 
+#define RADIANS_TO_DEGREES(radians) ((radians) * (180.0 / M_PI))
+
 - (void) update:(ccTime)dt
 {
     [super update:dt];
-
+    
     if (!isKilling)
     {
         CGRect *obs;
         AEntity* p;
 
         p = [((GameScene*)(scene)) getPlayer];
+        
+        CGPoint cgp = CGPointMake(self.position.x - p.position.x,
+                                  self.position.y - p.position.y);
+
+        float viewAngle = RADIANS_TO_DEGREES(atan2f(cgp.y, cgp.x));
     
         if ([self pointIntersectsObstacle:self.position point2:p.position point:NULL obstacle:obs])
         return;
     
-        if (ccpDistance([self position], [p position]) < 400)
+        int r;
+        if (self.rotation == 0)
+            r = 180;
+        else if (self.rotation == 180)
+            r = 0;
+        
+        if (ccpDistance([self position], [p position]) < 300 &&
+            viewAngle <= r + 35 &&
+            viewAngle >= r - 35)
         {
+            NSLog(@"%f, %f", self.rotation, viewAngle);
             isKilling = true;
             [((GameScene*)(scene)) setCurrentComportment:MOVE_COMPORTMENT];
             EnemyWeapon *shuriTmp = [[EnemyWeapon alloc] initWithScene:scene startingPos:self.position endingPos:p.position];
